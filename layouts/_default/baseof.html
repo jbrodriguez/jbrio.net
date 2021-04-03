@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ $.Site.LanguageCode | default "en" }}">
+
+<head>
+	{{ block "meta" . }} {{ end }}
+</head>
+
+<body class="flex flex-column min-vh-100">
+	<div class="center ph3 flex flex-column c-wrap c-flex1">
+		{{ block "header" . }} {{ end }}
+		{{ block "main" . }} {{ end }}
+	</div>
+	{{ block "footer" .}} {{ end }}
+</body>
+
+</html>

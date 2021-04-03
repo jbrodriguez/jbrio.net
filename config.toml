@@ -1,0 +1,6 @@
+baseURL = "https://jbrio.net/"
+languageCode = "en-us"
+title = "Juan B. Rodriguez | Personal"
+
+[params]
+description = "Hi, I'm Juan B. Rodriguez. I write articles about Web Design, Programming, Software/Hardware, Finance and Technology trends. I'm a problem solver."

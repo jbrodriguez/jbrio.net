@@ -34,7 +34,7 @@ disable404     = false
 disableHugoGeneratorInject = false
 
 [permalinks]
-  posts = "/posts/:title/"
+  posts = "/posts/:filename/"
 
 [author]
   name = "Juan B. Rodriguez"

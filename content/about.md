@@ -13,7 +13,7 @@ I like to play [padel](https://en.wikipedia.org/wiki/Padel).
 
 I'm the owner of a boutique software development company [apertoire](https://www.apertoire.com), whose flagship product is [ControlR](https://www.apertoire.com/controlr), an app to manage [Unraid](https://unraid.net/) servers.
 
-### Projects
+## Projects
 
 - [ControlR](https://www.apertoire.com/controlr)
   Android / iOS app to manage Unraid servers
@@ -26,6 +26,10 @@ I'm the owner of a boutique software development company [apertoire](https://www
 
 - [mlog](https://github.com/jbrodriguez/mlog)
   A simple logging module for go
+
+## Favorite Content
+
+I'll list here the content i've most enjoyed in my life, so far.
 
 ### Books
 

@@ -169,7 +169,7 @@ disableHugoGeneratorInject = false
 
   [[params.social]]
     name = "mastodon"
-    url  = "@jbrodriguez@mas.to"
+    url  = "https://mas.to/@jbrodriguez"
 
 [languages]
   [languages.en]

@@ -1,7 +1,6 @@
 ---
 title: "Consolidation"
 date: 2022-12-24T11:35:58-05:00
-draft: true
 cover: /img/consolidation.jpg
 coverCaption: "moving clouds © Juan B. Rodriguez"
 description: "migrate content from different sites to jbrio.net"

@@ -1,0 +1,3 @@
+/.well-known/host-meta* https://mas.to/.well-known/host-meta:splat 301
+/.well-known/webfinger* https://mas.to/.well-known/webfinger:splat 301
+/.well-known/nodeinfo\* https://mas.to/.well-known/nodeinfo:splat 301

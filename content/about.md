@@ -2,7 +2,6 @@
 title: "About"
 author: Juan B. Rodriguez
 date: 2022-12-23T16:46:43-05:00
-draft: true
 ---
 
 I'm a software engineer, currently @[zubale](https://www.zubale.com/) & @[g2i](https://www.g2i.co/), ex @[itcrowd](https://www.itcrowd.dev), ex @[citi](https://www.citi.com/).

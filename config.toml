@@ -33,9 +33,6 @@ disableSitemap = false
 disable404     = false
 disableHugoGeneratorInject = false
 
-[markup.goldmark.renderer]
-hardWraps = true
-
 [permalinks]
   posts = "/posts/:filename/"
 

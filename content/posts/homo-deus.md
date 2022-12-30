@@ -2,7 +2,7 @@
 title: "Homo Deus, Yuval Noah Harari (2016)"
 date: 2019-01-30T06:39:08-05:00
 tags: ["books", "non-fiction", "spanish"]
-image: https://pardenotas.jbrio.net/img/homo-deus.jpg
+cover: /img/homo-deus.jpg
 description: "Describe los acontecimientos, investiga también la experiencia individual humana y problemas éticos que puedan derivarse"
 ---
 

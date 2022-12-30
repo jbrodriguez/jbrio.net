@@ -2,7 +2,7 @@
 title: "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron, Bethany McLean and Peter Elkind (2013)"
 date: 2019-03-23T09:58:16-05:00
 tags: ["books", "non-fiction", "spanish"]
-image: /img/enron.jpg
+cover: /img/enron.jpg
 description: "La historia de una de las compañías más importantes a nivel global y cómo lograron evaporar todo su capital"
 ---
 

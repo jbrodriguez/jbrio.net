@@ -2,7 +2,7 @@
 title: "Elecciones Panamá 2019"
 date: 2019-05-01T08:45:34-05:00
 tags: ["politics", "spanish"]
-image: https://pardenotas.jbrio.net/img/debate.jpg
+cover: /img/debate.jpg
 description: "Mi pronóstico sobre las elecciones nacionales de Panamá en 2019"
 ---
 

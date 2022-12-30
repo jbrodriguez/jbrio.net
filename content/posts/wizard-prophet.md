@@ -2,7 +2,7 @@
 title: "The Wizard and the Prophet, Charles C. Mann (2018)"
 date: 2019-02-01T08:34:02-05:00
 tags: ["books", "non-fiction", "spanish"]
-image: https://pardenotas.jbrio.net/img/wizard-prophet.jpg
+cover: /img/wizard-prophet.jpg
 description: "Recuenta el origen de los movimientos verdes y progresistas, como dos visiones diferentes del mundo"
 ---
 

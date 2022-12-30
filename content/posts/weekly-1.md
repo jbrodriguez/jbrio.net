@@ -2,7 +2,7 @@
 title: "Notas 1"
 date: 2019-02-09T11:11:49-05:00
 tags: ["notes", "politics", "spanish"]
-image: https://pardenotas.jbrio.net/img/weekly-1.jpg
+image: /img/weekly-1.jpg
 description: "Notas sobre cáncer, deepfake videos, insulina y política local"
 ---
 

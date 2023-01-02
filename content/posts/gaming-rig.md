@@ -1,7 +1,6 @@
 ---
 title: "Gaming Rig"
 date: 2023-01-02T14:25:26-05:00
-draft: true
 cover: /img/gaming-rig.jpg
 tags:
   - gaming

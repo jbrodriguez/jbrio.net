@@ -9,6 +9,7 @@ tags:
   - encryption
   - unraid
   - esxi
+images: ["/img/hotfix2.jpg"]
 ---
 
 i've built my esxi box (skynet) ... find some additional info at <a href="https://lime-technology.com/forum/index.php?topic=21514.0" title="skynet + hal &amp; wopr (esxi head + 2 unraid das)" target="_blank">the unraid forums</a>

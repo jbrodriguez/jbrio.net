@@ -6,6 +6,7 @@ description: "A comparison of the features of Gogs vs Gitlab. It includes a Gogs
 cover: /img/gogs.jpg
 featured: ["Featured"]
 tags: ["git", "gogs", "gitlab", "docker"]
+images: ["/img/gogs.jpg"]
 ---
 
 **tl;dr** [Gitlab](https://gitlab.com) is a great git hosting service, almost as powerful as [Github](https://github.com). But, is there something out there that's comparable to Gitlab/Github, yet simpler to manage ? I think [`Gogs`](https://gogs.io) does the job.

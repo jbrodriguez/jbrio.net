@@ -6,6 +6,7 @@ description: "Improve the user experience of the site built in the first part of
 cover: /img/battle.jpg
 featured: ["Featured"]
 tags: ["html5", "css3", "responsive", "mobile", "flexbox"]
+images: ["/img/battle.jpg"]
 ---
 
 **tl;dr** In the conclusion of a two part series, we explore how to optimize the website we designed [in the first article](/mobile-friendly-website-1/).

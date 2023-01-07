@@ -9,6 +9,7 @@ tags:
   - concurrency
   - actor pattern
   - architecture
+images: ["/img/actor.jpg"]
 ---
 
 **tl;dr** This article discusses an implementation of the actor paradigm in a go application.

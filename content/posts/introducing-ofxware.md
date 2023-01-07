@@ -5,6 +5,7 @@ date: 2010-04-04T23:23:23-00:00
 description: "A C# proof of concept application to convert text data files coming from online banking sites into the ofx format, that can be imported by accounting software such as GnuCash. It's extensible by using a plugin architecture."
 cover: /img/ofxware.png
 tags: ["ofx", "gnucash", "csharp", "dotnet"]
+images: ["/img/ofxware.png"]
 ---
 
 ## Rationale

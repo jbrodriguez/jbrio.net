@@ -7,6 +7,7 @@ description: "migrate content from different sites to jbrio.net"
 tags:
   - twitter
   - mastodon
+images: ["/img/consolidation.jpg"]
 ---
 
 ## Introduction

@@ -4,6 +4,7 @@ date: 2021-12-04T11:08:49-05:00
 tags: ["notes", "sqlite", "volta"]
 cover: /img/weekly-1.jpg
 description: "Notas sobre tendencias digitales, sqlite y volta"
+images: ["/img/weekly-1.jpg"]
 ---
 
 - ### File not found

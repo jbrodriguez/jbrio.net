@@ -9,6 +9,7 @@ tags:
   - osx
   - crashplan
   - truecrypt
+images: ["/img/hotfix1.jpg"]
 ---
 
 well, i need to add a couple of comments after my last post

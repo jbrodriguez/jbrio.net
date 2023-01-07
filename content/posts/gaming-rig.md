@@ -6,6 +6,7 @@ tags:
   - gaming
   - windows
   - steam
+images: ["/img/gaming-rig.jpg"]
 ---
 
 ## Introduction

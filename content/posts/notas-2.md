@@ -4,6 +4,7 @@ date: 2019-02-16T15:51:58-05:00
 tags: ["notes", "politics", "spanish"]
 cover: /img/notas-2.png
 description: "Notas sobre cálculo de cardinalidad (elementos únicos) y política"
+images: ["/img/notas-2.png"]
 ---
 
 - ### Estimación de cardinalidad (cuántos elementos únicos hay en una lista?)<br>

@@ -8,6 +8,7 @@ tags:
   - adguard
   - edgeos
   - edgerouter
+images: ["/img/er-agh-adguard.jpg"]
 ---
 
 ## Introduction

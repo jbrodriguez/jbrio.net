@@ -5,6 +5,7 @@ author: Juan B. Rodriguez
 description: "Mediabase is a proof of concept application, to showcase how to build a decoupled web application, using Go as back end and AngularJS as front end."
 cover: /img/mediabase.jpg
 tags: ["go", "poc"]
+images: ["/img/mediabase.jpg"]
 ---
 
 **tl;dr** _mediabase_ is a proof-of-concept application to catalogue a media library consisting of movies. It scans the folders you choose looking for movies, then fetch metadata from [TheMovieDB](https://www.themoviedb.org) and [The OMDB API](https://www.omdbapi.com) and present the information in a nice web page.

@@ -6,6 +6,7 @@ description: "A counterintuitive approach to living a good life"
 tags:
   - books
   - non-fiction
+images: ["/img/the-subtle-art.jpg"]
 ---
 
 I think the biggest premise of this book is that our mortality is inevitable, so we should consider which values are really important to us and focus on those.

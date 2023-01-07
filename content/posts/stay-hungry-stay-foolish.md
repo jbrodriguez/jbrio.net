@@ -6,6 +6,7 @@ description: "One of the best quotes ever, by one of the greatest innovators eve
 cover: /img/jobs.jpg
 tags:
   - Steve Jobs
+images: ["/img/jobs.jpg"]
 ---
 
 {{<highlight bash>}}

@@ -5,6 +5,7 @@ author: Juan B. Rodriguez
 description: "Build a solid foundation for a responsive blog-type website using HTML5 and CSS3. No Wordpress, Bootstrap (or similar) will be used, in order to make the site as efficient as possible."
 cover: /img/war.jpg
 tags: ["html5", "css3", "responsive", "mobile", "flexbox"]
+images: ["/img/war.jpg"]
 ---
 
 **tl;dr** Designing mobile-friendly websites is a must these days.

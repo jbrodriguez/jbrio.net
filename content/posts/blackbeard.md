@@ -9,6 +9,7 @@ tags:
   - osx
   - lion
   - filevault
+images: ["/img/blackbeard.jpg"]
 ---
 
 i'm writing this from blackbeard, my hackintosh mac.

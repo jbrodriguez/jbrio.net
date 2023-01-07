@@ -4,6 +4,7 @@ date: 2019-02-09T11:11:49-05:00
 tags: ["notes", "politics", "spanish"]
 image: /img/weekly-1.jpg
 description: "Notas sobre cáncer, deepfake videos, insulina y política local"
+images: ["/img/weekly-1.jpg"]
 ---
 
 - ### A cure for cancer? Israeli scientists say they think they found one <br>

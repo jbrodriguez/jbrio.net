@@ -16,6 +16,7 @@ tags:
     "javascript",
     "typescript",
   ]
+images: ["/img/rn-zustand-cover.png"]
 ---
 
 ## Introduction

@@ -10,6 +10,7 @@ tags:
   - rackspace
   - wordpress
   - vertx
+images: ["/img/github.jpg"]
 ---
 
 it all started when i started considering the deployment of the [vert.x](https://vertx.io) app i'm working on.

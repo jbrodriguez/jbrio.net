@@ -4,6 +4,7 @@ date: 2019-03-23T09:58:16-05:00
 tags: ["books", "non-fiction", "spanish"]
 cover: /img/enron.jpg
 description: "La historia de una de las compañías más importantes a nivel global y cómo lograron evaporar todo su capital"
+images: ["/img/enron.jpg"]
 ---
 
 ![enron](/img/enron.jpg#c)

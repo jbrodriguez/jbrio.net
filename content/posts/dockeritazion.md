@@ -10,6 +10,7 @@ tags:
   - virtualization
   - esxi
   - go
+images: ["/img/docker.jpg"]
 ---
 
 ## Background

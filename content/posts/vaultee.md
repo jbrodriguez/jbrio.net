@@ -8,6 +8,7 @@ tags:
   - vert.x
   - angularjs
   - bootstrap
+images: ["/img/vaultee.jpg"]
 ---
 
 ## Introduction

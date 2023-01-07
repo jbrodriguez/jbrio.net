@@ -8,6 +8,7 @@ image_ext: jpg
 cover: /img/windows8.jpg
 tags:
   - windows 8
+images: ["/img/windows8.jpg"]
 ---
 
 i think it's relevant to post some of the media sentiment about the latest iteration of windows 8.

@@ -10,6 +10,7 @@ tags:
   - zfs
   - esxi
   - das
+images: ["/img/storage.jpg"]
 ---
 
 i'm currently running an [unRaid](https://lime-technology.com) server, which hosts my media collection  (movies, tv series, music, pictures and data backups)

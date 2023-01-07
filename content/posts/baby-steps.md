@@ -11,6 +11,7 @@ tags:
   - instinctiv
   - audirvana
   - mplayerosxextended
+images: ["/img/baby.jpg"]
 ---
 
 above is a screenshot of my current setup :)

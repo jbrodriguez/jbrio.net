@@ -4,6 +4,7 @@ date: 2019-05-01T08:45:34-05:00
 tags: ["politics", "spanish"]
 cover: /img/debate.jpg
 description: "Mi pronóstico sobre las elecciones nacionales de Panamá en 2019"
+images: ["/img/debate.jpg"]
 ---
 
 ![debate](/img/debate.jpg#c)

@@ -6,6 +6,7 @@ description: "The experience of installing fish, a fully featured shell, to repl
 cover: /img/fish.jpg
 featured: ["Featured"]
 tags: ["osx", "fish", "zsh", "shell"]
+images: ["/img/fish.jpg"]
 ---
 
 **_tl;dr_** How easy is it to switch from [zsh](https://www.zsh.org) to [fish](https://www.fishshell.com) ? Is it worth it ?

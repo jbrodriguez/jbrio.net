@@ -10,6 +10,7 @@ tags:
   - zfs
   - crashplan
   - rsync
+images: ["/img/solaris.jpg"]
 ---
 
 so the plan is as follows:

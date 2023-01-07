@@ -9,6 +9,7 @@ tags:
   - heroku
   - angularjs
   - bootstrap
+images: ["/img/vertx.jpg"]
 ---
 
 That's right. This is Yet Another Running Vert.x on Heroku Article !

@@ -58,4 +58,12 @@ I have it wired to the mac via usb and connect it via bluetooth on the hackintos
 
 I'm really happy with the results, and I'm looking forward to playing more games on this rig.
 
+## Update 2023-01
+
+Turned out that my trusted AMD RX 580 couldn't handle gaming at 1440p (fans went into turbo mode, then the screen just blacked out, the pc was still going though)
+
+So I ended up getting a new GPU, a XFX RX 6700, which handles gaming at 1440p like a champ.
+
+I also got a new keyboard, a Logitech G413 TKL and a Logitech G453 Lightspeed headset, which connect wirelessly, thus avoiding bluetooth issues.
+
 MMXXIII.I.II - 17a8e1c3e09a7fc80dc996dca41d7798

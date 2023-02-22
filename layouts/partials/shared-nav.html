@@ -1,0 +1,15 @@
+<div class="flex items-center justify-between">
+  <div>
+    <a href="/posts" class="text-slate-500 mr-3">Posts</a>
+    <a href="/tags" class="text-slate-500 mr-3">Tags</a>
+    <a href="/about/" class="text-slate-500">About</a>
+  </div>
+  <div>
+    {{- with .Site.Params.social }}
+      <div class="flex flex-row">
+        {{ partial "shared-social-icons.html" . }}
+      </div>
+    {{- end }}
+  </div>
+</div>
+<hr class="h-px my-4 bg-gray-700 border-0 dark:bg-gray-700" />

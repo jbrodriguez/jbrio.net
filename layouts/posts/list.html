@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <main aria-role="main">
+    <div class="mt-16">
+      <h2 class="text-3xl text-neutral-50 mb-4 font-normal">Posts</h2>
+      <div class="grid grid-flow-row grid-cols-3">
+      {{ range (where .Site.RegularPages "Section" "posts") }}
+        <div class="px-2 py-2 mb-10 outline-none hover:border-orange-700 border-transparent border-2 hover:border-current rounded-md transition ease-in-out hover:-translate-y-3 duration-500">
+          <a href="{{ .Permalink }}">
+            <div class="overflow-hidden">
+              <img src="{{ .Params.cover }}" class="object-none h-48 w-96 rounded" />
+              <div class="text-slate-500 mt-1 mb-2">{{ .Date.Format "02.01.2006" }}, {{ .ReadingTime }} min read</div>
+              <span class="text-neutral-50 text-xl font-bold mt-14">{{ .Title }}</span>
+            </div>
+          </a>
+        </div>  
+      {{ end }}
+      </div>
+  </main>
+{{ end }}

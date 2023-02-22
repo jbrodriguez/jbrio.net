@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="mt-16">
+    <h2 class="text-3xl text-neutral-50 mb-4 font-normal">{{ .Title }}</h2>
+    <div class="grid grid-flow-row grid-cols-3">
+      {{ range .Data.Pages }}
+        <div class="px-4 mb-14">
+          <div class="overflow-hidden">
+            <img
+              src="{{ .Params.cover }}"
+              class="object-none h-48 w-96 rounded"
+            />
+            <div class="mt-1 mb-2">
+              {{ .Date.Format "02.01.2006" }}, {{ .ReadingTime }} min read
+            </div>
+            <a
+              href="{{ .Permalink }}"
+              class="text-neutral-50 text-xl font-bold mt-14"
+              >{{ .Title }}</a
+            >
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

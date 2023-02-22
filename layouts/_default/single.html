@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <main aria-role="main">
+    <div class="mt-16">
+      <h2 class="text-3xl text-neutral-50 mb-4 font-normal">
+        {{ .Title | markdownify }}
+      </h2>
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </div>
+  </main>
+{{ end }}

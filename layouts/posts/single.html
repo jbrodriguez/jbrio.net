@@ -1,0 +1,117 @@
+{{ define "main" }}
+  <main class="flex flex-col">
+    <article>
+      <h1>
+        <a href="{{ .Permalink }}" class="text-slate-200"
+          >{{ .Title | markdownify }}</a
+        >
+      </h1>
+
+      <span class="flex flex-row items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-clock mr-3 text-sm"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span class="text-sm">{{ .ReadingTime }} min</span>
+      </span>
+
+      {{ if .Params.Cover }}
+        <figure class="flex flex-col justify-center items-center mt-8">
+          <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title }}" />
+
+          {{ if .Params.CoverCaption }}
+            <div>
+              <figcaption class="text-xs mt-1 justify-start item-start">
+                {{ .Params.CoverCaption | markdownify }}
+              </figcaption>
+            </div>
+          {{ end }}
+        </figure>
+      {{ end }}
+
+
+      <div>
+        {{ .Content }}
+      </div>
+    </article>
+
+    <hr class="h-px my-4 bg-gray-700 border-0" />
+
+    <div class="flex flex-col">
+      {{ partial "tags.html" .Params.tags }}
+      <div class="flex flex-row items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-file-text mr-3 text-sm"
+        >
+          <path
+            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+          ></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <span class="text-sm">{{ .WordCount }} words</span>
+      </div>
+
+      <div class="flex flex-row items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-calendar mr-3"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="text-sm">
+          {{ if .Site.Params.dateformNumTime }}
+            {{ dateFormat .Site.Params.dateformNumTime .Date.Local }}
+          {{ else }}
+            {{ dateFormat "2006-01-02 15:04" .Date.Local }}
+          {{ end }}
+
+          {{ if .Lastmod }}
+            {{ if not (eq .Lastmod .Date ) }}
+              {{ if .Site.Params.dateformNumTime }}
+                ({{ i18n "lastModified" }}:
+                {{ dateFormat .Site.Params.dateformNumTime .Lastmod.Local }})
+              {{ else }}
+                ({{ i18n "lastModified" }}:
+                {{ dateFormat "2006-01-02 15:04" .Lastmod.Local }})
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </span>
+      </div>
+    </div>
+  </main>
+{{ end }}

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently npm:watch:*",
     "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
-    "watch:hugo": "hugo server",
+    "watch:hugo": "hugo server -D",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -43,4 +43,4 @@ the fastest fonts available ... just instant renders | [modernfontstacks.com](ht
 
 ### 16 little UI design rules that make a big impact
 
-i really like good designs and the science behing it, this is a nice read | [uxplanet.org](https://uxplanet.org/16-ui-design-tips-ba2e7524d203)
+i really like good designs and the science behind it, this is a nice read | [uxplanet.org](https://uxplanet.org/16-ui-design-tips-ba2e7524d203)

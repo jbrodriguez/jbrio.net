@@ -22,7 +22,7 @@ the author, a former big data fan, declares that the big data era is over | [mot
 
 ### Free Fonts For Interface Designers
 
-i like Hanken Grotesk and Atkinson Hyperlegible | [smashingmagazine.com]https://www.smashingmagazine.com/2023/03/free-fonts-interface-designers/
+i like Hanken Grotesk and Atkinson Hyperlegible | [smashingmagazine.com](https://www.smashingmagazine.com/2023/03/free-fonts-interface-designers/)
 
 ### ChatGPT and Software Architecture
 

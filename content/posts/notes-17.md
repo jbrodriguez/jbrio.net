@@ -5,7 +5,6 @@ cover: /img/notes17.jpg
 coverCaption: "staring at the sun © Juan B. Rodriguez"
 images: ["/img/notes17.jpg"]
 description: "a journal of unrelated topics"
-draft: true
 tags:
   - labor
   - rust

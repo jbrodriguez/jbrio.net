@@ -1,6 +1,6 @@
 ---
 title: "Notes 17"
-date: 2023-03-25T08:20:07-05:00
+date: 2023-04-01T08:20:07-05:00
 cover: /img/notes17.jpg
 coverCaption: "staring at the sun © Juan B. Rodriguez"
 images: ["/img/notes17.jpg"]

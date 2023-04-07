@@ -26,13 +26,13 @@ Upon first run, you are prompted to enter the folder where your movie collection
 
 The scanner expects the same naming convention as the one used by popular media apps such as [Plex](https://plex.tv), [MediaBrowser](https://mediabrowser.tv), [JRiver Media Center](https://www.jriver.com) and others.
 
-![App Settings](/img/mediabase-settings.jpg)
+{{< img "/img/mediabase-settings.jpg" "App Settings" >}}
 
 ## Importing media
 
 Once you have entered a folder, click on the IMPORT button to start importing media.
 
-![Media Import page ](/img/mediabase-import.jpg)
+{{< img "/img/mediabase-import.jpg" "Media Import page" >}}
 
 The process will search for movies, look them up in [TheMovieDB](https://www.themoviedb.org) and [The OMDB](https://www.omdbapi.com), collect all the metadata, store it in a database and then make them available via a web page.
 
@@ -40,7 +40,7 @@ The process will search for movies, look them up in [TheMovieDB](https://www.the
 
 The first screen you'll see after import is done is the cover screen (here's showing just a portion of the screen).
 
-![App Cover page](/img/mediabase-cover.jpg)
+{{< img "/img/mediabase-cover.jpg" "App Cover page" >}}
 
 This view shows the most recently imported movies and is the default screen when you open the app.
 
@@ -48,7 +48,7 @@ This view shows the most recently imported movies and is the default screen when
 
 When you click the Movies menu option, a new page is shown, with a more detailed view of the movies, where you can filter or sort by different criteria.
 
-![Movies Details page](/img/mediabase-details.jpg)
+{{< img "/img/mediabase-details.jpg" "Movies Details page" >}}
 
 It shows the poster, a backdrop, running time, IMDB rating, director, actors, country, genres, resolution (if your naming structure contained a resolution field), location, last time watched (if watched) and the date it was added to the application.
 
@@ -56,11 +56,11 @@ Additionally, it has fields where you can fix the TMDB id (if the automatic meta
 
 You can sort movies by different criteria, as seen below
 
-![Sort Criteria](/img/mediabase-sort.png)
+{{< img "/img/mediabase-sort.png" "Sort Criteria" >}}
 
 Also, you can filter movies, by searching as you type (with a small delay to prevent too much traffic), again by different criteria
 
-![Filter Criteria](/img/mediabase-filter.png)
+{{< img "/img/mediabase-filter.png" "Filter Criteria" >}}
 
 You have to see it to believe it, it's working pretty smooth.
 
@@ -78,7 +78,7 @@ In addition to importing movies, you can either search for duplicates or prune m
 
 Finally there's a nice about page, mostly giving credit where it's due :)
 
-![About Page](/img/mediabase-about.jpg)
+{{< img "/img/mediabase-about.jpg" "About Page" >}}
 
 ## Caveats
 

@@ -20,11 +20,11 @@ After "themeing" the site and creating proper content, I tested against Google's
 
 The results were promising, but there was definitely more work to be done:
 
-![First Test on PageSpeed](/img/battle-speed1.jpg)
+{{< img "/img/battle-speed1.jpg" "First Test on PageSpeed" >}}
 
 Still, when compared against other sites built on Wordpress, it was doing pretty good. Check the results from one such site:
 
-![PageSpeed on a Wordpress powered blog](/img/battle-speed-wp.jpg)
+{{< img "/img/battle-speed-wp.jpg" "PageSpeed on a Wordpress powered blog" >}}
 
 ## Road to Salvation
 
@@ -79,7 +79,7 @@ This is good because there's no heavy processing involved in serving pages to vi
 
 I created [Hugulp](https://github.com/jbrodriguez/hugulp.git), which is a starter project to streamline the combined usage of both tools. This is the folder structure:
 
-![Document folder organization](/img/battle-folders.jpg)
+{{< img "/img/battle-folders.jpg" "Document folder organization" >}}
 
 _hugo_<br>
 Contains the standard hugo install. The content subfolder contains all Markdown documents which will become separate blog articles.
@@ -196,7 +196,7 @@ To get a better picture of how this works, let's simulate the processing for one
 
 The blue boxes represent the file (and its path), the green boxes represent a gulp task, that performs some processing:
 
-![Flow of task execution](/img/battle-flow.svg)
+{{< img "/img/battle-flow.svg" "Flow of task execution" >}}
 
 The same general idea applies to the other asset types (scripts, images).
 
@@ -277,7 +277,7 @@ There you have it. Controlled Responsive AdSense ads.
 
 After applying these optimizations, the site jumped from a 70/100 PageSpeed Score to 89/100, a very rewarding 27% improvement.
 
-![jbrodriguez.io PageSpeed Insight scores](/img/war-pagespeed.jpg)
+{{< img "/img/war-pagespeed.jpg" "jbrodriguez.io PageSpeed Insight scores" >}}
 
 In this two part series, we created the underpinnings of a mobile friendly website.
 

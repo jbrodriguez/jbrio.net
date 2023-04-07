@@ -23,25 +23,19 @@ Since my site is powered by [hugo](https://gohugo.io/), I started with a simple 
 
 <div class="grid grid-flow-row grid-cols-3">
   <div class="px-2 py-2 mb-10 outline-none hover:border-orange-700 border-transparent border-2 hover:border-current rounded-md  duration-500">
-    <a href="/img/a-new-face-1.png" target="_blank">
       <div class="overflow-hidden">
-        <img src="/img/a-new-face-1.png" class="object-none h-144 w-96 rounded" />
+        {{< img "/img/a-new-face-1.png" "image 1" >}}
       </div>
-    </a>
   </div>  
   <div class="px-2 py-2 mb-10 outline-none hover:border-orange-700 border-transparent border-2 hover:border-current rounded-md  duration-500">
-    <a href="/img/a-new-face-2.png" target="_blank">
       <div class="overflow-hidden">
-        <img src="/img/a-new-face-2.png" class="object-none h-144 w-96 rounded" />
+        {{< img "/img/a-new-face-2.png" "image 2" >}}
       </div>
-    </a>
   </div>  
   <div class="px-2 py-2 mb-10 outline-none hover:border-orange-700 border-transparent border-2 hover:border-current rounded-md  duration-500">
-    <a href="/img/a-new-face-3.png" target="_blank">
       <div class="overflow-hidden">
-        <img src="/img/a-new-face-3.png" class="object-none h-144 w-96 rounded" />
+        {{< img "/img/a-new-face-3.png" "image 3" >}}
       </div>
-    </a>
   </div>  
 </div>
 

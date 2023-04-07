@@ -4,10 +4,8 @@ date: 2019-01-30T06:39:08-05:00
 tags: ["books", "non-fiction", "spanish"]
 cover: /img/homo-deus.jpg
 description: "Describe los acontecimientos, investiga también la experiencia individual humana y problemas éticos que puedan derivarse"
-images: ["/img/homoe-deus.jpg"]
+images: ["/img/homo-deus.jpg"]
 ---
-
-![homo-deus](/img/homo-deus.jpg#c)
 
 Cuál es el siguiente paso en la evolución de la humanidad? Qué tan pronto ocurrirá (comparando con nuestra historia) ?
 

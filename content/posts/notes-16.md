@@ -6,6 +6,7 @@ coverCaption: "orb lighting © Juan B. Rodriguez"
 images: ["/img/notes16.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - ai
   - chatgpt
   - big data

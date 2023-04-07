@@ -6,6 +6,7 @@ coverCaption: "the grass and the moon © Juan B. Rodriguez"
 images: ["/img/notes13.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - gaming
   - ai
   - mastodon

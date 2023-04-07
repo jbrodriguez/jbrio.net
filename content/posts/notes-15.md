@@ -6,6 +6,7 @@ coverCaption: "foggy road © Juan B. Rodriguez"
 images: ["/img/notes15.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - riffle
   - openbb
   - virus

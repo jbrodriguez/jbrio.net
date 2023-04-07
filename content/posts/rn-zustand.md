@@ -54,7 +54,7 @@ It definitely needed a UI overhaul, to support recent mobile features (notch, sy
 
 This led me to create ControlR 5.
 
-![servers](/img/rn-zustand-servers.png)
+{{< img "/img/rn-zustand-servers.png" "servers" >}}
 
 ## Architecture
 

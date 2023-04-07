@@ -37,7 +37,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <description>{{ "<![CDATA[" | safeHTML }} {{ .Summary }}]]></description>
       <content:encoded>
       {{ if and (isset .Params "cover") (not (eq .Params.cover "")) }}
-      {{ printf "<![CDATA[ <img src=\"https://jbrio.net%s\" />]]>" (.Params.cover) | safeHTML}}
+      {{ $image := resources.Get (.Params.cover) | fingerprint }}
+      {{ printf "<![CDATA[ <img src=\"%s\" />]]>" ( $image.Permalink ) }}
       {{ end }}
       {{ "<![CDATA[" | safeHTML }} {{ partial "rss.html" . | safeHTML }}]]>
       </content:encoded>

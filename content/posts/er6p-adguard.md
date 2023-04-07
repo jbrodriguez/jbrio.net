@@ -49,7 +49,7 @@ really made me want to try this out.
 
 So I purchased a Raspberry Pi 4, installed pi-hole and just sat and watched how many requests were being blocked
 
-![pihole](/img/er-agh-pihole.png)
+{{< img "img/er-agh-pihole.png" "pihole" >}}
 
 Life was good !
 
@@ -77,17 +77,17 @@ After some careful considerations, I settled on the following architecture
 - I also set up some custom rules to delegate local domain queries to the dnsmasq service running on the router
 - Anything that is not 192.168.3.1, is being forced to go through AGH for dns
 
-![diagram](/img/er-agh-adguard-diagram.png)
+{{< img "/img/er-agh-adguard-diagram.png" "diagram" >}}
 
 ## Step by Step
 
 ### Set system name servers
 
-![system nameservers](/img/er-agh-system-ns.png)
+{{< img "/img/er-agh-system-ns.png" "system nameservers" >}}
 
 ### Change dnsmasq port and set dns server for dhcp clients
 
-![dnsmasq](/img/er-agh-dnsmasq.png)
+{{< img "/img/er-agh-dnsmasq.png" "dnsmasq" >}}
 The dnsmasq options allow us to do the following:
 
 ```bash
@@ -144,7 +144,7 @@ Just follow the instructions, set AGH to listen on the lan interface and the web
 
 Now set up the upstream dns server and dns resolution for local domains
 
-![upstream](/img/er-agh-upstream.png)
+{{< img "/img/er-agh-upstream.png" "upstream" >}}
 
 I left the bootstrap servers as per the default
 

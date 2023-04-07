@@ -111,17 +111,17 @@ sickbeard was customized based on an image from the docker index
 
 great success !!!
 
-![Docker ps command output](/img/docker-ps.jpg)
+{{< img "/img/docker-ps.jpg" "Docker ps command output" >}}
 
-![Docker images command output](/img/docker-images.jpg)
+{{< img "/img/docker-images.jpg" "Docker images command output" >}}
 
-![htop command output](/img/docker-htop.jpg)
+{{< img "/img/docker-htop.jpg" "htop command output" >}}
 
-![Zfs pool status](/img/docker-zfspool-1.jpg)
+{{< img "/img/docker-zfspool-1.jpg" "Zfs pool status" >}}
 
-![Zfs pool status continued](/img/docker-zfspool-2.jpg)
+{{< img "/img/docker-zfspool-2.jpg" "Zfs pool status continued" >}}
 
-![Zfs list command output](/img/docker-zfslist.jpg)
+{{< img "/img/docker-zfslist.jpg" "Zfs list command output" >}}
 
 ## Conclusion
 

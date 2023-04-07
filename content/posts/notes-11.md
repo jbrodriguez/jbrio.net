@@ -6,6 +6,7 @@ coverCaption: "closing in © Juan B. Rodriguez"
 images: ["/img/notes11.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - floppy disk
   - rust
   - mechanical

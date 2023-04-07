@@ -7,8 +7,6 @@ description: "La historia de una de las compañías más importantes a nivel glo
 images: ["/img/enron.jpg"]
 ---
 
-![enron](/img/enron.jpg#c)
-
 En la cima, Enron tuvo una valuación de ~70,000 Millones de dólares estadounidenses. Menos de un año después, se declaró en bancarrota.
 
 Enron tuvo ideas muy novedosas, algunas incluso adelantadas para la época.

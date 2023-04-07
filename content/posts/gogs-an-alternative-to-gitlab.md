@@ -31,7 +31,7 @@ Read on for some more insight.
 
 Gitlab is a powerful git service, with features that rival Github itself. It's a mature project and it's being continuously updated.
 
-![gitlab](/img/gogs-gitlab-shot.jpg)
+{{< img "/img/gogs-gitlab-shot.jpg" "gitlab" >}}
 
 They recently acquired [Gitorius](https://gitorious.org/) (another Github-like service), so you can only assume that the feature set will expand ([check the press clip about the acquisition](https://thenextweb.com/insider/2015/03/03/gitlab-acquires-rival-gitorious-will-shut-june-1/)).
 
@@ -53,7 +53,7 @@ It's built with [Go](https://golang.org), so you automatically get cross-platfor
 
 It runs on Windows, Mac, Linux, ARM, etc.
 
-![gogs](/img/gogs-shot.png)
+{{< img "/img/gogs-shot.png" "gogs" >}}
 
 Installation simply requires unzipping the release archive into a chosen folder. That's it. Upgrading works the same: just unzip the release archive.
 
@@ -87,7 +87,7 @@ PATH = !! this is the location of your database (sqlite3 by default) !!
 
 - Public key to enable commit over ssh
 
-![SSH Keys Management page](/img/gogs-sshkey.jpg)
+{{< img "/img/gogs-sshkey.jpg" "SSH Keys Management page" >}}
 
 Note that currently, you need to run an ssh server ([openssh](https://www.openssh.com) will do fine), the same as Gitlab.
 
@@ -345,15 +345,15 @@ $ docker run -d --name gogs \
 
 You can check the command line to see that it's running.
 
-![Running in terminal](/img/gogs-running.jpg)
+{{< img "/img/gogs-running.jpg" "Running in terminal" >}}
 
 Now you can open the web interface, and it will show an install page (for first-time run)
 
-![First-time run install page](/img/gogs-install.jpg)
+{{< img "/img/gogs-install.jpg" "First-time run install page" >}}
 
 Once you have completed the install, you'll have a functional Gogs service.
 
-![Web Interface Home Page](/img/gogs.jpg)
+{{< img "/img/gogs.jpg" "Web Interface Home Page" >}}
 
 ## Conclusion
 

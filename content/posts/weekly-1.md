@@ -2,7 +2,7 @@
 title: "Notas 1"
 date: 2019-02-09T11:11:49-05:00
 tags: ["notes", "politics", "spanish"]
-image: /img/weekly-1.jpg
+cover: /img/weekly-1.jpg
 description: "Notas sobre cáncer, deepfake videos, insulina y política local"
 images: ["/img/weekly-1.jpg"]
 ---

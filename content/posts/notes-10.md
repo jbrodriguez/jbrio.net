@@ -6,6 +6,7 @@ coverCaption: "stroll down the sidewalk © Juan B. Rodriguez"
 images: ["/img/notes10.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - carbonyl
   - grep
   - chatgpt

@@ -3,21 +3,25 @@
     <h2 class="text-3xl text-neutral-50 mb-4 font-normal">{{ .Title }}</h2>
     <div class="grid grid-flow-row grid-cols-3">
       {{ range .Data.Pages }}
-        <div class="px-4 mb-14">
-          <div class="overflow-hidden">
-            <img
-              src="{{ .Params.cover }}"
-              class="object-none h-48 w-96 rounded"
-            />
-            <div class="mt-1 mb-2">
-              {{ .Date.Format "02.01.2006" }}, {{ .ReadingTime }} min read
+        <div
+          class="px-2 py-2 mb-10 outline-none hover:border-orange-700 border-transparent border-2 hover:border-current rounded-md transition ease-in-out hover:-translate-y-4 duration-700"
+        >
+          <a href="{{ .Permalink }}">
+            <div class="overflow-hidden">
+              {{ with resources.GetMatch  (.Params.cover) }}
+                <img
+                  src="{{ (. | fingerprint).RelPermalink }}"
+                  class="object-none h-48 w-96 rounded"
+                />
+              {{ end }}
+              <div class="text-slate-500 mt-1 mb-2">
+                {{ .Date.Format "02.01.2006" }}, {{ .ReadingTime }} min read
+              </div>
+              <span class="text-neutral-50 text-xl font-bold mt-14"
+                >{{ .Title }}</span
+              >
             </div>
-            <a
-              href="{{ .Permalink }}"
-              class="text-neutral-50 text-xl font-bold mt-14"
-              >{{ .Title }}</a
-            >
-          </div>
+          </a>
         </div>
       {{ end }}
     </div>

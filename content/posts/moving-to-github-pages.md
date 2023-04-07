@@ -43,7 +43,7 @@ for the record, my custom domain transitions was done following instructions on 
 
 on my dns registrar ([Namecheap](https://namecheap.com)), it went down like this
 
-![Change A and CNAME records](/img/github-dns.jpg)
+{{< img "/img/github-dns.jpg" "Change A and CNAME records" >}}
 
 my mail hosting is done via google, so i used namecheap's option to "Automatically set MX records necessary for _Google Apps Email_"
 
@@ -53,6 +53,6 @@ dns propagation already happened for me (i did this about an hour ago), so it sh
 
 As per noisebleeds comment below, I'm attaching the updated DNS settings I had to use after Github made some changes to their network routing
 
-![New A and CNAME records settings](/img/github-dns-upd1.jpg)
+{{< img "/img/github-dns-upd1.jpg" "New A and CNAME records settings" >}}
 
-![New MX record settings ](/img/github-dns-upd2.jpg)
+{{< img "/img/github-dns-upd2.jpg" "New MX record settings" >}}

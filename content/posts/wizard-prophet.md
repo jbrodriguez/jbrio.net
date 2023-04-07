@@ -7,8 +7,6 @@ description: "Recuenta el origen de los movimientos verdes y progresistas, como 
 images: ["/img/wizard-prophet.jpg"]
 ---
 
-![wizard-prophet](/img/wizard-prophet.jpg#c)
-
 Describe el origen de dos movimientos que buscan asegurar la sostenibilidad de la raza humana (sobre la base de mejorar la administración de nuestra comida, agua, energía y el cambio climático):
 
 - ### "Verde"

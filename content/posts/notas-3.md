@@ -2,9 +2,10 @@
 title: "Notas 3"
 date: 2021-12-04T11:08:49-05:00
 tags: ["notes", "sqlite", "volta"]
-cover: /img/weekly-1.jpg
+cover: /img/notes3.jpg
+coverCaption: "unsplash © Andrew Neel"
 description: "Notas sobre tendencias digitales, sqlite y volta"
-images: ["/img/weekly-1.jpg"]
+images: ["/img/notes3.jpg"]
 ---
 
 - ### File not found

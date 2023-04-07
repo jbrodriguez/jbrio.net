@@ -7,8 +7,6 @@ description: "Mi pronóstico sobre las elecciones nacionales de Panamá en 2019"
 images: ["/img/debate.jpg"]
 ---
 
-![debate](/img/debate.jpg#c)
-
 Mi pronóstico es el siguiente:
 
 - ### Participación _70%_

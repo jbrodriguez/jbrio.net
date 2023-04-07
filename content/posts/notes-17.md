@@ -6,6 +6,7 @@ coverCaption: "staring at the sun © Juan B. Rodriguez"
 images: ["/img/notes17.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - labor
   - rust
   - midjourney

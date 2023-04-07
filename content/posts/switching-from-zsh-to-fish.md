@@ -17,7 +17,7 @@ In the beginning ... there was [bash](https://www.gnu.org/software/bash/) and al
 
 The built-in OSX terminal catered to my needs whenever I had to wander into shell land.
 
-![Mac OSX Terminal app](/img/fish-terminal.jpg)
+{{< img "/img/fish-terminal.jpg" "Mac OSX Terminal app" >}}
 
 ## The Road to Enlightenment
 
@@ -52,7 +52,7 @@ $ brew install fish
 (you are using [Homebrew](https://brew.sh) to install anything on your Mac right ?)
 
 Right out of the box, you get syntax highlighting, command muted suggestion, history substring search
-![Command suggestion](/img/fish-suggestions.jpg)
+{{< img "/img/billions.jpg" "Billions" >}}Command suggestion](/img/fish-suggestions.jpg)
 
 .zshrc is nowhere to be found, instead you have .config/fish/config.sh, which is very similar, only the syntax changes.
 
@@ -114,7 +114,7 @@ Very simple and very elegant.
 
 These are the functions I currently have:
 
-![My Fish functions](/img/fish-functions.jpg)
+{{< img "/img/billions.jpg" "Billions" >}}My Fish functions](/img/fish-functions.jpg)
 
 - fish_prompt.fish | customizes my prompt
 - gpl.fish | prints a pretty git log

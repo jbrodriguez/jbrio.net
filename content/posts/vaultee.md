@@ -52,8 +52,8 @@ Please do send comments and pull requests !
 
 Home page, after login, showing all existing assets
 
-![Home page listing all assets](/img/vaultee-all.png)
+{{< img "/img/vaultee-all.png" "Home page listing all assets" >}}
 
 Displaying one of the assets (currently on revision 2)
 
-![Display one asset](/img/vaultee-one.png)
+{{< img "/img/vaultee-one.png" "Display one asset" >}}

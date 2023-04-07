@@ -24,7 +24,7 @@ This is in contrast to thread-based concurrency (like in C++), where the develop
 
 ## Mediabase
 
-![Cover page](/img/mediabase.jpg)
+{{< img "/img/mediabase.jpg" "Cover page" >}}
 
 I will use the Mediabase application (check my [previous article](/introducing-mediabase/)) to showcase the proposed architecture.
 
@@ -36,7 +36,7 @@ You can get the code [here](https://github.com/apertoire/mediabase).
 
 Let's take a look at a high-level view of the code structure:
 
-![Application Architecture](/img/mediabase-architecture.png)
+{{< img "/img/mediabase-architecture.png" "Application Architecture" >}}
 
 What we have here are very loosely coupled services (actors), interacting with each other by means of a system wide bus (message exchange).
 
@@ -333,7 +333,7 @@ status.Reply <- &self.context
 
 It simply sends back the current status of importing, since each message activity received by _Core_ is written to the context variable.
 
-![Importing movies](/img/mediabase-import.jpg)
+{{< img "/img/mediabase-import.jpg" "Importing movies" >}}
 
 ## Conclusion
 

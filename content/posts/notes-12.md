@@ -6,6 +6,7 @@ coverCaption: "tree house © Juan B. Rodriguez"
 images: ["/img/notes12.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - nerf
   - alpine
   - technical debt

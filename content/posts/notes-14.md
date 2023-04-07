@@ -6,6 +6,7 @@ coverCaption: "old cross © Juan B. Rodriguez"
 images: ["/img/notes14.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - sobriety
   - rewards
   - hooks

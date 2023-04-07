@@ -32,7 +32,7 @@ The goals of this project are the following:
 We'll focus on goal #1 in this article. In Part 2, we'll cover goals #2 and #3.
 
 But I'll cheat a little by showing the results for goal #3 now. These are my current PageSpeed scores:
-![jbrodriguez.io PageSpeed Insight scores](/img/war-pagespeed.jpg)
+{{< img "/img/war-pagespeed.jpg" "jbrodriguez.io PageSpeed Insight scores" >}}
 
 I got a 95/100 score on Desktop.
 
@@ -40,7 +40,7 @@ I got a 95/100 score on Desktop.
 
 The first decision is the layout. I settled on this:
 
-![Site HTML5 Layout](/img/war-layout.png)
+{{< img "/img/war-layout.png" "Site HTML5 Layout" >}}
 
 There's a "hidden" container div that holds header, nav, section and aside, in order to manage these elements as a single unit and center them. We'll see that later.
 
@@ -141,7 +141,7 @@ I replaced it with a slightly modified version of [this template](https://jayden
 
 With the normalization css in place and a border around each section to match the layout colors from the previous image, this is how it looks:
 
-![Render of website without css styling](/img/war-skeleton.jpg)
+{{< img "/img/war-skeleton.jpg" "Render of website without css styling" >}}
 
 We can simulate a small screen size by resizing the browser to its minimum width. However, a more precise and thorough option is available using [Device mode](https://developer.chrome.com/devtools/docs/device-mode) in Google Chrome.
 
@@ -165,7 +165,7 @@ For the first item, the basic idea is that by default, we will display each layo
 
 This means that the starting layout (mobile first), looks like this conceptually:
 
-![HTML Sections stacked on top of each other](/img/war-stacked.png)
+{{< img "/img/war-stacked.png" "HTML Sections stacked on top of each other" >}}
 
 To get responsive images, we will apply **width: 100%** to the img tag. No srcset attribute or picture element for the moment.
 
@@ -236,7 +236,7 @@ padding: 1em;
 
 By touching the properties of these 5 elements, we get this:
 
-![Basic styling applied to the html structure](/img/war-styling.jpg)
+{{< img "/img/war-styling.jpg" "Basic styling applied to the html structure" >}}
 
 We're almost 75% done with this project !
 
@@ -310,7 +310,7 @@ align-items: stretch;
 
 The Result
 
-![Additional styling for improved UX](/img/war-added.jpg)
+{{< img "/img/war-added.jpg" "Additional styling for improved UX" >}}
 
 ## Querying the media
 
@@ -331,7 +331,7 @@ To solve the first issue, since we defined our layout to display properly at the
 
 This is the page at 600px wide
 
-![Page rendered with a 600px wide viewport](/img/war-600.jpg)
+{{< img "/img/war-600.jpg" "Page rendered with a 600px wide viewport" >}}
 
 We already know how to "float" two sections side by side with flexbox, we simply declare **flex-direction: row**.
 
@@ -362,7 +362,7 @@ align-items: stretch;
 
 and the results are in:
 
-![Page at 600px wide, with article sections "floated"](/img/war-600styled.jpg)
+{{< img "/img/war-600styled.jpg" "Page at 600px wide, with article sections floated" >}}
 
 Wasn't that beautiful? Also check out how the footer stays pinned at the bottom, as desired.
 
@@ -404,7 +404,7 @@ max-width: 960px;
 {{</ highlight >}}
 
 This is the page at 1250px wide
-![Page rendered at 1250px wide](/img/war-1250.jpg)
+{{< img "/img/war-1250.jpg" "Page rendered at 1250px wide" >}}
 
 For the final touch, we need to "float" the aside element, to obtain the layout we set out to get.
 
@@ -429,7 +429,7 @@ flex-direction: row;
 {{</ highlight >}}
 
 Take a look at the final result:
-![Final render of the page](/img/war-final.jpg)
+{{< img "/img/war-final.jpg" "Final render of the page" >}}
 
 ## Next Steps
 

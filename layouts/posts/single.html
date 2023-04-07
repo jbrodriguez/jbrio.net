@@ -28,7 +28,9 @@
 
       {{ if .Params.Cover }}
         <figure class="flex flex-col justify-center items-center mt-8">
-          <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title }}" />
+          {{ with resources.GetMatch  (.Params.cover) }}
+          <img src="{{ (. | fingerprint).RelPermalink }}" alt="{{ .Title }}" />
+          {{ end }}
 
           {{ if .Params.CoverCaption }}
             <div>

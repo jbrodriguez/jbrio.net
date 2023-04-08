@@ -118,13 +118,13 @@ Let's get down to the details
 - Set up the folders
 
 ```bash
-mkdir -p /config/{config,work}
+mkdir -p /config/adguard/{config,work}
 ```
 
 - Install AGH
 
 ```bash
-cd /config
+cd /config/adguard
 curl -sL https://static.adguard.com/adguardhome/release/AdGuardHome_linux_mips64_softfloat.tar.gz | tar xvz
 mv AdGuardHome bin
 ```
@@ -136,7 +136,7 @@ _note_: confirm whether your router is little-endian architecture or not, as the
 - Set up AGH
 
 ```bash
-cd /config/bin
+cd /config/adguard/bin
 sudo ./AdGuardHome -c /config/adguard/config/AdGuardHome.yaml -w /config/adguard/work
 ```
 
@@ -198,7 +198,7 @@ I modeled the setup based on [this reference](https://github.com/stevejenkins/un
         rule 5011 {
             description "masquerade for DNS to LAN"
             destination {
-                address 192.168.23.1
+                address 192.168.3.1
                 port 53
             }
             log disable
@@ -262,15 +262,13 @@ A new version of AdGuard Home is available, so I'd like to chronicle the process
 ssh into the EdgeRouter 6P, then
 
 ```bash
-cd /config/adguard
-sudo curl -sL https://static.adguard.com/adguardhome/release/AdGuardHome_linux_mips64_softfloat.tar.gz | sudo tar xvz
-
-cd bin
+cd /config/adguard/bin
 sudo ./AdGuardHome -s uninstall
 sudo ./AdGuardHome -s stop
 
 cd ..
 sudo rm -rf bin
+sudo curl -sL https://static.adguard.com/adguardhome/release/AdGuardHome_linux_mips64_softfloat.tar.gz | sudo tar xvz
 sudo mv AdGuardHome bin
 
 cd bin

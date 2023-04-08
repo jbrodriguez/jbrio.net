@@ -3,6 +3,8 @@ title: "Notes 18"
 date: 2023-04-08T07:07:16-05:00
 cover: /img/notes18.jpg
 coverCaption: "blue hues © Juan B. Rodriguez"
+images: ["/img/notes18.jpg"]
+description: "a journal of unrelated topics"
 tags:
   - notes
   - chatgpt

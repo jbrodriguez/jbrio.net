@@ -34,13 +34,15 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ "<![CDATA[" | safeHTML }} {{ .Summary }}]]></description>
+      <description>{{ .Summary | safeHTML }}</description>
       <content:encoded>
+      {{ "<" | safeHTML }}![CDATA[
       {{ if and (isset .Params "cover") (not (eq .Params.cover "")) }}
       {{ $image := resources.Get (.Params.cover) | fingerprint }}
-      {{ printf "<![CDATA[ <img src=\"%s\" />]]>" ( $image.Permalink ) }}
+      <img src="{{ ( $image.Permalink ) }}" />
       {{ end }}
-      {{ "<![CDATA[" | safeHTML }} {{ partial "rss.html" . | safeHTML }}]]>
+      {{ .Content | safeHTML }}
+      ]]>
       </content:encoded>
     </item>
     {{ end }}

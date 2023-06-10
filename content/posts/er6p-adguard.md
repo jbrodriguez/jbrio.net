@@ -263,8 +263,8 @@ ssh into the EdgeRouter 6P, then
 
 ```bash
 cd /config/adguard/bin
-sudo ./AdGuardHome -s uninstall
 sudo ./AdGuardHome -s stop
+sudo ./AdGuardHome -s uninstall
 
 cd ..
 sudo rm -rf bin

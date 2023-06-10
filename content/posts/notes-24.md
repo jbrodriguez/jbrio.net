@@ -6,6 +6,7 @@ coverCaption: "into the fog © Juan B. Rodriguez"
 images: ["/img/notes24.jpg"]
 description: "a journal of unrelated topics"
 tags:
+  - notes
   - chatgpt
   - rust
   - flight simulator

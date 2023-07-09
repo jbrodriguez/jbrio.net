@@ -3,6 +3,8 @@ title: "Notes 28"
 date: 2023-07-08T07:38:00-05:00
 cover: /img/notes28.jpg
 coverCaption: "spring by the lake © Juan B. Rodriguez"
+images: ["/img/notes28.jpg"]
+description: "a journal of unrelated topics"
 tags:
   - notes
   - photography

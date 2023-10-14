@@ -1,6 +1,6 @@
 ---
 title: "Notes 32"
-date: 2023-10-30T07:37:41-05:00
+date: 2023-10-14T07:37:41-05:00
 cover: /img/notes32.jpg
 coverCaption: "the pillars of chardin © Juan B. Rodriguez"
 images: ["/img/notes32.jpg"]

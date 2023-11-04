@@ -3,6 +3,7 @@ title: "Notes 34"
 date: 2023-11-04T08:47:59-05:00
 cover: /img/notes34.jpg
 coverCaption: "a metel branch © Juan B. Rodriguez"
+images: ["/img/notes34.jpg"]
 description: "a journal of unrelated topics"
 tags:
   - notes

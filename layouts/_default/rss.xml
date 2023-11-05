@@ -38,8 +38,9 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <content:encoded>
       {{ "<" | safeHTML }}![CDATA[
       {{ if and (isset .Params "cover") (not (eq .Params.cover "")) }}
-      {{ $image := resources.Get (.Params.cover) | fingerprint }}
-      <img src="{{ ( $image.Permalink ) }}" />
+        {{ with .Resources.GetMatch  (.Params.cover) }}
+        <img src="{{ (. | fingerprint).Permalink }}" />
+        {{ end }}      
       {{ end }}
       {{ .Content | safeHTML }}
       ]]>

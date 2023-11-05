@@ -39,7 +39,8 @@
       {{ $.Site.Title }}
       {{ with $.Site.Params.Subtitle }}— {{ . }}{{ end }}
     {{ else }}
-      {{ .Title }} :: {{ $.Site.Title }}
+      {{ .Title }} ::
+      {{ $.Site.Title }}
       {{ with $.Site.Params.Subtitle }}— {{ . }}{{ end }}
     {{ end }}
   </title>
@@ -47,8 +48,9 @@
 
 {{- partial "favicons.html" . }}
 
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
 {{ template "_internal/schema.html" . }}
-{{ partial "twitter.html" . }}
 
 
 <script>

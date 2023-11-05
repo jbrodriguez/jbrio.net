@@ -8,7 +8,7 @@
         >
           <a href="{{ .Permalink }}">
             <div class="overflow-hidden">
-              {{ with resources.GetMatch  (.Params.cover) }}
+              {{ with .Resources.GetMatch  (.Params.cover) }}
                 <img
                   src="{{ (. | fingerprint).RelPermalink }}"
                   class="object-none h-48 w-96 rounded"

@@ -28,8 +28,11 @@
 
       {{ if .Params.Cover }}
         <figure class="flex flex-col justify-center items-center mt-8">
-          {{ with resources.GetMatch  (.Params.cover) }}
-          <img src="{{ (. | fingerprint).RelPermalink }}" alt="{{ .Title }}" />
+          {{ with .Resources.GetMatch  (.Params.cover) }}
+            <img
+              src="{{ (. | fingerprint).RelPermalink }}"
+              alt="{{ .Title }}"
+            />
           {{ end }}
 
           {{ if .Params.CoverCaption }}

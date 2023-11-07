@@ -884,6 +884,23 @@ video {
   }
 }
 
+/* this is related to pagefind functionality */
+
+:root {
+  --pagefind-ui-scale: 0.8;
+  --pagefind-ui-primary:  #f1f5f9;
+  --pagefind-ui-fade: #707070;
+  --pagefind-ui-text: #64748b;
+  --pagefind-ui-background: #1e293b;
+  --pagefind-ui-border: #eeeeee;
+  --pagefind-ui-tag: #eeeeee;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: 'Inter', system-ui,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
 html {
   font-size: 1.25rem;
   line-height: 1.5rem;

@@ -66,6 +66,7 @@
   }
 </script>
 
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 {{ $styles := resources.Get "/css/style.css" | postCSS }}
 {{ if .Site.IsServer }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />

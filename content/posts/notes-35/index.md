@@ -30,3 +30,11 @@ custom general purpose assistant, this will definitely change the ai landscape |
 ### Implement Pagefind with Hugo
 
 add search functionality to a hugo site | [brycewray.com](https://www.brycewray.com/posts/2022/07/pagefind-quite-find-site-search)
+
+### Blog list
+
+a cool list of blogs with rss feeds | [rknight.me](https://defaults.rknight.me)
+
+### Good Movies As Old Books
+
+the looks are great | [hellomattstevens.com](http://hellomattstevens.com/good-movies-as-old-books)

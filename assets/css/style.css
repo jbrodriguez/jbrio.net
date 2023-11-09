@@ -887,6 +887,7 @@ video {
 /* this is related to pagefind functionality */
 
 :root {
+  line-height: 1.75;
   --pagefind-ui-scale: 0.8;
   --pagefind-ui-primary:  #f1f5f9;
   --pagefind-ui-fade: #707070;

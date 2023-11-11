@@ -1,9 +1,17 @@
 ---
 title: "Notes 35"
-date: 2023-11-05T07:23:24-05:00
-draft: true
+date: 2023-11-11T10:23:24-05:00
+cover: notes35-feature.jpg
+coverCaption: "a rehearsal @ Juan B. Rodriguez"
+description: "a journal of unrelated topics"
 tags:
   - notes
+  - ai
+  - calendar
+  - novel
+  - icons
+  - hugo
+  - fonts
 ---
 
 ### Reimagining creativity with artificial intelligence
@@ -17,7 +25,6 @@ ideas for bootstrapping a novel | [dev.to/devdalgic](https://dev.to/devdalgic/i-
 ### If a year had 13 months
 
 the basis of the International Fixed Calendar idea | [critter.blog](https://critter.blog/2023/10/31/if-a-year-had-13-months/)
-
 
 ### Introducing GPTs
 
@@ -38,3 +45,25 @@ a cool list of blogs with rss feeds | [rknight.me](https://defaults.rknight.me)
 ### Good Movies As Old Books
 
 the looks are great | [hellomattstevens.com](http://hellomattstevens.com/good-movies-as-old-books)
+
+### humane ai pin
+
+this ux looks great | [twitter.com/thealexker](https://twitter.com/thealexker/status/1722679429971730720?s=61&t=j9bw6YGbbGjknl1MlJz0lQ)
+
+{{< tweet user="thealexker" id="1722679429971730720" >}}
+
+### Effective Engineering Teams
+
+research about what it takes to build effective engineering teams | [addyosmani.com](https://addyosmani.com/blog/effective-teams/)
+
+### monaspace
+
+An innovative superfamily of fonts for code | [monaspace.githubnext.com](https://monaspace.githubnext.com)
+
+### Send push notifications to your phone or desktop via PUT/POST
+
+interesting that you can self host this | [github.com/alexbirkett](https://github.com/binwiederhier/ntfy)
+
+### World War II - Summary on a Map
+
+nice visualization of the war | [youtube.com](https://www.youtube.com/watch?v=-CQatuQdQv4)

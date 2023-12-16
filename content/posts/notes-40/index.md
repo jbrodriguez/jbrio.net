@@ -21,6 +21,7 @@ tags:
 > "... Render anything inline. Save sessions and history. Powered by open web standards. ..."
 
 ### [Meet Ava: Your Personal Language Server](https://avapls.com)
+`avapls.com`
 
 > "... The power of advanced language models, right on your desktop. ..."
 

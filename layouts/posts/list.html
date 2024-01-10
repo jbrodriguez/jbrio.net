@@ -10,7 +10,7 @@
               {{ with .Resources.GetMatch  (.Params.cover) }}
               <img src="{{ (. | fingerprint).RelPermalink }}" class="object-none h-48 w-96 rounded" />
               {{ end }}
-              <div class="text-slate-500 mt-1 mb-2">{{ .Date.Format "02.01.2006" }}, {{ .ReadingTime }} min read</div>
+              <div class="text-slate-500 mt-1 mb-2">{{ .Date.Format "2006.01.02" }}, {{ .ReadingTime }} min read</div>
               <span class="text-neutral-50 text-xl font-bold mt-14">{{ .Title }}</span>
             </div>
           </a>

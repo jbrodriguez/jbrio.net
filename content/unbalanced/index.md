@@ -8,9 +8,9 @@ date: 2024-01-10T09:05:43-05:00
 
 Sponsor development of this plugin via:
 
-<!-- ### Github Sponsors
+## Github Sponsors
 
-[![Github Sponsors](metadata/images/github.png)](http://github.com/sponsors/jbrodriguez) -->
+<iframe src="https://github.com/sponsors/jbrodriguez/button" title="Sponsor jbrodriguez" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
 
 ## Paypal
 

@@ -16,7 +16,7 @@ I'm the owner of a boutique software development company [apertoire](https://www
 
 - [ControlR](https://www.apertoire.com/controlr) Android / iOS app to manage Unraid servers
 - [reactorx](https://github.com/jbrodriguez/reactorx/) A simple, small and pragmatic Flux implementation
-- [unBALANCE](https://github.com/jbrodriguez/unbalance) An Unraid plugin to transfer files/folders between disks in your array.
+- [unbalanced](https://github.com/jbrodriguez/unbalance) An Unraid plugin to transfer files/folders between disks in your array.
 - [mlog](https://github.com/jbrodriguez/mlog) A simple logging module for go
 
 ## Favorite Content

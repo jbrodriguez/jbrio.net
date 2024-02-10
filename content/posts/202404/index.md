@@ -12,6 +12,7 @@ tags:
   - simd
   - mlx
   - react native
+  - finance
 ---
 
 [58 rules for beautiful UI design](https://uxdesign.cc/58-rules-for-stunning-and-effective-user-interface-design-ea4b93f931f6) -

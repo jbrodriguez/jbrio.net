@@ -1,6 +1,6 @@
 ---
 title: "Notes 202406"
-date: 2024-02-03T10:11:11-05:00
+date: 2024-02-10T08:11:11-05:00
 cover: 202406-feature.jpg
 coverCaption: "collision course © Juan B. Rodriguez"
 description: "my sweet summer suite"

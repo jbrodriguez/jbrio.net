@@ -3,7 +3,7 @@ title: "Notes 202407"
 date: 2024-02-17T09:07:27-05:00
 cover: 202407-feature.jpg
 coverCaption: "autumn leaves © Juan B. Rodriguez"
-draft: true
+description: "sara"
 tags:
   - notes
   - llm

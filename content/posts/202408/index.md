@@ -4,6 +4,16 @@ date: 2024-02-24T08:46:17-05:00
 cover: 202408-feature.jpg
 coverCaption: "pool by the beach © Juan B. Rodriguez"
 description: "betcha say that"
+tags:
+  - notes
+  - postgres
+  - mojo
+  - favicon
+  - expo
+  - chatgpt
+  - mixtral
+  - billion
+  - bluesky
 ---
 
 [gnonative](https://github.com/gnolang/gnonative) - "... Develop for Gno using your app's native language ..."

@@ -69,7 +69,7 @@
   /* https://huemint.com/brand-intersection/#palette=f7f7f7-22158a-8796b0-48ea5b */
   /* DEFAULT (LIGHT) */
 
-  --bg: #151920;
+  /* --bg: #151920;
   --color-bg-50: rgb(2 2 2);
   --color-bg-100: rgb(232 232 233);
   --color-bg-200: rgb(197 198 199);
@@ -79,7 +79,32 @@
   --color-bg-600: rgb(19 23 29);
   --color-bg-700: rgb(13 15 19);
   --color-bg-800: rgb(9 11 14);
-  --color-bg-900: rgb(6 8 10);
+  --color-bg-900: rgb(6 8 10); */
+
+  /* --bg: #0F172A;
+  --color-bg-50:  rgb(243 243 244);
+  --color-bg-100: rgb(231 232 234);
+  --color-bg-200: rgb(195 197 202);
+  --color-bg-300: rgb(159 162 170);
+  --color-bg-400: rgb(87 93 106);
+  --color-bg-500: rgb(15 23 42);
+  --color-bg-600: rgb(14 21 38);
+  --color-bg-700: rgb(9 14 25);
+  --color-bg-800: rgb(7 10 19);
+  --color-bg-900: rgb(5 7 13); */
+
+  --bg: #08101C;
+  --color-bg-50:  rgb(243 243 244);
+  --color-bg-100: rgb(230 231 232);
+  --color-bg-200: rgb(193 195 198);
+  --color-bg-300: rgb(156 159 164);
+  --color-bg-400: rgb(82 88 96);
+  --color-bg-500: rgb(8 16 28);
+  --color-bg-600: rgb(7 14 25);
+  --color-bg-700: rgb(5 10 17);
+  --color-bg-800: rgb(4 7 13);
+  --color-bg-900: rgb(2 5 8);
+
 
   --text: #fbfbfb;
   --color-text-50: rgb(65 65 65);

@@ -10,7 +10,7 @@ tags:
   - ai
   - chatgpt
   - big data
-  - fonts
+  - font
 ---
 
 ### Pundits Have It Backwards: Search Is A Threat To AI

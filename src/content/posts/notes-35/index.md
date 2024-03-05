@@ -12,7 +12,7 @@ tags:
   - novel
   - icons
   - hugo
-  - fonts
+  - font
 ---
 
 ### Reimagining creativity with artificial intelligence

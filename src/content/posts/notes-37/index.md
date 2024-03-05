@@ -8,7 +8,7 @@ status: published
 tags:
   - notes
   - htmx
-  - fonts
+  - font
   - markdown
   - hackernews
   - stable video

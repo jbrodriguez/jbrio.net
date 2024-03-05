@@ -13,7 +13,7 @@ tags:
   - prompt engineer
   - unraid
   - font
-  - ux/ui
+  - ux-ui
 ---
 
 ### Building data-centric apps with a reactive relational database

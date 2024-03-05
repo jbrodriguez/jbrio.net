@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import { getTagsFromPosts } from '../utils/posts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import CommonLayout from '../layouts/CommonLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import Button from '../components/Button.astro';
+import TagsList from '../components/TagsList.astro';
+import Prose from '../components/Prose.astro';
+
+const PAGE_SIZE = 10;
+const posts = (await getCollection('posts')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const tags = getTagsFromPosts(posts);
+
+const numPages = Math.ceil(posts.length / PAGE_SIZE);
+const firstPage = posts.slice(0, 10);
+const idx = 0;
+const props = {
+  page: {
+    data: firstPage,
+    start: idx * PAGE_SIZE,
+    end: idx * PAGE_SIZE + PAGE_SIZE - 1,
+    size: PAGE_SIZE,
+    total: posts.length,
+    currentPage: idx + 1,
+    lastPage: numPages,
+    url: {
+      current: '/',
+      next: idx === numPages - 1 ? null : `/page/${idx + 2}`,
+      prev: null,
+    },
+  },
+};
+---
+
+<CommonLayout
+  seo={{
+    title: `${SITE_TITLE} - ${SITE_DESCRIPTION}`,
+    description: `The website of Juan B. Rodriguez: ${SITE_DESCRIPTION}`,
+  }}
+>
+  <div class="bg-bg-500 relative z-40">
+    <div class="mx-auto max-w-screen-xl py-16 px-8 pb-16 flex justify-center">
+      <Prose class="max-w-[850px]">
+        <p>
+          Hello, I am <a href="/about">Juan B.</a>, a Software Engineer with more than 15 years of experience in the
+          field.
+        </p>
+        <p> I’m mostly focused on React Native, but ❤️ coding in general.</p>
+        <p>
+          I’m the author of <a href="https://www.apertoire.com/" target="_blank" rel="nofollow noopener noreferrer"
+            >ControlR</a
+          >, an app to manage Unraid servers.
+        </p>
+        <p> Welcome to my site, where I post about tech, software, books and other random stuff.</p>
+      </Prose>
+    </div>
+  </div>
+
+  <div class="bg-bg-500 relative z-40">
+    <div class="mx-auto max-w-screen-xl py-8 px-8">
+      <h2 class="text-3xl text-text-500 text-center mb-4">Latest from the blog</h2>
+
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        {
+          props.page.data.map((post, idx) => (
+            <BlogCard post={post} isBig={idx === 0}>
+              {post.data.description}
+            </BlogCard>
+          ))
+        }
+        <div class="bg-bg-200 rounded-lg flex justify-center items-center py-8"
+          ><Button href="/blog">Read the blog</Button></div
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-bg-500 relative z-40 pb-24">
+    <div class="mx-auto max-w-screen-xl py-8 px-8">
+      <h2 class="text-3xl text-text-500 text-center mb-4">Topics</h2>
+      <TagsList tags={tags.slice(0, 20)} />
+    </div>
+  </div>
+</CommonLayout>

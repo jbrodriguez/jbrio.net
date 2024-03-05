@@ -1,0 +1,38 @@
+---
+import CustomStyles from '../components/CustomStyles.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { type PartialSEOProps } from '../components/SEO';
+
+type Props = {
+  section?: 'posts' | 'about';
+  seo?: PartialSEOProps;
+};
+
+const { section, seo } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <CustomStyles />
+    <BaseHead {...seo} />
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      const preferredTheme = ['dark', 'light'].includes(savedTheme)
+        ? savedTheme
+        : window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      document.documentElement.setAttribute('data-theme', preferredTheme);
+    </script>
+  </head>
+  <body class="flex flex-col font-sans">
+    <Header section={section} />
+    <main class="min-h-screen pb-32">
+      <slot />
+    </main>
+    <Footer />
+  </body></html
+>

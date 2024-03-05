@@ -8,7 +8,7 @@ status: published
 tags:
   - notes
   - debug
-  - react native
+  - react-native
   - actor pattern
   - medicine
   - stocks

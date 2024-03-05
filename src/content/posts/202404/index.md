@@ -12,7 +12,7 @@ tags:
   - ledger
   - simd
   - mlx
-  - react native
+  - react-native
   - finance
 ---
 

@@ -8,7 +8,7 @@ status: published
 tags:
   - useEffect
   - react
-  - react native
+  - react-native
   - ledger
   - plaintext accounting
   - notion alternative

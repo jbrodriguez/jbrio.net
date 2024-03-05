@@ -7,7 +7,7 @@ description: 'an eclectic mix of unrelated topics'
 status: published
 tags:
   - notes
-  - react native
+  - react-native
   - console.log
   - tensorflow
   - workspace

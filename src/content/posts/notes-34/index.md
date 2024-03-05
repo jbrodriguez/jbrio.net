@@ -10,7 +10,7 @@ tags:
   - gpt
   - patterns
   - midjourney
-  - react native
+  - react-native
   - notion
 ---
 

@@ -17,4 +17,26 @@ const posts = defineCollection({
     }),
 });
 
-export const collections = { posts };
+const about = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      author: z.string().optional().nullable(),
+      // Transform string to Date object
+      date: z.coerce.date(),
+    }),
+});
+
+const unbalanced = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      author: z.string().optional().nullable(),
+      // Transform string to Date object
+      date: z.coerce.date(),
+    }),
+});
+
+export const collections = { posts, about, unbalanced };

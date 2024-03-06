@@ -4,15 +4,14 @@ import CommonLayout from '../layouts/CommonLayout.astro';
 import Prose from '../components/Prose.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-const entry = await getEntry('about', 'index');
+const entry = await getEntry('unbalanced', 'index');
 const { Content } = await entry?.render();
 ---
 
 <CommonLayout
-  section="about"
   seo={{
-    title: `${SITE_TITLE} - ${SITE_DESCRIPTION} - About`,
-    description: `About page of ${SITE_TITLE} - ${SITE_DESCRIPTION}. Find out more about Luciano: his work, his passions and his side projects.`,
+    title: `${SITE_TITLE} - ${SITE_DESCRIPTION} - unbalanced`,
+    description: `${SITE_TITLE} - ${SITE_DESCRIPTION} - unbalanced a plugin for Unraid`,
   }}
 >
   <div class="bg-bg-500 overflow-x-hidden">

@@ -2,7 +2,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import compress from 'astro-compress';
-import critters from 'astro-critters';
+// import critters from 'astro-critters';
 import { defineConfig } from 'astro/config';
 // biome-ignore lint/nursery/useImportRestrictions: <explanation>
 import { SITE_URL } from './src/consts';
@@ -18,7 +18,7 @@ export default defineConfig({
       Image: false,
       SVG: false,
     }),
-    critters(),
+    // critters(),
   ],
   redirects: {
     //   '/page/2': '/blog/page/2',

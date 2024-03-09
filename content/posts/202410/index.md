@@ -4,6 +4,16 @@ date: 2024-03-09T11:16:28-05:00
 cover: 202410-feature.jpg
 coverCaption: "waiting by the roof © Juan B. Rodriguez"
 description: "hazy shade of winter"
+tags:
+  - notes
+  - ledger
+  - camera
+  - react
+  - llm
+  - lua
+  - go
+  - react-native
+  - the-pile
 ---
 
 [Scratch Data](https://scratchdata.com/blog/building-a-ledger/)

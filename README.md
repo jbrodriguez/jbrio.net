@@ -38,6 +38,12 @@ npm run build
 
 The static website will be available in the `./dist` folder.
 
+## 6. Create a new post
+
+```bash
+npm run new <post name>
+```
+
 ### Misc
 
 Meta holds the metadata for the site, including the logo art

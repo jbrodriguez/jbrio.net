@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build && tsx ./patch-rss.ts",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "new": "tsx ./new-post.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",

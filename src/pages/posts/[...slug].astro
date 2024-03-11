@@ -35,10 +35,12 @@ const { Content } = await post.render();
 <CommonLayout
   section="posts"
   seo={{
-    title: post.data.title,
-    description: post.data.description || `A blog post published by ${SITE_TITLE}`,
+    title: `${post.data.title} :: ${SITE_TITLE}`,
+    description: post.data.description || `A post published by ${SITE_TITLE}`,
     ogType: 'article',
-    image: `${SITE_URL}/og/${post.slug}.png`,
+    image: `${SITE_URL}${post.data.cover?.src}`,
+    image_height: post.data.cover?.height,
+    image_width: post.data.cover?.width,
   }}
 >
   <div class="bg-bg-500 relative z-40 pb-16">

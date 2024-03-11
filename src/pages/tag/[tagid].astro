@@ -47,7 +47,7 @@ const { tagid } = Astro.params;
   section="posts"
   seo={{
     title: `Tags :: ${SITE_TITLE}"`,
-    description: `${SITE_TITLE}'s posts under the topic "${tagid}".`,
+    description: `${SITE_TITLE}'s posts under the tag "${tagid}".`,
   }}
 >
   <div class="bg-bg-500 relative z-40">
@@ -64,7 +64,7 @@ const { tagid } = Astro.params;
 
   <div class="bg-bg-500 relative z-40">
     <div class="mx-auto max-w-screen-xl py-8 px-8">
-      <h2 class="text-3xl text-center mb-4 text-text-500">Other common topics</h2>
+      <h2 class="text-3xl text-center mb-4 text-text-500">Other common tags</h2>
       <TagsList tags={tags.slice(0, 20)} />
     </div>
   </div>

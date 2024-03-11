@@ -14,18 +14,18 @@ const tags = getTagsFromPosts(posts);
 <CommonLayout
   seo={{
     title: `Tags :: ${SITE_TITLE}`,
-    description: `Page containing the list of topics (Tags) and recent articles from ${SITE_TITLE}'s posts.`,
+    description: `Page containing the list of tags and recent posts from ${SITE_TITLE}.`,
   }}
 >
   <div class="bg-bg-500 relative z-40">
     <div class="mx-auto max-w-screen-xl py-8 px-8">
-      <h1 class="text-3xl text-center my-8 text-text-500 font-bold">All topics</h1>
+      <h1 class="text-3xl text-center my-8 text-text-500 font-bold">All tags</h1>
       <TagsList tags={tags} hideAllTagsButton />
     </div>
   </div>
   <div class="bg-bg-500 relative z-40">
     <div class="mx-auto max-w-screen-xl py-8 px-8">
-      <h2 class="text-3xl text-center my-8 text-text-500">Recent Articles</h2>
+      <h2 class="text-3xl text-center my-8 text-text-500">Recent Posts</h2>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {
@@ -36,7 +36,7 @@ const tags = getTagsFromPosts(posts);
           ))
         }
         <div class="bg-bg-200 rounded-lg flex justify-center items-center py-8"
-          ><Button href="/blog">Read the blog</Button></div
+          ><Button href="/blog">Read the posts</Button></div
         >
       </div>
     </div>

@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import { type PartialSEOProps, type SEOProps, defaultSEOProps } from './SEO';
+import Favicons from '~/components/Favicons.astro';
 
 type Props = PartialSEOProps;
 
@@ -27,31 +28,21 @@ const seo: SEOProps = { ...defaultSEOProps(Astro), ...props };
 <meta name="description" content={seo.description} />
 
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#22158a" />
-<meta name="msapplication-TileColor" content="#22158a" />
-<meta name="theme-color" content="#22158a" />
+<Favicons />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content={seo.ogType} />
-<meta property="og:url" content={seo.canonical} />
 <meta property="og:title" content={seo.title} />
 <meta property="og:description" content={seo.description} />
+<meta property="og:type" content={seo.ogType} />
+<meta property="og:url" content={seo.canonical} />
 <meta property="og:image" content={seo.image} />
 <meta property="og:image:width" content={seo.image_width.toString()} />
 <meta property="og:image:height" content={seo.image_height.toString()} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content={seo.twitter.cardType} />
-<meta property="twitter:url" content={seo.canonical} />
+<meta property="twitter:image" content={seo.image} />
 <meta property="twitter:title" content={seo.title} />
 <meta property="twitter:description" content={seo.description} />
-<meta property="twitter:image" content={seo.image} />
+<meta property="twitter:url" content={seo.canonical} />
 <meta name="twitter:creator" content={seo.twitter.handle} />
-
-<!-- Webmentions -->
-<!-- <link rel="webmention" href="https://webmention.io/loige.co/webmention" />
-<link rel="pingback" href="https://webmention.io/loige.co/xmlrpc" /> -->

@@ -2,7 +2,7 @@
 import { getEntry } from 'astro:content';
 import CommonLayout from '../layouts/CommonLayout.astro';
 import Prose from '../components/Prose.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE } from '../consts';
 
 const entry = await getEntry('unbalanced', 'index');
 const { Content } = await entry?.render();

@@ -88,7 +88,7 @@ const { Content } = await post.render();
                   id="copy-link"
                   title="Copy link to clipboard"
                   href={getAbsoluteUrl(post)}
-                  class="hidden transition px-4 py-1 rounded-full text-lg text-text-400 bg-primary-600 border border-primary-700 hover:bg-primary-700 hover:border-primary-800 hover:text-text-500"
+                  class="hidden transition px-4 py-1 rounded-full text-lg text-text-200 dark:text-text-400 bg-primary-600 border border-primary-500 dark:border-primary-700 hover:bg-primary-700 hover:border-primary-800 hover:text-text-500"
                   ><span class="flex gap-2 items-center text-nowrap">
                     <CopyIcon class="h-4 w-4" />
                     <span aria-role="label" data-text-normal="Copy link" data-text-copied="Copied!">Copy link</span>
@@ -100,7 +100,7 @@ const { Content } = await post.render();
                   rel="noopener noreferrer"
                   target="_blank"
                   href={getShareUrl(post, 'linkedin')}
-                  class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-400 bg-secondary-600 border border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500"
+                  class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500"
                 >
                   <span class="flex items-center text-nowrap"
                     ><LinkedinIcon class="h-4 w-4" /><span class="sr-only">Linkedin</span></span
@@ -112,7 +112,7 @@ const { Content } = await post.render();
                   rel="noopener noreferrer"
                   target="_blank"
                   href={getShareUrl(post, 'twitter')}
-                  class="transition inline-flex px-3 rounded-full text-lg text-text-400 bg-secondary-600 border border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500"
+                  class="transition inline-flex px-3 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500"
                 >
                   <span class="flex items-center text-nowrap"
                     ><XIcon class="h-4 w-4" /><span class="sr-only">X, formerly Twitter</span></span

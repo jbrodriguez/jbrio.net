@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import logo from '~/assets/logo-white-on-transparent.svg';
 const today = new Date();
 ---
 
@@ -9,10 +11,19 @@ const today = new Date();
     <div class="mx-auto max-w-screen-xl py-8 px-8">
       <div class="md:flex md:flex-wrap md:flex-1 md:gap-4 md:justify-between">
         <div class="mb-20 md:mb-0">
-          <h3 class="text-primary-100 uppercase text-lg"
-            ><a href="/" class="underline underline-offset-4 decoration-2 decoration-accent-500">jbrio.net</a></h3
-          >
-          <p class="text-text-100 text-sm">The personal website of Juan B. Rodriguez</p>
+          <div class="flex items-center gap-4">
+            <Picture
+              formats={['webp', 'avif', 'jpeg']}
+              width={512}
+              height={512}
+              alt={`logo of jbrio.net, a white logo on a transparent background. The logo is a stylized letter J and B.`}
+              src={logo}
+              class="h-6 w-full object-cover transition"
+            />
+            <h3 class="text-primary-100 uppercase text-lg">
+              <a href="/" class="underline underline-offset-4 decoration-2 decoration-accent-500">jbrio.net</a>
+            </h3>
+          </div>
           <p class="text-text-200 text-sm mt-4">&copy; 2011 - {today.getFullYear()} Juan B. Rodriguez</p>
           <p class="text-text-200 text-sm mt-1"
             >Built with <a rel="nofollow noopener noreferrer" target="_blank" href="https://astro.build/">Astro</a>, <a
@@ -150,27 +161,28 @@ const today = new Date();
         </div>
       </div>
     </div>
+
+    <style>
+      a {
+        font-weight: bold;
+        color: var(--color-text-400);
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      // Registers service worker to clean up the old Gatsby one
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((reg) => {
+            if (reg.active) {
+              reg.update();
+            }
+          })
+          .catch((_err) => {}); // ignore errors
+      }
+    </script>
   </div>
 </footer>
-<style>
-  a {
-    font-weight: bold;
-    color: var(--color-text-400);
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-<script>
-  // Registers service worker to clean up the old Gatsby one
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-      .register('/sw.js')
-      .then((reg) => {
-        if (reg.active) {
-          reg.update();
-        }
-      })
-      .catch((_err) => {}); // ignore errors
-  }
-</script>

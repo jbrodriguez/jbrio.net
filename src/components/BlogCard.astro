@@ -27,7 +27,7 @@ const { post, isBig } = Astro.props;
     src={post.data.cover || DefaultHeaderImage}
     class="h-56 w-full object-cover transition"
   />
-  <div class="bg-bg-700 p-4 sm:p-6 flex flex-1 flex-col">
+  <div class="bg-bg-300 dark:bg-bg-700 p-4 sm:p-6 flex flex-1 flex-col">
     <h3 class="mt-0.5 text-xl font-bold text-text-500">{post.data.title}</h3>
     <p class="mt-2 text-sm/relaxed text-text-400 line-clamp-3 text-ellipsis mb-auto">
       {post.data.description || post.body.slice(0, 200)}

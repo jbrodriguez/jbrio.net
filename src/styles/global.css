@@ -30,17 +30,6 @@
   --color-text-800: rgb(9 11 18);
   --color-text-900: rgb(6 7 12);
 
-  /* --primary: #22158a;
-  --color-primary-100: rgb(233 232 243);
-  --color-primary-200: rgb(200 197 226);
-  --color-primary-300: rgb(167 161 208);
-  --color-primary-400: rgb(100 91 173);
-  --color-primary-500: rgb(34 21 138);
-  --color-primary-600: rgb(31 19 124);
-  --color-primary-700: rgb(20 13 83);
-  --color-primary-800: rgb(15 9 62);
-  --color-primary-900: rgb(10 6 41); */
-
   --primary: #166534;
   --color-primary-50:  rgb(243 247 245);
   --color-primary-100: rgb(232 240 235);
@@ -52,17 +41,6 @@
   --color-primary-700: rgb(13 61 31);
   --color-primary-800: rgb(10 45 23);
   --color-primary-900: rgb(7 30 16);
-
-  /* --secondary: #8796b0;
-  --color-secondary-100: rgb(243 245 247);
-  --color-secondary-200: rgb(225 229 235);
-  --color-secondary-300: rgb(207 213 223);
-  --color-secondary-400: rgb(171 182 200);
-  --color-secondary-500: rgb(135 150 176);
-  --color-secondary-600: rgb(122 135 158);
-  --color-secondary-700: rgb(81 90 106);
-  --color-secondary-800: rgb(61 68 79);
-  --color-secondary-900: rgb(41 45 53); */
 
   --secondary: #1a355e;
   --color-secondary-50: rgb(244 245 247);

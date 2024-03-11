@@ -1,0 +1,26 @@
+---
+import { getEntry } from 'astro:content';
+import CommonLayout from '../layouts/CommonLayout.astro';
+import Prose from '../components/Prose.astro';
+import { SITE_TITLE } from '../consts';
+
+const entry = await getEntry('unbalanced', 'index');
+const { Content } = await entry?.render();
+---
+
+<CommonLayout
+  seo={{
+    title: `unbalanced :: ${SITE_TITLE}`,
+    description: `${SITE_TITLE} - unbalanced, a plugin for Unraid`,
+  }}
+>
+  <div class="bg-bg-500 overflow-x-hidden">
+    <div class="mx-auto max-w-screen-xl py-8 px-8 flex flex-col items-center">
+      <div>
+        <Prose class="max-w-[800px]">
+          <Content />
+        </Prose>
+      </div>
+    </div>
+  </div>
+</CommonLayout>

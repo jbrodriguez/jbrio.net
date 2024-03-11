@@ -1,22 +1,21 @@
-# Created by https://www.toptal.com/developers/gitignore/api/hugo
-# Edit at https://www.toptal.com/developers/gitignore?templates=hugo
+# build output
+dist/
+# generated types
+.astro/
 
-### Hugo ###
-# Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
+# dependencies
+node_modules/
 
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Temporary lock file while building
-/.hugo_build.lock
 
-# End of https://www.toptal.com/developers/gitignore/api/hugo
-node_modules
+# environment variables
+.env
+.env.production
 
-static/pagefind
+# macOS-specific files
+.DS_Store

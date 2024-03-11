@@ -1,0 +1,48 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+import { type PartialSEOProps, type SEOProps, defaultSEOProps } from './SEO';
+import Favicons from '~/components/Favicons.astro';
+
+type Props = PartialSEOProps;
+
+const props = Astro.props;
+const seo: SEOProps = { ...defaultSEOProps(Astro), ...props };
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={seo.generator} />
+<link rel="sitemap" href={seo.sitemap} />
+<link rel="alternate" type="application/rss+xml" title={seo.rss.title} href={seo.rss.url} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={seo.canonical} />
+
+<!-- Primary Meta Tags -->
+<title>{seo.title}</title>
+<meta name="title" content={seo.title} />
+<meta name="description" content={seo.description} />
+
+<!-- Favicon -->
+<Favicons />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+<meta property="og:type" content={seo.ogType} />
+<meta property="og:url" content={seo.canonical} />
+<meta property="og:image" content={seo.image} />
+<meta property="og:image:width" content={seo.image_width.toString()} />
+<meta property="og:image:height" content={seo.image_height.toString()} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content={seo.twitter.cardType} />
+<meta property="twitter:image" content={seo.image} />
+<meta property="twitter:title" content={seo.title} />
+<meta property="twitter:description" content={seo.description} />
+<meta property="twitter:url" content={seo.canonical} />
+<meta name="twitter:creator" content={seo.twitter.handle} />

@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+:root[data-theme='light'] {
+  /* Generated with https://tailwindshades.app/ */
+  /* https://huemint.com/brand-intersection/#palette=f7f7f7-22158a-8796b0-48ea5b */
+  /* DEFAULT (LIGHT) */
+  --bg: #f7f7f7;
+  --color-bg-100: rgb(254 254 254);
+  --color-bg-200: rgb(253 253 253);
+  --color-bg-300: rgb(252 252 252);
+  --color-bg-400: rgb(249 249 249);
+  --color-bg-500: rgb(247 247 247);
+  --color-bg-600: rgb(222 222 222);
+  --color-bg-700: rgb(148 148 148);
+  --color-bg-800: rgb(111 111 111);
+  --color-bg-900: rgb(74 74 74);
+
+  --text: #151828;
+  --color-text-50: rgb(251, 251, 251);
+  --color-text-100: rgb(232 232 234);
+  --color-text-200: rgb(197 197 201);
+  --color-text-300: rgb(161 163 169);
+  --color-text-400: rgb(91 93 105);
+  --color-text-500: rgb(21 24 40);
+  --color-text-600: rgb(19 22 36);
+  --color-text-700: rgb(13 14 24);
+  --color-text-800: rgb(9 11 18);
+  --color-text-900: rgb(6 7 12);
+
+  --primary: #166534;
+  --color-primary-50:  rgb(243 247 245);
+  --color-primary-100: rgb(232 240 235);
+  --color-primary-200: rgb(197 217 204);
+  --color-primary-300: rgb(162 193 174);
+  --color-primary-400: rgb(92 147 113);
+  --color-primary-500: rgb(22 101 52);
+  --color-primary-600: rgb(20 91 47);
+  --color-primary-700: rgb(13 61 31);
+  --color-primary-800: rgb(10 45 23);
+  --color-primary-900: rgb(7 30 16);
+
+  --secondary: #1a355e;
+  --color-secondary-50: rgb(244 245 247);
+  --color-secondary-100: rgb(232 235 239);
+  --color-secondary-200: rgb(198 205 215);
+  --color-secondary-300: rgb(163 174 191);
+  --color-secondary-400: rgb(95 114 142);
+  --color-secondary-500: rgb(26 53 94);
+  --color-secondary-600: rgb(23 48 85);
+  --color-secondary-700: rgb(16 32 56);
+  --color-secondary-800: rgb(12 24 42);
+  --color-secondary-900: rgb(8 16 28);  
+
+  --accent: #48ea5b;
+  --color-accent-100: rgb(237 253 239);
+  --color-accent-200: rgb(209 250 214);
+  --color-accent-300: rgb(182 247 189);
+  --color-accent-400: rgb(127 240 140);
+  --color-accent-500: rgb(72 234 91);
+  --color-accent-600: rgb(65 211 82);
+  --color-accent-700: rgb(43 140 55);
+  --color-accent-800: rgb(32 105 41);
+  --color-accent-900: rgb(22 70 27);
+}
+
+:root[data-theme='dark'] {
+  /* Generated with https://tailwindshades.app/ */
+  /* https://huemint.com/brand-intersection/#palette=f7f7f7-22158a-8796b0-48ea5b */
+  /* DEFAULT (DARK) */
+
+  --bg: #08101C;
+  --color-bg-50:  rgb(243 243 244);
+  --color-bg-100: rgb(230 231 232);
+  --color-bg-200: rgb(193 195 198);
+  --color-bg-300: rgb(156 159 164);
+  --color-bg-400: rgb(82 88 96);
+  --color-bg-500: rgb(8 16 28);
+  --color-bg-600: rgb(7 14 25);
+  --color-bg-700: rgb(5 10 17);
+  --color-bg-800: rgb(4 7 13);
+  --color-bg-900: rgb(2 5 8);
+
+
+  --text: #fbfbfb;
+  --color-text-50: rgb(65 65 65);
+  --color-text-900: rgb(255 255 255);
+  --color-text-800: rgb(254 254 254);
+  --color-text-700: rgb(253 253 253);
+  --color-text-600: rgb(252 252 252);
+  --color-text-500: rgb(251 251 251);
+  --color-text-400: rgb(226 226 226);
+  --color-text-300: rgb(151 151 151);
+  --color-text-200: rgb(113 113 113);
+  --color-text-100: rgb(75 75 75);
+
+  --primary: #15803d;
+  --color-primary-50:  rgb(243 249 245);
+  --color-primary-100: rgb(232 242 236);
+  --color-primary-200: rgb(197 223 207);
+  --color-primary-300: rgb(161 204 177);
+  --color-primary-400: rgb(91 166 119);
+  --color-primary-500: rgb(21 128 61);
+  --color-primary-600: rgb(19 115 55);
+  --color-primary-700: rgb(13 77 37);
+  --color-primary-800: rgb(9 58 27);
+  --color-primary-900: rgb(6 38 18);
+
+  --secondary: #1a355e;
+  --color-secondary-50: rgb(244 245 247);
+  --color-secondary-100: rgb(232 235 239);
+  --color-secondary-200: rgb(198 205 215);
+  --color-secondary-300: rgb(163 174 191);
+  --color-secondary-400: rgb(95 114 142);
+  --color-secondary-500: rgb(26 53 94);
+  --color-secondary-600: rgb(23 48 85);
+  --color-secondary-700: rgb(16 32 56);
+  --color-secondary-800: rgb(12 24 42);
+  --color-secondary-900: rgb(8 16 28);  
+
+
+  --accent: #4D7C0F;
+  --color-accent-50:  rgb(246 248 243);
+  --color-accent-100: rgb(237 242 231);
+  --color-accent-200: rgb(211 222 195);
+  --color-accent-300: rgb(184 203 159);
+  --color-accent-400: rgb(130 163 87);
+  --color-accent-500: rgb(77 124 15);
+  --color-accent-600: rgb(69 112 14);
+  --color-accent-700: rgb(46 74 9);
+  --color-accent-800: rgb(35 56 7);
+  --color-accent-900: rgb(23 37 5);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: var(--color-bg-500);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+div,
+article,
+section,
+header,
+footer,
+nav,
+main,
+aside,
+a {
+  transition-property: color, background-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 150ms;
+  text-decoration: none;
+}
+
+@layer components {
+  .link {
+    @apply underline underline-offset-4 decoration-text-100 text-primary-700 hover:text-primary-500 hover:decoration-primary-500;
+  }
+}

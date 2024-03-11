@@ -38,6 +38,10 @@ npm run build
 
 The static website will be available in the `./dist` folder.
 
+### Misc
+
+Meta holds the metadata for the site, including the logo art
+
 ## License
 
 Licensed under [MIT License](LICENSE). © Juan B. Rodriguez.

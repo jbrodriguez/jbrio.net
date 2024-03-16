@@ -18,5 +18,5 @@ if (!existsSync(folderPath)) {
 // Write the markdown file
 writeFileSync(
   `${folderPath}/index.md`,
-  `---\ntitle: '${title}'\ndate: ${today.toISOString()}\ncover: ./${cover}\ncaption: '${caption}'\nstatus: ${status}\ndescription: ''\n---`
+  `---\ntitle: "${title}"\ndate: ${today.toISOString()}\ncover: ./${cover}\ncaption: "${caption}"\nstatus: ${status}\ndescription: ""\n---`
 );

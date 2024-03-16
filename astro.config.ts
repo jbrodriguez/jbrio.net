@@ -17,6 +17,11 @@ export default defineConfig({
     compress({
       Image: false,
       SVG: false,
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false,
+        },
+      },
     }),
     // critters(),
   ],

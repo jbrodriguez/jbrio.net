@@ -23,7 +23,7 @@ const { post, isBig } = Astro.props;
     formats={['webp', 'avif', 'jpeg']}
     width={400}
     height={224}
-    alt={`Cover picture for a blog post titled ${post.data.title}`}
+    alt={`${post.data.title}`}
     src={post.data.cover || DefaultHeaderImage}
     class="h-56 w-full object-cover transition"
   />

@@ -7,6 +7,10 @@ import BlogCard from '../components/BlogCard.astro';
 import Button from '../components/Button.astro';
 import TagsList from '../components/TagsList.astro';
 import Prose from '../components/Prose.astro';
+import ProjectCard from '~/components/ProjectCard.astro';
+import controlr from '~/assets/controlr.png';
+import unbalanced from '~/assets/unbalanced.png';
+import rnnetops from '~/assets/rnnetops.png';
 
 const PAGE_SIZE = 10;
 const posts = (await getCollection('posts')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -54,6 +58,44 @@ const props = {
         </p>
         <p> Welcome to my site, where I post about tech, software, books and other random stuff.</p>
       </Prose>
+    </div>
+  </div>
+
+  <div class="bg-bg-500 relative z-40">
+    <div class="mx-auto max-w-screen-xl pb-16 px-8">
+      <h2 class="text-3xl text-text-500 text-center mb-4">Some of my projects</h2>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <ProjectCard
+          href="https://www.apertoire.com/controlr"
+          title="ControlR for Unraid"
+          image={controlr}
+          imageAlt="ControlR"
+        >
+          The <strong>ControlR</strong> app, the best way to manage your <strong>Unraid</strong> server. Built with <strong
+            >React Native</strong
+          >.
+        </ProjectCard>
+
+        <ProjectCard
+          href="https://github.com/jbrodriguez/unbalance/"
+          title="unbalanced"
+          image={unbalanced}
+          imageAlt="unbalanced"
+        >
+          An <strong>Unraid</strong> plugin to transfer files/folders between disks in your array. Built with <strong
+            >Go</strong
+          >, <strong>React</strong> and <strong>shadcn/ui & Tailwind</strong>.
+        </ProjectCard>
+
+        <ProjectCard
+          href="https://github.com/jbrodriguez/rn-netops/"
+          title="rn-netops"
+          image={rnnetops}
+          imageAlt="rn-netops"
+        >
+          A library of native network operations for <strong>React Native</strong>.
+        </ProjectCard>
+      </div>
     </div>
   </div>
 

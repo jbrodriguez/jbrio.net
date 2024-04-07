@@ -1,5 +1,5 @@
 ---
-title: "unbalanced"
+title: 'unbalanced'
 author: Juan B. Rodriguez
 date: 2024-01-10T09:05:43-05:00
 ---
@@ -25,6 +25,4 @@ Sponsor development of this plugin via:
 
 ## Bitcoin
 
-![QR](./qr.png)
-
-18kSr7ebjaXbnrPMKmLQWeqcezaZVUmo4T
+bc1qj2d8jq2edf9hya7janxfjr5x22dsqly9yq86vg

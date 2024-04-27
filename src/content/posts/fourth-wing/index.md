@@ -3,7 +3,7 @@ title: 'The Fourth Wing, Rebecca Yarros (2023)'
 date: 2024-04-25T16:17:17.356Z
 cover: ./fourth-wing-feature.jpg
 caption: 'fourth wing'
-status: draft
+status: published
 description: 'The book is the first installment in the Empyrean series'
 tags:
   - books

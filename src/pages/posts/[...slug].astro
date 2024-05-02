@@ -136,7 +136,7 @@ const { Content } = await post.render();
                 <dd class="font-normal text-text-400 text-lg">
                   <div>
                     <time title={post.data.date.toISOString()} datetime={post.data.date.toISOString()}>
-                      {format(post.data.date, 'yyyy-MM-dd HH:mm')}
+                      {format(new Date(post.data.date), 'yyyy-MM-dd HH:mm')}
                     </time>
                   </div>
                   {
@@ -148,7 +148,7 @@ const { Content } = await post.render();
                           datetime={post.data.updated.toISOString()}
                           class="text-text-300"
                         >
-                          {format(post.data.updated, 'yyyy-MM-dd HH:mm')}
+                          {format(new Date(post.data.updated), 'yyyy-MM-dd HH:mm')}
                         </time>
                       </>
                     )

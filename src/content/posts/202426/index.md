@@ -16,6 +16,9 @@ tags:
   - pubsub
 ---
 
+[Component, colocation, composition: A note on the state of React](https://bobaekang.com/blog/component-colocation-composition)
+>  Solid, the poster child for Signals, mostly bypasses the two-tree problem by treating UI output as a by-product. The truth lives in the Signals (state/data) graph ...
+
 [Moodist](https://moodist.app/?ref=labnotes.org)
 > Ambient Sounds for Focus and Calm
 
@@ -30,9 +33,6 @@ tags:
 
 [Editing Like Magic With Vim Operators | Barbarian Meets Coding](https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/)
 > Motions aren’t just for moving. They can be used in combination with a series of commands called **operators** to edit your code at the speed of lightning.
-
-[Component, colocation, composition: A note on the state of React](https://bobaekang.com/blog/component-colocation-composition)
->  Solid, the poster child for Signals, mostly bypasses the two-tree problem by treating UI output as a by-product. The truth lives in the Signals (state/data) graph ...
 
 [Introduction | rn-primitives](https://rn-primitives.vercel.app/)
 > Unstyled universal components with a focus on accessibility. They offer a unified API across iOS, Android, and web platforms

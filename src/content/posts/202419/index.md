@@ -8,7 +8,7 @@ description: 'some people'
 tags:
   - notes
   - passkeys
-  - fonts
+  - font
   - llm
   - databases
   - kubernetes

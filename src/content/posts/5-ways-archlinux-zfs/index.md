@@ -2,7 +2,7 @@
 title: '5 ways to update zfs on archlinux'
 date: 2024-07-27T13:31:46.612Z
 cover: ./5-ways-archlinux-zfs-feature.jpg
-caption: 'got it © midjourney'
+caption: 'got it © unsplash'
 status: published
 description: 'back where you belong'
 tags:

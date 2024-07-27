@@ -170,7 +170,7 @@ USER build
 # Clone the repository, update PKGBUILD, and build package
 CMD git clone https://aur.archlinux.org/zfs-linux-lts.git . && \
     /usr/local/bin/update_pkgbuild.sh && \
-    makepkg --syncdeps --clean --rmdeps --noconfirm``Dockerfile
+    makepkg --syncdeps --clean --rmdeps --noconfirm
 ```
 
 and this is the update_pkgbuild.sh script

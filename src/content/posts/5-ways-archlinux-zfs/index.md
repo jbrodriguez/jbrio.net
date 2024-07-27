@@ -207,3 +207,7 @@ the main driver for this article are these 2 github issues
 
 - [why are you providing zfs 2.2.4 for kernel 6.9.x? · Issue #538 · archzfs/archzfs](https://github.com/archzfs/archzfs/issues/538)
 - [ci.archzfs.com down · Issue #540 · archzfs/archzfs](https://github.com/archzfs/archzfs/issues/540)
+
+### comment about the article here
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">i found myself unable to upgrade my archlinux system due to zfs falling behind newer kernels<br><br>so i started digging and found<br><br>5 ways to update zfs on archlinux</p>&mdash; Juan B. Rodriguez (@jbrodriguezio) <a href="https://twitter.com/jbrodriguezio/status/1817223624442413252?ref_src=twsrc%5Etfw">July 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

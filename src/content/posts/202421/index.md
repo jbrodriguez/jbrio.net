@@ -5,6 +5,7 @@ cover: ./202421-feature.jpg
 caption: 'under construction © Juan B. Rodriguez'
 status: draft
 description: 'real gone kid'
+pixelfed: '699981908089815108'
 tags:
   - notes
   - apple

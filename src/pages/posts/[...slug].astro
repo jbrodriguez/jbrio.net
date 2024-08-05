@@ -61,7 +61,10 @@ const { Content } = await post.render();
             src={post.data.cover}
             alt=""
           />
-          <span class="font-normal text-text-300 text-lg ml-2">{post.data.caption}</span>
+          <div class="flex flex-1 justify-between">
+            <span class="font-normal text-text-300 text-lg ml-2">{post.data.caption}</span>
+            {post.data.pixelfed && (<a href=`https://pixelfed.social/p/jbrodriguez/${post.data.pixelfed}` class="text-lg text-green-700 mr-2" target="_blank" rel="noopener">show in pixelfed.social</a>)}
+          </div>
         </div>
       )
     }

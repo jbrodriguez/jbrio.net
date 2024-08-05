@@ -5,6 +5,7 @@ cover: ./202429-feature.jpg
 caption: 'pool blues © Juan B. Rodriguez'
 status: published
 description: 'magic'
+pixelfed: '720261764495960273'
 tags:
   - notes
   - programming
@@ -26,4 +27,3 @@ tags:
 [How I build simple Mac apps using Go - DEV Community](https://dev.to/progrium/how-i-build-simple-mac-apps-using-go-104j)
 
 > I started [DarwinKit](https://github.com/progrium/darwinkit) a few years ago because there were no bindings to native Mac APIs for Go
-

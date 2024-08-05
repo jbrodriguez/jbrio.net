@@ -5,6 +5,7 @@ cover: ./202417-feature.jpg
 caption: 'low tide approach © Juan B. Rodriguez'
 status: draft
 description: 'moon river'
+pixelfed: '689832246058389139'
 tags:
   - notes
   - voyager

@@ -5,6 +5,7 @@ cover: ./202428-feature.jpg
 caption: 'splashdown © Juan B. Rodriguez'
 status: draft
 description: 'you belong to the city'
+pixelfed: '717731030418081937'
 tags:
   - notes
   - font
@@ -30,9 +31,8 @@ tags:
 
 [Reverse Engineering TicketMaster's Rotating Barcodes (SafeTix)](https://conduition.io/coding/ticketmaster/)
 
-> *“Screenshots won’t get you in”, but Chrome DevTools will.*
+> _“Screenshots won’t get you in”, but Chrome DevTools will._
 
 [Iconography of the X Window System: The Boot Stipple | matttproud.com (blog)](https://matttproud.com/blog/posts/x-window-system-boot-stipple.html)
 
 > Well, no. You are looking at (part of) the boot up screen for the [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
-

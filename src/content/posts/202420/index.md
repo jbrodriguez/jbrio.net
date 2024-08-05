@@ -5,6 +5,7 @@ cover: ./202420-feature.jpg
 caption: 'doors to nowhere © Juan B. Rodriguez'
 status: published
 description: 'everyday is like sunday'
+pixelfed: '697437419923486965'
 tags:
   - notes
   - editor

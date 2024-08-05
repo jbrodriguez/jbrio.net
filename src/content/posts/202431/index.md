@@ -5,6 +5,7 @@ cover: ./202431-feature.jpg
 caption: "by the dawn's early lights © Juan B. Rodriguez"
 status: draft
 description: 'back to black'
+pixelfed: '725410226339065270'
 tags:
   - notes
   - font
@@ -46,4 +47,3 @@ tags:
 [Please Stop Using Barrel Files | TkDodo's blog](https://tkdodo.eu/blog/please-stop-using-barrel-files)
 
 > How to organize your files "correctly" is a hot, controversial topic among frontend developers. [Move files around until it feels right](https://react-file-structure.surge.sh/) is a common meme
-

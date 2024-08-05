@@ -5,6 +5,7 @@ cover: ./202419-feature.jpg
 caption: 'witnesses © Juan B. Rodriguez'
 status: published
 description: 'some people'
+pixelfed: '694901320510573087'
 tags:
   - notes
   - passkeys

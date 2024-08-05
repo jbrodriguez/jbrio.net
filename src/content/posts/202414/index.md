@@ -5,6 +5,7 @@ cover: ./202414-feature.jpg
 caption: 'peaceful morning © Juan B. Rodriguez'
 status: published
 description: 'finale - ennio'
+pixelfed: '683302031436964252'
 tags:
   - notes
   - open-source

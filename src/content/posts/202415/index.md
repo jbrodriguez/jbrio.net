@@ -5,6 +5,7 @@ cover: ./202415-feature.jpg
 caption: 'winter rays © Juan B. Rodriguez'
 status: published
 description: 'forever young'
+pixelfed: '684754144606194734'
 tags:
   - notes
   - self-host

@@ -5,6 +5,7 @@ cover: ./202430-feature.jpg
 caption: 'serious ramifications © Juan B. Rodriguez'
 status: published
 description: 'villa strangiato'
+pixelfed: '722801605920762842'
 tags:
   - notes
   - passkeys

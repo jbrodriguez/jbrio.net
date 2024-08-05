@@ -13,6 +13,7 @@ const posts = defineCollection({
       cover: image().optional(),
       caption: z.string().optional().nullable(),
       status: z.enum(['published', 'draft']),
+      pixelfed: z.string().optional().nullable(),
       tags: z.array(z.string()),
     }),
 });

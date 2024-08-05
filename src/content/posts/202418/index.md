@@ -5,6 +5,7 @@ cover: ./202418-feature.jpg
 caption: 'sandy beaches © Juan B. Rodriguez'
 status: published
 description: 'finale'
+pixelfed: '692392982499634417'
 tags:
   - notes
   - sora

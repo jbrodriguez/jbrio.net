@@ -54,7 +54,9 @@ i did this on a fresh archlinux install and it worked like a charm
 
 i have to thank hoban, since [his instructions](https://aur.archlinux.org/packages/zfs-linux-lts#comment-948394) were the base for getting this done
 
-as a shortcuts, here are the steps:
+**`UPDATE 2024-08-07`**: i created a [github repo with the Dockerfile and script](https://github.com/jbrodriguez/arch-zfs-docker), with a simplified build process
+
+as a shortcut, here are the steps:
 
 ```bash
 ❯ git clone https://aur.archlinux.org/zfs-linux-lts.git

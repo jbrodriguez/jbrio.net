@@ -12,6 +12,9 @@ tags:
 
 ## introduction
 
+`tl;dr`
+check out this repo [jbrodriguez/arch-zfs-docker: docker to build zfs-linux-lts & zfs-utils](https://github.com/jbrodriguez/arch-zfs-docker)
+
 i have an [archlinux](https://archlinux.org/) server that i use for general purposes ([photoview](https://photoview.github.io/) is one of them), with [zfs](https://openzfs.org/wiki/Main_Page) based storage (i have discussed zfs previously [here](/posts/storage-wars) and [here](/posts/oh-solaris-mio))
 
 i generally update archlinux once a month, but since zfs is not built-in into the kernel, there are times when zfs gets behind newer kernels
@@ -53,8 +56,6 @@ so you can build zfs-linux-lts on your own, by installing the appropriate packag
 i did this on a fresh archlinux install and it worked like a charm
 
 i have to thank hoban, since [his instructions](https://aur.archlinux.org/packages/zfs-linux-lts#comment-948394) were the base for getting this done
-
-**`UPDATE 2024-08-07`**: i created a [github repo with the Dockerfile and script](https://github.com/jbrodriguez/arch-zfs-docker), with a simplified build process
 
 as a shortcut, here are the steps:
 
@@ -134,6 +135,8 @@ makechrootpkg -c -u -r ~/chroot/root
 "it's the eyes, chico" ... i mean, it's the dockers, it's always been the dockers :)
 
 i can finally rest
+
+**`UPDATE 2024-08-07`**: i created a [github repo with the Dockerfile and script](https://github.com/jbrodriguez/arch-zfs-docker), with a simplified build process
 
 i just created a Dockerfile from archlinux:base-devel, added some packages (no archroot needed), to create a fresh zfs-linux-lts, based on the corresponding linux-lts, all in a very automated way
 

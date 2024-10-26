@@ -14,7 +14,7 @@ tags:
   - feature-flags
 ---
 
-[KenneyNL/Adobe-Alternatives)
+[KenneyNL/Adobe-Alternatives](https://github.com/KenneyNL/Adobe-Alternatives)
 
 > A list of alternatives for Adobe software
 
@@ -37,4 +37,3 @@ tags:
 [Rabbit Waves](https://rabbitwaves.ca/site/flags_maritime.html)
 
 > The international code of signals is a system of signals designed to communicate important safety and navigational messages ...
-

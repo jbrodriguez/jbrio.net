@@ -10,24 +10,36 @@ export async function GET(context) {
   const posts = (await getCollection('posts')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    // `<title>` field in output xml
     title: SITE_TITLE,
-    // `<description>` field in output xml
     description: `Recent content in Posts on ${SITE_TITLE}`,
-    // Pull in your project "site" from the endpoint context
-    // https://docs.astro.build/en/reference/api-reference/#contextsite
-    site: context.site,
-    // Array of `<item>`s in output xml
-    // See "Generating items" section for examples using content collections and glob imports
-    items: posts.map((post) => ({
-      title: post.data.title,
-      link: `${SITE_URL}/posts/${post.slug}`,
-      pubDate: `${post.data.date.toUTCString()}`,
-      description: `${post.data.description}`,
-      // content: `<![CDATA[${sanitizeHtml(parser.render(post.body))}]]>`,
-      content: sanitizeHtml(parser.render(post.body)),
-    })),
-    // (optional) inject custom xml
-    customData: `<language>en-us</language>`,
+
+    site: context.site + '/posts',
+
+    items: posts.map((post) => {
+      // <img src="https://jbrio.net/_astro/202446-feature.BwehCxkn_24KVkT.webp" alt="202446 feature image" width="1312" height="512" loading="lazy" decoding="async">
+      const img = post.data.cover
+        ? `<img src="${SITE_URL}${post.data.cover.src}" alt="${post.data.title} feature image" width="${post.data.cover.width}" height="${post.data.cover.height} loading="lazy" decoding="async" />`
+        : '';
+      const content =
+        sanitizeHtml(img, { allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']) }) +
+        sanitizeHtml(parser.render(post.body), { allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']) });
+
+      return {
+        title: post.data.title,
+        link: `${SITE_URL}/posts/${post.slug}/`,
+        pubDate: `${post.data.date.toUTCString()}`,
+        description: `${post.data.description}`,
+        //   customData: `<media:content
+        //     type="image/${post.data.cover?.format == 'jpg' ? 'jpeg' : 'png'}"
+        //     width="${post.data.cover?.width}"
+        //     height="${post.data.cover?.height}"
+        //     medium="image"
+        //     url="${context.site + post.data.cover?.src}" />
+        // `,
+        content,
+      };
+    }),
+    customData: `<language>en-us</language>
+<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
   });
 }

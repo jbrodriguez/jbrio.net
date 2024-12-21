@@ -1,11 +1,11 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import CommonLayout from '../layouts/CommonLayout.astro';
 import Prose from '../components/Prose.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const entry = await getEntry('about', 'index');
-const { Content } = await entry?.render();
+const { Content } = await render(entry);
 ---
 
 <CommonLayout

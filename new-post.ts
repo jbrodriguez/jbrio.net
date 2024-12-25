@@ -8,7 +8,7 @@ const cover = `${folderName}-feature.jpg`;
 const caption = ' © Juan B. Rodriguez';
 const status = 'draft';
 
-const folderPath = join('./src/content/posts', folderName);
+const folderPath = join('./src/data/posts', folderName);
 
 // Create the folder if it doesn't exist
 if (!existsSync(folderPath)) {

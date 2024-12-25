@@ -13,7 +13,7 @@ const { post, isBig } = Astro.props;
 ---
 
 <a
-  href={`/posts/${post.slug}`}
+  href={`/posts/${post.id}`}
   title={post.data.title}
   class={`flex flex-col overflow-hidden rounded-lg transition-all shadow-md hover:shadow-lg hover:outline outline-4 outline-primary-500 ${
     isBig ? 'col-span-1 md:col-span-2' : ''

@@ -26,7 +26,7 @@ export async function GET(context) {
 
       return {
         title: post.data.title,
-        link: `${SITE_URL}/posts/${post.slug}/`,
+        link: `${SITE_URL}/posts/${post.id}/`,
         pubDate: `${post.data.date.toUTCString()}`,
         description: `${post.data.description}`,
         //   customData: `<media:content

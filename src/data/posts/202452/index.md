@@ -8,6 +8,8 @@ description: 'merry christmas, happy new year !!!'
 pixelfed: '778604385693588477'
 tags:
   - notes
+  - telephony
+  - video
 ---
 
 [Character-based alignment](https://cssence.com/2024/text-align-decimal/)
@@ -21,4 +23,3 @@ tags:
 [Online video Resizer - Remotion Convert](https://www.remotion.dev/resize)
 
 > Fast video resizing in the browser
-

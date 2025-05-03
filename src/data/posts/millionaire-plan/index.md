@@ -1,5 +1,5 @@
 ---
-title: 'Notes millionaire-plan'
+title: 'The Millionaire Master Plan, Roger Hamilton (2014)'
 date: 2025-05-03T13:07:35.189Z
 cover: ./millionaire-plan-feature.jpg
 caption: 'millionaire plan © Juan B. Rodriguez'
@@ -22,4 +22,3 @@ I also liked how it debunked some "well know paths to success", such as passive 
 ### Excerpt
 
 “You can be on the field, passing and ready to kick the ball. But if there are no team players on the field with you, you will be waiting a long time for that ball to come back. Connections are about knowing that flow grows the more you are connected to others playing the same game as you the right way.”
-

@@ -4,7 +4,7 @@ date: 2025-06-06T20:08:34.437Z
 cover: ./202523-feature.jpg
 caption: 'unusual f1 © Juan B. Rodriguez'
 status: published
-description: ''
+description: 'a chair with no welding'
 pixelfed: '836695199410542819'
 tags:
   - notes

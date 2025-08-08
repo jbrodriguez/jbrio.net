@@ -31,7 +31,7 @@
   --color-text-900: rgb(6 7 12);
 
   --primary: #166534;
-  --color-primary-50:  rgb(243 247 245);
+  --color-primary-50: rgb(243 247 245);
   --color-primary-100: rgb(232 240 235);
   --color-primary-200: rgb(197 217 204);
   --color-primary-300: rgb(162 193 174);
@@ -52,7 +52,7 @@
   --color-secondary-600: rgb(23 48 85);
   --color-secondary-700: rgb(16 32 56);
   --color-secondary-800: rgb(12 24 42);
-  --color-secondary-900: rgb(8 16 28);  
+  --color-secondary-900: rgb(8 16 28);
 
   --accent: #48ea5b;
   --color-accent-100: rgb(237 253 239);
@@ -71,8 +71,8 @@
   /* https://huemint.com/brand-intersection/#palette=f7f7f7-22158a-8796b0-48ea5b */
   /* DEFAULT (DARK) */
 
-  --bg: #08101C;
-  --color-bg-50:  rgb(243 243 244);
+  --bg: #08101c;
+  --color-bg-50: rgb(243 243 244);
   --color-bg-100: rgb(230 231 232);
   --color-bg-200: rgb(193 195 198);
   --color-bg-300: rgb(156 159 164);
@@ -82,7 +82,6 @@
   --color-bg-700: rgb(5 10 17);
   --color-bg-800: rgb(4 7 13);
   --color-bg-900: rgb(2 5 8);
-
 
   --text: #fbfbfb;
   --color-text-50: rgb(65 65 65);
@@ -97,7 +96,7 @@
   --color-text-100: rgb(75 75 75);
 
   --primary: #15803d;
-  --color-primary-50:  rgb(243 249 245);
+  --color-primary-50: rgb(243 249 245);
   --color-primary-100: rgb(232 242 236);
   --color-primary-200: rgb(197 223 207);
   --color-primary-300: rgb(161 204 177);
@@ -118,11 +117,10 @@
   --color-secondary-600: rgb(23 48 85);
   --color-secondary-700: rgb(16 32 56);
   --color-secondary-800: rgb(12 24 42);
-  --color-secondary-900: rgb(8 16 28);  
+  --color-secondary-900: rgb(8 16 28);
 
-
-  --accent: #4D7C0F;
-  --color-accent-50:  rgb(246 248 243);
+  --accent: #4d7c0f;
+  --color-accent-50: rgb(246 248 243);
   --color-accent-100: rgb(237 242 231);
   --color-accent-200: rgb(211 222 195);
   --color-accent-300: rgb(184 203 159);
@@ -163,5 +161,16 @@ a {
 @layer components {
   .link {
     @apply underline underline-offset-4 decoration-text-100 text-primary-700 hover:text-primary-500 hover:decoration-primary-500;
+  }
+
+  /* Ensure prose links have proper styling with higher specificity */
+  .prose a {
+    color: var(--color-primary-500) !important;
+    text-decoration-color: var(--color-primary-500) !important;
+  }
+
+  .prose a:hover {
+    color: var(--color-primary-500) !important;
+    text-decoration-color: var(--color-primary-500) !important;
   }
 }

@@ -162,15 +162,4 @@ a {
   .link {
     @apply underline underline-offset-4 decoration-text-100 text-primary-700 hover:text-primary-500 hover:decoration-primary-500;
   }
-
-  /* Ensure prose links have proper styling with higher specificity */
-  .prose a {
-    color: var(--color-primary-500) !important;
-    text-decoration-color: var(--color-primary-500) !important;
-  }
-
-  .prose a:hover {
-    color: var(--color-primary-500) !important;
-    text-decoration-color: var(--color-primary-500) !important;
-  }
 }

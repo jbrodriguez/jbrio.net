@@ -16,7 +16,7 @@
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
-    "@fontsource-variable/inter": "^5.0.17",
+    "@fontsource/atkinson-hyperlegible": "^5.2.6",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^5.1.1",
     "astro-compress": "^2.2.8",

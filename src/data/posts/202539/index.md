@@ -9,7 +9,7 @@ pixelfed: '877272783612642068'
 tags:
   - notes
   - maps
-  - ux/ui
+  - ux-ui
   - security
   - llm
   - mergefs

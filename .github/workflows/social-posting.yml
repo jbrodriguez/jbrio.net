@@ -1,0 +1,49 @@
+name: Social Media Auto-Post
+
+on:
+  push:
+    branches: [ main, feat/social-posting ]  # Remove 'feat/social-posting' after testing
+    paths:
+      - 'src/data/posts/**/*.md'
+
+jobs:
+  post-to-social:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Detect new posts
+      id: changes
+      run: |
+        # Get list of newly added markdown files in posts directory (not modified)
+        NEW_FILES=$(git diff --name-status HEAD~1 HEAD -- 'src/data/posts/**/*.md' | grep "^A" | cut -f2 || echo "")
+        echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
+        echo "New files: $NEW_FILES"
+
+    - name: Post to social media
+      if: steps.changes.outputs.new_files != ''
+      env:
+        BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+        BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+        MASTODON_INSTANCE_URL: ${{ secrets.MASTODON_INSTANCE_URL }}
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        SITE_URL: "https://jbrio.net"
+      run: |
+        node scripts/post-to-social.js "${{ steps.changes.outputs.new_files }}"

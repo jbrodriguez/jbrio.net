@@ -60,7 +60,7 @@ function formatPostContent(frontmatter, postUrl, platform) {
     }
   }
 
-  const hashTags = selectedTags.length > 0 ? ' ' + selectedTags.map((t) => `#${t}`).join(' ') : '';
+  const hashTags = selectedTags.length > 0 ? '\n' + selectedTags.map((t) => `#${t}`).join(' ') : '';
   const finalContent = `${description}\n\n${postUrl}${hashTags}`;
 
   // Truncate if still too long

@@ -6,6 +6,7 @@ import { MastodonApi } from './utils/social-apis.js';
 import { TwitterApi } from './utils/social-apis.js';
 
 const SITE_URL = process.env.SITE_URL || 'https://jbrio.net';
+const DEPLOYMENT_DELAY_MS = parseInt(process.env.DEPLOYMENT_DELAY_MS || '120000', 10);
 
 function parseMarkdownFrontmatter(filePath) {
   try {
@@ -48,7 +49,7 @@ function formatPostContent(frontmatter, postUrl, platform) {
   // Select tags that fit within limit
   let selectedTags = [];
   let baseContent = `${description}\n\n${postUrl}`;
-  let remainingChars = limit - baseContent.length;
+  let remainingChars = limit - baseContent.length - 1; // Extra space for blank line
 
   for (const tag of tags) {
     const tagText = ` #${tag}`;
@@ -60,8 +61,8 @@ function formatPostContent(frontmatter, postUrl, platform) {
     }
   }
 
-  const hashTags = selectedTags.length > 0 ? '\n' + selectedTags.map((t) => `#${t}`).join(' ') : '';
-  const finalContent = `${description}\n\n${postUrl}${hashTags}`;
+  const hashTags = selectedTags.length > 0 ? selectedTags.map((t) => `#${t}`).join(' ') : '';
+  const finalContent = hashTags ? `${description}\n\n${hashTags}\n\n${postUrl}` : `${description}\n\n${postUrl}`;
 
   // Truncate if still too long
   if (finalContent.length > limit) {
@@ -140,6 +141,14 @@ async function postToSocialMedia(frontmatter, postUrl) {
   return results;
 }
 
+async function waitForDeployment(delayMs) {
+  if (delayMs > 0) {
+    console.log(`\n⏳ Waiting ${delayMs / 1000} seconds for deployment to complete...`);
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+    console.log('✅ Deployment wait completed\n');
+  }
+}
+
 async function main() {
   const newFiles = process.argv[2];
 
@@ -150,6 +159,9 @@ async function main() {
 
   const files = newFiles.split('\n').filter((f) => f.trim());
   console.log('Processing new files:', files);
+
+  // Wait for deployment to complete before posting
+  await waitForDeployment(DEPLOYMENT_DELAY_MS);
 
   for (const filePath of files) {
     if (!filePath.endsWith('.md') || !filePath.includes('/posts/')) {

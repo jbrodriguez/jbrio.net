@@ -31,10 +31,69 @@ export class BskyApi {
     await this.authenticate();
 
     try {
-      const response = await this.agent.post({
+      // Detect URLs in the text for facets (clickable links) and embeds (cards)
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      const urls = [...text.matchAll(urlRegex)];
+
+      const facets = [];
+      let embedUrl = null;
+
+      // Create facets for each URL to make them clickable
+      for (const match of urls) {
+        const url = match[0];
+        const start = match.index;
+        const end = start + url.length;
+
+        // Store first URL for embed card
+        if (!embedUrl) {
+          embedUrl = url;
+        }
+
+        facets.push({
+          index: {
+            byteStart: new TextEncoder().encode(text.slice(0, start)).length,
+            byteEnd: new TextEncoder().encode(text.slice(0, end)).length,
+          },
+          features: [
+            {
+              $type: 'app.bsky.richtext.facet#link',
+              uri: url,
+            },
+          ],
+        });
+      }
+
+      const postData = {
         text: text,
-        createdAt: new Date().toISOString()
-      });
+        createdAt: new Date().toISOString(),
+      };
+
+      // Add facets if we found URLs
+      if (facets.length > 0) {
+        postData.facets = facets;
+      }
+
+      // Add embed card for the first URL
+      if (embedUrl) {
+        try {
+          // Fetch link metadata using Bluesky's API
+          const { data } = await this.agent.api.app.bsky.embed.external.getExternal({
+            uri: embedUrl,
+          });
+
+          if (data) {
+            postData.embed = {
+              $type: 'app.bsky.embed.external',
+              external: data.external,
+            };
+          }
+        } catch (embedError) {
+          // If embed fetch fails, still post without the card
+          console.warn(`Failed to fetch embed data for ${embedUrl}:`, embedError.message);
+        }
+      }
+
+      const response = await this.agent.post(postData);
       return response;
     } catch (error) {
       throw new Error(`BlueSky post failed: ${error.message}`);

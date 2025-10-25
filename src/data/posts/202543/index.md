@@ -3,7 +3,7 @@ title: 'Notes 202543'
 date: 2025-10-25T15:05:39.846Z
 cover: ./202543-feature.jpg
 caption: 'brisk walk window shopping © Juan B. Rodriguez'
-status: draft
+status: published
 description: 'agentic engineering is coming of age'
 pixelfed: ''
 tags:

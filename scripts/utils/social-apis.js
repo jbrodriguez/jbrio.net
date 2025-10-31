@@ -27,6 +27,60 @@ export class BskyApi {
     }
   }
 
+  async fetchUrlMetadata(url) {
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0; +https://bsky.app)',
+        },
+        timeout: 10000,
+      });
+
+      const html = response.data;
+
+      // Extract Open Graph metadata
+      const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/i) ||
+                        html.match(/<title>([^<]+)<\/title>/i);
+      const descMatch = html.match(/<meta property="og:description" content="([^"]+)"/i) ||
+                       html.match(/<meta name="description" content="([^"]+)"/i);
+      const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/i);
+
+      const title = titleMatch ? titleMatch[1] : '';
+      const description = descMatch ? descMatch[1] : '';
+      const imageUrl = imageMatch ? imageMatch[1] : '';
+
+      return { title, description, imageUrl };
+    } catch (error) {
+      console.warn(`Failed to fetch metadata for ${url}:`, error.message);
+      return null;
+    }
+  }
+
+  async uploadImageFromUrl(imageUrl) {
+    try {
+      // Fetch the image
+      const response = await axios.get(imageUrl, {
+        responseType: 'arraybuffer',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0; +https://bsky.app)',
+        },
+        timeout: 10000,
+      });
+
+      const imageBuffer = Buffer.from(response.data);
+
+      // Upload to Bluesky
+      const uploadResponse = await this.agent.uploadBlob(imageBuffer, {
+        encoding: response.headers['content-type'] || 'image/jpeg',
+      });
+
+      return uploadResponse.data.blob;
+    } catch (error) {
+      console.warn(`Failed to upload image from ${imageUrl}:`, error.message);
+      return null;
+    }
+  }
+
   async post(text) {
     await this.authenticate();
 
@@ -76,20 +130,32 @@ export class BskyApi {
       // Add embed card for the first URL
       if (embedUrl) {
         try {
-          // Fetch link metadata using Bluesky's API
-          const { data } = await this.agent.api.app.bsky.embed.external.getExternal({
-            uri: embedUrl,
-          });
+          // Fetch link metadata
+          const metadata = await this.fetchUrlMetadata(embedUrl);
 
-          if (data) {
+          if (metadata && metadata.title) {
+            const external = {
+              uri: embedUrl,
+              title: metadata.title,
+              description: metadata.description || '',
+            };
+
+            // Upload the thumbnail image if available
+            if (metadata.imageUrl) {
+              const blob = await this.uploadImageFromUrl(metadata.imageUrl);
+              if (blob) {
+                external.thumb = blob;
+              }
+            }
+
             postData.embed = {
               $type: 'app.bsky.embed.external',
-              external: data.external,
+              external: external,
             };
           }
         } catch (embedError) {
           // If embed fetch fails, still post without the card
-          console.warn(`Failed to fetch embed data for ${embedUrl}:`, embedError.message);
+          console.warn(`Failed to create embed for ${embedUrl}:`, embedError.message);
         }
       }
 

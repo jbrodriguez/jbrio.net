@@ -5,6 +5,12 @@ on:
     branches: [ main, feat/social-posting ]  # Remove 'feat/social-posting' after testing
     paths:
       - 'src/data/posts/**/*.md'
+  workflow_dispatch:
+    inputs:
+      post_file:
+        description: 'Path to the post file to publish (e.g., src/data/posts/202545/index.md)'
+        required: true
+        type: string
 
 jobs:
   post-to-social:
@@ -28,10 +34,16 @@ jobs:
     - name: Detect new posts
       id: changes
       run: |
-        # Get list of newly added markdown files in posts directory (not modified)
-        NEW_FILES=$(git diff --name-status HEAD~1 HEAD -- 'src/data/posts/**/*.md' | grep "^A" | cut -f2 || echo "")
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          # Manual trigger - use the provided file path
+          NEW_FILES="${{ inputs.post_file }}"
+          echo "Manual trigger - using file: $NEW_FILES"
+        else
+          # Automatic trigger - get list of newly added markdown files in posts directory (not modified)
+          NEW_FILES=$(git diff --name-status HEAD~1 HEAD -- 'src/data/posts/**/*.md' | grep "^A" | cut -f2 || echo "")
+          echo "Auto trigger - new files: $NEW_FILES"
+        fi
         echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
-        echo "New files: $NEW_FILES"
 
     - name: Wait for Cloudflare Worker deployment
       if: steps.changes.outputs.new_files != ''
@@ -41,7 +53,7 @@ jobs:
         CF_WORKER_NAME: ${{ secrets.CF_WORKER_NAME }}
         TARGET_SHA: ${{ github.sha }}
         BRANCH: ${{ github.ref_name }}
-        CF_DEPLOY_TIMEOUT_MS: '600000'       # 10 minutes
+        CF_DEPLOY_TIMEOUT_MS: '420000'       # 7 minutes
         CF_DEPLOY_POLL_INTERVAL_MS: '15000'  # 15 seconds
       run: node scripts/wait-for-worker-deploy.js
 

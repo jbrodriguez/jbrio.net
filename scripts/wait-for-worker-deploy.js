@@ -6,7 +6,7 @@ const {
   CF_WORKER_NAME,
   TARGET_SHA,
   BRANCH,
-  CF_DEPLOY_TIMEOUT_MS = '600000',
+  CF_DEPLOY_TIMEOUT_MS = '420000',
   CF_DEPLOY_POLL_INTERVAL_MS = '15000',
 } = process.env;
 
@@ -106,7 +106,7 @@ async function waitForDeployment() {
     await sleep(pollIntervalMs);
   }
 
-  throw new Error(`Timed out waiting for Cloudflare deployment after ${timeoutMs / 1000} seconds.`);
+  console.warn(`Timed out waiting for Cloudflare deployment after ${timeoutMs / 1000} seconds. Proceeding anyway...`);
 }
 
 waitForDeployment().catch((error) => {

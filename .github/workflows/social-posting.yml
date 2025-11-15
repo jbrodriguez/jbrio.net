@@ -33,6 +33,18 @@ jobs:
         echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
         echo "New files: $NEW_FILES"
 
+    - name: Wait for Cloudflare Worker deployment
+      if: steps.changes.outputs.new_files != ''
+      env:
+        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        CF_WORKER_NAME: ${{ secrets.CF_WORKER_NAME }}
+        TARGET_SHA: ${{ github.sha }}
+        BRANCH: ${{ github.ref_name }}
+        CF_DEPLOY_TIMEOUT_MS: '600000'       # 10 minutes
+        CF_DEPLOY_POLL_INTERVAL_MS: '15000'  # 15 seconds
+      run: node scripts/wait-for-worker-deploy.js
+
     - name: Post to social media
       if: steps.changes.outputs.new_files != ''
       env:
@@ -45,6 +57,6 @@ jobs:
         TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
         TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
         SITE_URL: "https://jbrio.net"
-        DEPLOYMENT_DELAY_MS: "120000"  # Wait 2 minutes for Cloudflare Pages deployment
+        DEPLOYMENT_DELAY_MS: "0"
       run: |
         node scripts/post-to-social.js "${{ steps.changes.outputs.new_files }}"

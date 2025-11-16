@@ -6,7 +6,7 @@ import { MastodonApi } from './utils/social-apis.js';
 import { TwitterApi } from './utils/social-apis.js';
 
 const SITE_URL = process.env.SITE_URL || 'https://jbrio.net';
-const DEPLOYMENT_DELAY_MS = parseInt(process.env.DEPLOYMENT_DELAY_MS || '120000', 10);
+const DEPLOYMENT_DELAY_MS = parseInt(process.env.DEPLOYMENT_DELAY_MS || '60000', 10);
 
 function parseMarkdownFrontmatter(filePath) {
   try {

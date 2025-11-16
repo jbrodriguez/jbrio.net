@@ -45,17 +45,16 @@ jobs:
         fi
         echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
 
-    - name: Wait for Cloudflare Worker deployment
+    - name: Build Astro site
       if: steps.changes.outputs.new_files != ''
-      env:
-        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-        CF_WORKER_NAME: ${{ secrets.CF_WORKER_NAME }}
-        TARGET_SHA: ${{ github.sha }}
-        BRANCH: ${{ github.ref_name }}
-        CF_DEPLOY_TIMEOUT_MS: '420000'       # 7 minutes
-        CF_DEPLOY_POLL_INTERVAL_MS: '15000'  # 15 seconds
-      run: node scripts/wait-for-worker-deploy.js
+      run: npm run build
+
+    - name: Deploy to Cloudflare Workers
+      if: steps.changes.outputs.new_files != ''
+      uses: cloudflare/wrangler-action@v3
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
     - name: Post to social media
       if: steps.changes.outputs.new_files != ''

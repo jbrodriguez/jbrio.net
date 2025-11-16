@@ -188,7 +188,7 @@ async function main() {
     }
 
     const postSlug = extractPostSlug(filePath);
-    const postUrl = `${SITE_URL}/posts/${postSlug}`;
+    const postUrl = `${SITE_URL}/posts/${postSlug}/`;
 
     console.log(`\n📝 Processing post: ${frontmatter.title}`);
     console.log(`   Description: ${frontmatter.description}`);

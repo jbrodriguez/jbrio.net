@@ -39,15 +39,16 @@ export class BskyApi {
       const html = response.data;
 
       // Extract Open Graph metadata
-      const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/i) ||
+      // Note: The minified HTML may have attributes in different order
+      const titleMatch = html.match(/<meta\s+(?:property="og:title"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:title")/i) ||
                         html.match(/<title>([^<]+)<\/title>/i);
-      const descMatch = html.match(/<meta property="og:description" content="([^"]+)"/i) ||
+      const descMatch = html.match(/<meta\s+(?:property="og:description"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:description")/i) ||
                        html.match(/<meta name="description" content="([^"]+)"/i);
-      const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/i);
+      const imageMatch = html.match(/<meta\s+(?:property="og:image"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:image")/i);
 
-      const title = titleMatch ? titleMatch[1] : '';
-      const description = descMatch ? descMatch[1] : '';
-      const imageUrl = imageMatch ? imageMatch[1] : '';
+      const title = titleMatch ? (titleMatch[1] || titleMatch[2] || titleMatch[3]) : '';
+      const description = descMatch ? (descMatch[1] || descMatch[2] || descMatch[3]) : '';
+      const imageUrl = imageMatch ? (imageMatch[1] || imageMatch[2]) : '';
 
       return { title, description, imageUrl };
     } catch (error) {

@@ -8,6 +8,26 @@ import { TwitterApi } from './utils/social-apis.js';
 const SITE_URL = process.env.SITE_URL || 'https://jbrio.net';
 const DEPLOYMENT_DELAY_MS = parseInt(process.env.DEPLOYMENT_DELAY_MS || '60000', 10);
 
+function buildFallbackEmbedData(frontmatter, filePath) {
+  const fallbackData = {
+    title: frontmatter.title || frontmatter.description || '',
+    description: frontmatter.description || '',
+  };
+
+  if (frontmatter.cover) {
+    if (/^https?:\/\//.test(frontmatter.cover)) {
+      fallbackData.imageUrl = frontmatter.cover;
+    } else {
+      const absoluteCoverPath = path.resolve(path.dirname(filePath), frontmatter.cover);
+      if (fs.existsSync(absoluteCoverPath)) {
+        fallbackData.imagePath = absoluteCoverPath;
+      }
+    }
+  }
+
+  return fallbackData;
+}
+
 function parseMarkdownFrontmatter(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
@@ -73,7 +93,7 @@ function formatPostContent(frontmatter, postUrl, platform) {
   return finalContent;
 }
 
-async function postToSocialMedia(frontmatter, postUrl) {
+async function postToSocialMedia(frontmatter, postUrl, filePath) {
   const results = {
     bluesky: { success: false, error: null },
     mastodon: { success: false, error: null },
@@ -85,9 +105,10 @@ async function postToSocialMedia(frontmatter, postUrl) {
     try {
       const content = formatPostContent(frontmatter, postUrl, 'bluesky');
       console.log('Posting to BlueSky:', content);
+      const fallbackEmbedData = buildFallbackEmbedData(frontmatter, filePath);
 
       const bsky = new BskyApi(process.env.BLUESKY_IDENTIFIER, process.env.BLUESKY_PASSWORD);
-      await bsky.post(content);
+      await bsky.post(content, { fallbackEmbedData });
       results.bluesky.success = true;
       console.log('✅ BlueSky post successful');
     } catch (error) {
@@ -195,7 +216,7 @@ async function main() {
     console.log(`   URL: ${postUrl}`);
     console.log(`   Tags: ${frontmatter.tags?.join(', ') || 'none'}`);
 
-    const results = await postToSocialMedia(frontmatter, postUrl);
+    const results = await postToSocialMedia(frontmatter, postUrl, filePath);
 
     // Summary
     const successes = Object.values(results).filter((r) => r.success).length;

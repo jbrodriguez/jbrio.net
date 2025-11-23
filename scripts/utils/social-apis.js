@@ -1,12 +1,25 @@
-import { BskyAgent } from '@atproto/api';
+import fs from 'fs';
+import path from 'path';
+import { AtpAgent } from '@atproto/api';
 import axios from 'axios';
 import crypto from 'crypto';
 import OAuth from 'oauth-1.0a';
 
+const IMAGE_MIME_TYPES = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+};
+
+const MODERN_CHROME_UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36';
+
 export class BskyApi {
   constructor(identifier, password) {
-    this.agent = new BskyAgent({
-      service: 'https://bsky.social'
+    this.agent = new AtpAgent({
+      service: 'https://bsky.social',
     });
     this.identifier = identifier;
     this.password = password;
@@ -19,11 +32,11 @@ export class BskyApi {
     try {
       await this.agent.login({
         identifier: this.identifier,
-        password: this.password
+        password: this.password,
       });
       this.authenticated = true;
     } catch (error) {
-      throw new Error(`BlueSky authentication failed: ${error.message}`);
+      throw new Error(`BlueSky authentication fail: ${error.message}`);
     }
   }
 
@@ -31,7 +44,7 @@ export class BskyApi {
     try {
       const response = await axios.get(url, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0; +https://bsky.app)',
+          'User-Agent': MODERN_CHROME_UA,
         },
         timeout: 10000,
       });
@@ -40,15 +53,20 @@ export class BskyApi {
 
       // Extract Open Graph metadata
       // Note: The minified HTML may have attributes in different order
-      const titleMatch = html.match(/<meta\s+(?:property="og:title"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:title")/i) ||
-                        html.match(/<title>([^<]+)<\/title>/i);
-      const descMatch = html.match(/<meta\s+(?:property="og:description"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:description")/i) ||
-                       html.match(/<meta name="description" content="([^"]+)"/i);
-      const imageMatch = html.match(/<meta\s+(?:property="og:image"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:image")/i);
+      const titleMatch =
+        html.match(/<meta\s+(?:property="og:title"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:title")/i) ||
+        html.match(/<title>([^<]+)<\/title>/i);
+      const descMatch =
+        html.match(
+          /<meta\s+(?:property="og:description"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:description")/i
+        ) || html.match(/<meta name="description" content="([^"]+)"/i);
+      const imageMatch = html.match(
+        /<meta\s+(?:property="og:image"\s+content="([^"]+)"|content="([^"]+)"\s+property="og:image")/i
+      );
 
-      const title = titleMatch ? (titleMatch[1] || titleMatch[2] || titleMatch[3]) : '';
-      const description = descMatch ? (descMatch[1] || descMatch[2] || descMatch[3]) : '';
-      const imageUrl = imageMatch ? (imageMatch[1] || imageMatch[2]) : '';
+      const title = titleMatch ? titleMatch[1] || titleMatch[2] || titleMatch[3] : '';
+      const description = descMatch ? descMatch[1] || descMatch[2] || descMatch[3] : '';
+      const imageUrl = imageMatch ? imageMatch[1] || imageMatch[2] : '';
 
       return { title, description, imageUrl };
     } catch (error) {
@@ -63,7 +81,7 @@ export class BskyApi {
       const response = await axios.get(imageUrl, {
         responseType: 'arraybuffer',
         headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; BlueskyBot/1.0; +https://bsky.app)',
+          'User-Agent': MODERN_CHROME_UA,
         },
         timeout: 10000,
       });
@@ -82,8 +100,26 @@ export class BskyApi {
     }
   }
 
-  async post(text) {
+  async uploadImageFromFile(filePath) {
+    try {
+      const imageBuffer = fs.readFileSync(filePath);
+      const extension = path.extname(filePath).toLowerCase();
+      const encoding = IMAGE_MIME_TYPES[extension] || 'image/jpeg';
+
+      const uploadResponse = await this.agent.uploadBlob(imageBuffer, {
+        encoding,
+      });
+
+      return uploadResponse.data.blob;
+    } catch (error) {
+      console.warn(`Failed to upload local image ${filePath}:`, error.message);
+      return null;
+    }
+  }
+
+  async post(text, options = {}) {
     await this.authenticate();
+    const { fallbackEmbedData } = options;
 
     try {
       // Detect URLs in the text for facets (clickable links) and embeds (cards)
@@ -132,7 +168,14 @@ export class BskyApi {
       if (embedUrl) {
         try {
           // Fetch link metadata
-          const metadata = await this.fetchUrlMetadata(embedUrl);
+          let metadata = await this.fetchUrlMetadata(embedUrl);
+
+          if ((!metadata || !metadata.title) && fallbackEmbedData) {
+            metadata = {
+              title: fallbackEmbedData.title || fallbackEmbedData.description || embedUrl,
+              description: fallbackEmbedData.description || '',
+            };
+          }
 
           if (metadata && metadata.title) {
             const external = {
@@ -141,12 +184,18 @@ export class BskyApi {
               description: metadata.description || '',
             };
 
-            // Upload the thumbnail image if available
+            let blob = null;
+
             if (metadata.imageUrl) {
-              const blob = await this.uploadImageFromUrl(metadata.imageUrl);
-              if (blob) {
-                external.thumb = blob;
-              }
+              blob = await this.uploadImageFromUrl(metadata.imageUrl);
+            } else if (fallbackEmbedData?.imageUrl) {
+              blob = await this.uploadImageFromUrl(fallbackEmbedData.imageUrl);
+            } else if (fallbackEmbedData?.imagePath) {
+              blob = await this.uploadImageFromFile(fallbackEmbedData.imagePath);
+            }
+
+            if (blob) {
+              external.thumb = blob;
             }
 
             postData.embed = {
@@ -181,9 +230,9 @@ export class MastodonApi {
         { status },
         {
           headers: {
-            'Authorization': `Bearer ${this.accessToken}`,
-            'Content-Type': 'application/json'
-          }
+            Authorization: `Bearer ${this.accessToken}`,
+            'Content-Type': 'application/json',
+          },
         }
       );
       return response.data;
@@ -200,10 +249,7 @@ export class TwitterApi {
       consumer: { key: apiKey, secret: apiSecret },
       signature_method: 'HMAC-SHA1',
       hash_function(base_string, key) {
-        return crypto
-          .createHmac('sha1', key)
-          .update(base_string)
-          .digest('base64');
+        return crypto.createHmac('sha1', key).update(base_string).digest('base64');
       },
     });
 
@@ -219,9 +265,7 @@ export class TwitterApi {
       method: 'POST',
     };
 
-    const authHeader = this.oauth.toHeader(
-      this.oauth.authorize(requestData, this.token)
-    );
+    const authHeader = this.oauth.toHeader(this.oauth.authorize(requestData, this.token));
 
     try {
       const response = await axios.post(
@@ -236,9 +280,7 @@ export class TwitterApi {
       );
       return response.data;
     } catch (error) {
-      const errorMsg = error.response?.data?.detail ||
-                      error.response?.data?.title ||
-                      error.message;
+      const errorMsg = error.response?.data?.detail || error.response?.data?.title || error.message;
       throw new Error(`Twitter post failed: ${errorMsg}`);
     }
   }

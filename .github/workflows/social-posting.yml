@@ -53,7 +53,6 @@ jobs:
       if: steps.changes.outputs.new_files != ''
       uses: cloudflare/wrangler-action@v3
       with:
-        wranglerVersion: "4.x"
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 

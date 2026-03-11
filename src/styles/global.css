@@ -1,6 +1,152 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--aw-font-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-bg-100: var(--color-bg-100);
+  --color-bg-200: var(--color-bg-200);
+  --color-bg-300: var(--color-bg-300);
+  --color-bg-400: var(--color-bg-400);
+  --color-bg-500: var(--color-bg-500);
+  --color-bg-600: var(--color-bg-600);
+  --color-bg-700: var(--color-bg-700);
+  --color-bg-800: var(--color-bg-800);
+  --color-bg-900: var(--color-bg-900);
+
+  --color-text-50: var(--color-text-50);
+  --color-text-100: var(--color-text-100);
+  --color-text-200: var(--color-text-200);
+  --color-text-300: var(--color-text-300);
+  --color-text-400: var(--color-text-400);
+  --color-text-500: var(--color-text-500);
+  --color-text-600: var(--color-text-600);
+  --color-text-700: var(--color-text-700);
+  --color-text-800: var(--color-text-800);
+  --color-text-900: var(--color-text-900);
+
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+
+  --color-secondary-100: var(--color-secondary-100);
+  --color-secondary-200: var(--color-secondary-200);
+  --color-secondary-300: var(--color-secondary-300);
+  --color-secondary-400: var(--color-secondary-400);
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-600: var(--color-secondary-600);
+  --color-secondary-700: var(--color-secondary-700);
+  --color-secondary-800: var(--color-secondary-800);
+  --color-secondary-900: var(--color-secondary-900);
+
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
+
+  --animate-hero-pulse: hero-pulse 1s ease-in-out infinite alternate;
+  --animate-slide-right: slide-right 200ms ease-in-out;
+  --animate-slide-left: slide-left 200ms ease-in-out;
+  --animate-slide-up: slide-up 200ms ease-in-out;
+  --animate-slide-down: slide-down 200ms ease-in-out;
+  --animate-fade-out-left: fade-out-left 200ms ease-in-out;
+  --animate-fade-in-right: fade-in-right 200ms ease-in-out;
+  --animate-fade-out-down: fade-out-down 200ms ease-in-out;
+  --animate-fade-in-up: fade-in-up 200ms ease-in-out;
+  --animate-wiggle: wiggle 1s ease-out infinite;
+
+  @keyframes hero-pulse {
+    0% {
+      filter: grayscale(0);
+      opacity: 0.85;
+    }
+    100% {
+      filter: grayscale(0.8);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-right {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-left {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-down {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fade-out-left {
+    0% { opacity: 0.9; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-12em); }
+  }
+
+  @keyframes fade-in-right {
+    0% { opacity: 0; transform: translateX(12em); }
+    100% { opacity: 0.9; transform: translateX(0); }
+  }
+
+  @keyframes fade-out-down {
+    0% { opacity: 0.9; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(200px); }
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(200px); }
+    100% { opacity: 0.9; transform: translateY(0); }
+  }
+
+  @keyframes wiggle {
+    0% { transform: rotateZ(0deg); }
+    25% { transform: rotateZ(45deg); }
+    50% { transform: rotateZ(0deg); }
+    75% { transform: rotateZ(-15deg); }
+    100% { transform: rotateZ(0deg); }
+  }
+
+  @keyframes squish {
+    0% { transform: scaleY(1); }
+    10% { transform: scaleY(0.75); }
+    50% { transform: scaleY(1.25); }
+    100% { transform: scaleY(1); }
+  }
+
+  @keyframes squish-much {
+    0% { transform: scaleY(1); }
+    10% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1.5); }
+    100% { transform: scaleY(1); }
+  }
+
+  @keyframes bubble {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-1em); }
+    90% { opacity: 0; transform: translateY(-2em); }
+    100% { opacity: 0; transform: translateY(-3em); }
+  }
+}
 
 :root,
 :root[data-theme='light'] {
@@ -158,8 +304,6 @@ a {
   text-decoration: none;
 }
 
-@layer components {
-  .link {
-    @apply underline underline-offset-4 decoration-text-100 text-primary-700 hover:text-primary-500 hover:decoration-primary-500;
-  }
+@utility link {
+  @apply underline underline-offset-4 decoration-text-100 text-primary-700 hover:text-primary-500 hover:decoration-primary-500;
 }

@@ -1,6 +1,6 @@
+import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import compress from 'astro-compress';
 // import critters from 'astro-critters';
 import { defineConfig } from 'astro/config';
@@ -10,10 +10,12 @@ import { SITE_URL } from './src/consts';
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     mdx(),
     sitemap({}),
-    tailwind(),
     compress({
       Image: false,
       SVG: false,

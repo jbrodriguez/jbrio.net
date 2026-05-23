@@ -3,7 +3,7 @@ title: 'Notes 202421'
 date: 2024-05-25T13:12:43.775Z
 cover: ./202421-feature.jpg
 caption: 'under construction © Juan B. Rodriguez'
-status: draft
+status: published
 description: 'real gone kid'
 pixelfed: '699981908089815108'
 tags:

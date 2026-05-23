@@ -3,7 +3,7 @@ title: 'Notes 202423'
 date: 2024-06-08T13:17:28.497Z
 cover: ./202423-feature.jpg
 caption: 'preying on the catch © Juan B. Rodriguez'
-status: draft
+status: published
 description: "let's talks about me"
 pixelfed: '705047986559719428'
 tags:

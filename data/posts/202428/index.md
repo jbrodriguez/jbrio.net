@@ -3,7 +3,7 @@ title: 'Notes 202428'
 date: 2024-07-13T13:00:29.804Z
 cover: ./202428-feature.jpg
 caption: 'splashdown © Juan B. Rodriguez'
-status: draft
+status: published
 description: 'you belong to the city'
 pixelfed: '717731030418081937'
 tags:
@@ -31,7 +31,7 @@ tags:
 
 [Reverse Engineering TicketMaster's Rotating Barcodes (SafeTix)](https://conduition.io/coding/ticketmaster/)
 
-> _“Screenshots won’t get you in”, but Chrome DevTools will._
+> *“Screenshots won’t get you in”, but Chrome DevTools will.*
 
 [Iconography of the X Window System: The Boot Stipple | matttproud.com (blog)](https://matttproud.com/blog/posts/x-window-system-boot-stipple.html)
 

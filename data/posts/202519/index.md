@@ -3,7 +3,7 @@ title: 'Notes 202519'
 date: 2025-05-10T12:24:37.583Z
 cover: ./202519-feature.jpg
 caption: 'into the green © Juan B. Rodriguez'
-status: draft
+status: published
 description: 'from full self driving, to terminal ui, to zooming on art, all here'
 pixelfed: '826793952528513379'
 tags:
@@ -57,4 +57,3 @@ tags:
 [Blaizzy/mlx-audio](https://github.com/Blaizzy/mlx-audio)
 
 > A text-to-speech (TTS), speech-to-text (STT) and speech-to-speech (STS) library built on Apple's MLX framework, providing efficient speech analysis on Apple Silicon
-

@@ -3,7 +3,7 @@ title: 'The Millionaire Master Plan, Roger Hamilton (2014)'
 date: 2025-05-03T13:07:35.189Z
 cover: ./millionaire-plan-feature.jpg
 caption: 'millionaire plan © Juan B. Rodriguez'
-status: draft
+status: published
 description: ''
 pixelfed: ''
 tags:

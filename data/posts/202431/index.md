@@ -3,7 +3,7 @@ title: 'Notes 202431'
 date: 2024-08-03T13:36:28.459Z
 cover: ./202431-feature.jpg
 caption: "by the dawn's early lights © Juan B. Rodriguez"
-status: draft
+status: published
 description: 'back to black'
 pixelfed: '725410226339065270'
 tags:

@@ -3,7 +3,7 @@ title: 'Notes 202417'
 date: 2024-04-27T13:35:55.268Z
 cover: ./202417-feature.jpg
 caption: 'low tide approach © Juan B. Rodriguez'
-status: draft
+status: published
 description: 'moon river'
 pixelfed: '689832246058389139'
 tags:

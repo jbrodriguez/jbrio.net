@@ -1,9 +1,7 @@
 {{define "blog_card"}}
 <a href="{{.URL}}" title="{{.Title}}"
    class="flex flex-col overflow-hidden rounded-lg transition-all shadow-md hover:shadow-lg outline-4 outline-transparent hover:outline-primary-500">
-  <img src="{{with .Cover}}/_images/{{$.Slug}}-{{.}}{{else}}/static/default-post-header-img.jpg{{end}}"
-       alt="{{.Title}}" loading="lazy"
-       class="h-56 w-full object-cover transition" width="400" height="224">
+  {{thumb . "h-56 w-full object-cover transition"}}
   <div class="bg-bg-300 dark:bg-bg-700 p-4 sm:p-6 flex flex-1 flex-col">
     <h3 class="mt-0.5 text-xl font-bold text-text-500">{{.Title}}</h3>
     <p class="mt-2 text-sm/relaxed text-text-400 line-clamp-3 text-ellipsis mb-auto">{{.Description}}</p>

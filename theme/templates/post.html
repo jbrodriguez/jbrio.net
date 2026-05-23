@@ -7,7 +7,7 @@
   <main class="min-h-screen pb-32">
     <div class="bg-bg-500 relative z-40 pb-16">
       <div class="mx-auto max-w-screen-xl py-16 px-8">
-        <h1 class="text-text-500 text-4xl leading-normal md:text-5xl font-medium">{{.Post.Title}}</h1>
+        <h1 class="text-text-500 text-4xl leading-normal md:text-5xl font-bold">{{.Post.Title}}</h1>
         {{with .Post.Subtitle}}<h2 class="text-text-400 text-xl/relaxed md:text-2xl/relaxed font-medium mt-4">{{.}}</h2>{{end}}
       </div>
 
@@ -46,23 +46,30 @@
             <div class="mt-8 pt-8 border-t border-text-100">
               <div class="flex justify-between items-center gap-4">
                 <div>
-                  <h3 class="text-text-500 font-bold">Sharing is caring!</h3>
+                  <h3 class="text-text-500">Sharing is caring!</h3>
                   <p class="text-text-400 text-sm max-w-sm">If you got value from this article, please consider sharing it with your friends and colleagues.</p>
                 </div>
                 <div class="flex gap-2">
                   <a role="button" id="copy-link" title="Copy link to clipboard" href="{{.Post.AbsURL .Site.URL}}"
                      class="hidden transition px-4 py-1 rounded-full text-lg text-text-200 dark:text-text-400 bg-primary-600 border border-primary-500 dark:border-primary-700 hover:bg-primary-700 hover:border-primary-800 hover:text-text-500">
                     <span class="flex gap-2 items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>Copy Icon</title><path fill="currentColor" d="M21 8.94a1.31 1.31 0 0 0-.06-.27v-.09a1.07 1.07 0 0 0-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19a.32.32 0 0 0-.09 0a.88.88 0 0 0-.33-.11H10a3 3 0 0 0-3 3v1H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-1h1a3 3 0 0 0 3-3V9zm-6-3.53L17.59 8H16a1 1 0 0 1-1-1ZM15 19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1v7a3 3 0 0 0 3 3h5Zm4-4a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3v3a3 3 0 0 0 3 3h3Z"/></svg>
                       <span aria-role="label" data-text-normal="Copy link" data-text-copied="Copied!">Copy link</span>
                     </span>
                   </a>
                   <a role="button" title="Share on LinkedIn" rel="noopener noreferrer" target="_blank" href="{{shareURL .Post "linkedin"}}"
                      class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500">
-                    <span class="flex items-center text-nowrap">LinkedIn</span>
+                    <span class="flex items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>LinkedIn Icon</title><path fill="currentColor" d="M17.5 8.999a5.419 5.419 0 0 0-2.565.645A1 1 0 0 0 14 8.999h-4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5.5a1 1 0 1 1 2 0v5.5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-7.5a5.507 5.507 0 0 0-5.5-5.5m3.5 12h-2v-4.5a3 3 0 1 0-6 0v4.5h-2v-10h2v.703a1 1 0 0 0 1.781.625A3.483 3.483 0 0 1 21 14.5Zm-14-12H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1m-1 12H4v-10h2ZM5.015 1.542a3.233 3.233 0 1 0-.057 6.457h.028a3.233 3.233 0 1 0 .029-6.457m-.029 4.457h-.028a1.222 1.222 0 0 1-1.37-1.228c0-.747.56-1.229 1.427-1.229A1.234 1.234 0 0 1 6.41 4.771c0 .746-.56 1.228-1.425 1.228"/></svg>
+                      <span class="sr-only">LinkedIn</span>
+                    </span>
                   </a>
                   <a role="button" title="Share on X" rel="noopener noreferrer" target="_blank" href="{{shareURL .Post "twitter"}}"
                      class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500">
-                    <span class="flex items-center text-nowrap">X</span>
+                    <span class="flex items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>X Icon</title><path d="M16.8198 20.7684L3.75317 3.96836C3.44664 3.57425 3.72749 3 4.22678 3H6.70655C6.8917 3 7.06649 3.08548 7.18016 3.23164L20.2468 20.0316C20.5534 20.4258 20.2725 21 19.7732 21H17.2935C17.1083 21 16.9335 20.9145 16.8198 20.7684Z" stroke="currentColor" stroke-width="2"/><path d="M20 3L4 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                      <span class="sr-only">X</span>
+                    </span>
                   </a>
                 </div>
               </div>

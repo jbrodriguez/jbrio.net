@@ -1,0 +1,28 @@
+{{define "seo"}}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content="{{.SEO.Generator}}" />
+<link rel="sitemap" href="{{.SEO.Sitemap}}" />
+<link rel="alternate" type="application/rss+xml" title="{{.SEO.RSSTitle}}" href="{{.SEO.RSSURL}}" />
+
+<link rel="canonical" href="{{.SEO.Canonical}}" />
+
+<title>{{.SEO.Title}}</title>
+<meta name="title" content="{{.SEO.Title}}" />
+<meta name="description" content="{{.SEO.Description}}" />
+
+<meta property="og:title" content="{{.SEO.Title}}" />
+<meta property="og:description" content="{{.SEO.Description}}" />
+<meta property="og:type" content="{{.SEO.OGType}}" />
+<meta property="og:url" content="{{.SEO.Canonical}}" />
+<meta property="og:image" content="{{.SEO.Image}}" />
+<meta property="og:image:width" content="{{.SEO.ImageWidth}}" />
+<meta property="og:image:height" content="{{.SEO.ImageHeight}}" />
+
+<meta property="twitter:card" content="{{.SEO.TwitterCardType}}" />
+<meta property="twitter:image" content="{{.SEO.Image}}" />
+<meta property="twitter:title" content="{{.SEO.Title}}" />
+<meta property="twitter:description" content="{{.SEO.Description}}" />
+<meta property="twitter:url" content="{{.SEO.Canonical}}" />
+<meta name="twitter:creator" content="{{.SEO.TwitterHandle}}" />
+{{end}}

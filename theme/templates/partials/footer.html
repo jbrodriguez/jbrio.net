@@ -1,0 +1,44 @@
+{{define "footer"}}
+<footer class="bg-bg-500 -mt-32 relative z-40">
+  <div class="bg-bg-900 shadow-xl border-t-4 border-secondary-700 [background:radial-gradient(circle_at_30%_0%,_var(--color-secondary-900)_0%,var(--color-secondary-700)_30%)]">
+    <div class="mx-auto max-w-screen-xl py-8 px-8">
+      <div class="md:flex md:flex-wrap md:flex-1 md:gap-4 md:justify-between">
+        <div class="mb-20 md:mb-0">
+          <div class="flex items-center gap-4">
+            <img src="/static/logo-white-on-transparent.svg" alt="logo of jbrio.net" class="h-6 w-6 object-cover transition" width="512" height="512">
+            <h3 class="text-primary-100 uppercase text-lg">
+              <a href="/" class="underline underline-offset-4 decoration-2 decoration-accent-500">{{.Site.Domain}}</a>
+            </h3>
+          </div>
+          <p class="text-text-200 text-sm mt-4">&copy; 2010 - {{year now}} {{.Site.Author}}</p>
+          <p class="text-text-200 text-sm mt-1">Built with Go, <a rel="nofollow noopener noreferrer" target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and a lot of <span role="img" title="love" class="text-red-400 ml-1">❤︎<span class="sr-only">love</span></span></p>
+          <p class="text-text-200 text-sm mt-1">Hosted &amp; accelerated by <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.cloudflare.com/">Cloudflare</a>.</p>
+        </div>
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-primary-500 font-bold text-sm uppercase">Explore</h3>
+          <ul class="text-sm mt-4 flex flex-col gap-2">
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-primary-500 font-bold text-sm uppercase">My Projects</h3>
+          <ul class="text-sm mt-4 flex flex-col gap-2">
+            <li><a target="_blank" href="https://www.apertoire.com/">ControlR</a></li>
+            <li><a target="_blank" href="https://github.com/jbrodriguez/unbalance/">unbalanced</a></li>
+            <li><a target="_blank" href="https://github.com/jbrodriguez/rn-netops/">rn-netops</a></li>
+          </ul>
+        </div>
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-primary-500 font-bold text-sm uppercase">Let's connect</h3>
+          <ul class="text-sm mt-4 flex flex-col gap-2">
+            {{range .Site.Socials}}<li><a rel="me" target="_blank" href="{{.URL}}" class="flex font-normal align-middle">{{.Title}}</a></li>{{end}}
+            <li><a rel="me" href="/posts/rss.xml" class="flex font-normal align-middle">RSS</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{{end}}

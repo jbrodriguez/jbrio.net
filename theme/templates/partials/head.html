@@ -1,0 +1,46 @@
+{{define "head"}}
+<head>
+  <style>
+    :root {
+      --aw-font-sans: 'Atkinson Hyperlegible', 'Inter Variable', system-ui, sans-serif;
+      line-height: 1.75rem;
+    }
+    .dark {
+      --aw-font-sans: 'Atkinson Hyperlegible', 'Inter Variable', system-ui, sans-serif;
+      line-height: 1.75rem;
+    }
+    @font-face {
+      font-family: 'Atkinson Hyperlegible';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/atkinson-hyperlegible-latin-400-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Atkinson Hyperlegible';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/atkinson-hyperlegible-latin-400-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Atkinson Hyperlegible';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/atkinson-hyperlegible-latin-700-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Atkinson Hyperlegible';
+      font-style: italic;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/atkinson-hyperlegible-latin-700-italic.woff2') format('woff2');
+    }
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+  {{template "seo" .}}
+  {{template "favicons" .}}
+  {{template "theme_init" .}}
+</head>
+{{end}}

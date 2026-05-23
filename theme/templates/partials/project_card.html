@@ -1,0 +1,10 @@
+{{define "project_card"}}
+<a href="{{.Href}}" title="{{.Title}}" target="_blank"
+   class="block overflow-hidden rounded-lg transition-all shadow-md hover:shadow-lg outline-4 outline-transparent hover:outline-primary-500 [&>div_img]:filter [&>div_img]:grayscale-[0.85] hover:[&>div_img]:grayscale-0">
+  <img src="{{.Image}}" alt="{{.ImageAlt}}" class="h-56 w-full object-cover transition" width="400" height="224" loading="lazy">
+  <div class="bg-bg-300 dark:bg-bg-700 p-4 sm:p-6 h-full">
+    <h3 class="mt-0.5 text-xl font-bold text-text-500">{{.Title}}</h3>
+    <p class="mt-2 text-sm/relaxed text-text-400">{{safeHTML .Body}}</p>
+  </div>
+</a>
+{{end}}

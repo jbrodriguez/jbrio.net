@@ -1,0 +1,71 @@
+{{define "index"}}
+<!doctype html>
+<html lang="en">
+{{template "head" .}}
+<body class="flex flex-col font-sans">
+  {{template "header" .}}
+  <main class="min-h-screen pb-32">
+    <div class="bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl py-16 px-8 pb-16 flex justify-center">
+        <article class="max-w-[850px] text-text-400 prose md:prose-lg lg:prose-xl
+                        prose-strong:text-text-500 prose-h1:text-text-500 prose-h2:text-text-500
+                        prose-a:no-underline prose-a:text-primary-500 prose-a:decoration-primary-500
+                        max-w-none">
+          <p>Hello, I am <a href="/about">Juan B.</a>, a Software Engineer with more than 20 years of experience in the field.</p>
+          <p>I'm mostly focused on React Native, but ❤️ coding in general.</p>
+          <p>I'm the author of <a href="https://www.apertoire.com/" target="_blank" rel="nofollow noopener noreferrer">ControlR</a>, an app to manage Unraid servers.</p>
+          <p>Welcome to my site, where I post about tech, software, books and other random stuff.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl pb-16 px-8">
+        <h2 class="text-3xl text-text-500 text-center mb-4">Some of my projects</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {{template "project_card" (dict
+            "Href" "https://www.apertoire.com/controlr"
+            "Title" "ControlR for Unraid"
+            "Image" "/static/controlr.png"
+            "ImageAlt" "ControlR"
+            "Body" "The <strong>ControlR</strong> app, the best way to manage your <strong>Unraid</strong> server. Built with <strong>React Native</strong>.")}}
+          {{template "project_card" (dict
+            "Href" "https://github.com/jbrodriguez/unbalance/"
+            "Title" "unbalanced"
+            "Image" "/static/unbalanced.png"
+            "ImageAlt" "unbalanced"
+            "Body" "An <strong>Unraid</strong> plugin to transfer files/folders between disks in your array. Built with <strong>Go</strong>, <strong>React</strong> and <strong>shadcn/ui &amp; Tailwind</strong>.")}}
+          {{template "project_card" (dict
+            "Href" "https://github.com/jbrodriguez/rn-netops/"
+            "Title" "rn-netops"
+            "Image" "/static/rnnetops.png"
+            "ImageAlt" "rn-netops"
+            "Body" "A library of native network operations for <strong>React Native</strong>.")}}
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h2 class="text-3xl text-text-500 text-center mb-4">Latest Posts</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {{range $i, $p := .Posts}}{{template "blog_card" (card $p (eq $i 0))}}{{end}}
+          <div class="bg-bg-700 rounded-lg flex justify-center items-center py-8">
+            <a href="/posts" class="inline-block py-2 px-4 text-lg rounded border-2 bg-secondary-600 hover:bg-secondary-700 border-secondary-400 text-bg-100">Read the posts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bg-500 relative z-40 pb-24">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h2 class="text-3xl text-text-500 text-center mb-4">Topics</h2>
+        {{template "tags_list" (dict "Tags" .Tags "Hide" false)}}
+      </div>
+    </div>
+  </main>
+  {{template "footer" .}}
+  {{template "scripts" .}}
+</body>
+</html>
+{{end}}

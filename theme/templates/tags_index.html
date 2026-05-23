@@ -1,0 +1,30 @@
+{{define "tags_index"}}
+<!doctype html>
+<html lang="en">
+{{template "head" .}}
+<body class="flex flex-col font-sans">
+  {{template "header" .}}
+  <main class="min-h-screen pb-32">
+    <div class="bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h1 class="text-3xl text-center my-8 text-text-500 font-bold">All tags</h1>
+        {{template "tags_list" (dict "Tags" .Tags "Hide" true)}}
+      </div>
+    </div>
+    <div class="bg-bg-500 relative z-40 pb-24">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h2 class="text-3xl text-center my-8 text-text-500">Recent Posts</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {{range $i, $p := .Posts}}{{template "blog_card" (card $p (eq $i 0))}}{{end}}
+          <div class="bg-bg-200 rounded-lg flex justify-center items-center py-8">
+            <a href="/posts" class="inline-block py-2 px-4 text-lg rounded border-2 bg-secondary-600 hover:bg-secondary-700 border-secondary-400 text-bg-100">Read the posts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {{template "footer" .}}
+  {{template "scripts" .}}
+</body>
+</html>
+{{end}}

@@ -1,0 +1,33 @@
+{{define "notfound"}}
+<!doctype html>
+<html lang="en">
+{{template "head" .}}
+<body class="flex flex-col font-sans">
+  {{template "header" .}}
+  <main class="min-h-screen pb-32">
+    <div class="pt-4 sm:pt-6 lg:pt-10 bg-bg-500">
+      <div class="flex justify-center items-end relative mx-auto max-w-screen-xl h-[400px] sm:h-[640px] overflow-hidden [clip-path:border-box]">
+        <div class="absolute top-[3.5rem] sm:top-[6rem] lg:top-[5rem] flex flex-col justify-center z-[3]">
+          <h1 class="text-4xl sm:text-7xl lg:text-8xl font-bold text-text-600 z-[3] drop-shadow-lg text-center">
+            <span class="text-primary-700">404</span> not found
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl px-8 pb-16 flex justify-center">
+        <article class="max-w-[800px] text-text-400 prose md:prose-lg lg:prose-xl
+                        prose-a:no-underline prose-a:text-primary-500 prose-a:decoration-primary-500
+                        max-w-none">
+          <p>Sorry you didn't find what you were looking for! Maybe the page you were looking for got deleted or you got the wrong URL...</p>
+          <p>But since you are here, why don't you check out my <a href="/posts">Posts</a>? Or maybe learn more <a href="/about">about me</a></p>
+          <p>I look forward to hearing from you! ❤️</p>
+        </article>
+      </div>
+    </div>
+  </main>
+  {{template "footer" .}}
+  {{template "scripts" .}}
+</body>
+</html>
+{{end}}

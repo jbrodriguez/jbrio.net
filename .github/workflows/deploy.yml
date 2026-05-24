@@ -1,0 +1,88 @@
+name: Build & Deploy
+
+# Builds the site with ssg and deploys it to Cloudflare Pages. After a
+# production deploy, newly-added posts are announced on social media.
+on:
+  push:
+    branches: [main, ssg]
+  workflow_dispatch:
+    inputs:
+      post_file:
+        description: 'Post to announce on social (e.g. data/posts/202545/index.md)'
+        required: false
+        type: string
+
+env:
+  # Cloudflare Pages project name (create it once with `wrangler pages project create`).
+  CF_PROJECT: jbrio-net
+  TAILWIND_VERSION: latest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # need the previous commit to detect newly-added posts
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Install Tailwind CSS (standalone CLI)
+        run: |
+          curl -fsSL "https://github.com/tailwindlabs/tailwindcss/releases/${TAILWIND_VERSION}/download/tailwindcss-linux-x64" -o /usr/local/bin/tailwindcss
+          chmod +x /usr/local/bin/tailwindcss
+          tailwindcss --help >/dev/null && echo "tailwindcss installed"
+
+      - name: Install ssg
+        run: |
+          go install github.com/jbrodriguez/ssg/cmd/ssg@latest
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Build site
+        run: ssg build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=${{ github.ref_name }}
+
+      # --- Social announce: production (main) and manual runs only ---
+      - name: Detect newly-added posts
+        id: changes
+        if: github.ref_name == 'main' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FILES="${{ inputs.post_file }}"
+          else
+            FILES=$(git diff --name-status HEAD~1 HEAD -- data/posts \
+              | grep '^A' | cut -f2 | grep '/index.md$' || true)
+          fi
+          echo "Detected new posts: ${FILES:-<none>}"
+          {
+            echo 'files<<EOF'
+            echo "$FILES"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Announce on social media
+        if: steps.changes.outputs.files != ''
+        env:
+          SITE_URL: https://jbrio.net
+          DEPLOYMENT_DELAY_MS: '30000'
+          BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+          BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+          MASTODON_INSTANCE_URL: ${{ secrets.MASTODON_INSTANCE_URL }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        run: |
+          go build -C tools/social -o /tmp/social .
+          /tmp/social "${{ steps.changes.outputs.files }}"

@@ -1,6 +1,7 @@
 # Juan B. Rodriguez (Personal Blog)
 
-My blog, built with [Astro](https://astro.build). All open-source!
+My blog, built with [ssg](https://github.com/jbrodriguez/ssg) — a small hand-rolled
+Go static site generator. All open-source!
 
 ## 1. Clone the repo
 
@@ -8,45 +9,48 @@ My blog, built with [Astro](https://astro.build). All open-source!
 git clone https://github.com/jbrodriguez/jbrio.net
 ```
 
-## 2. Make sure you have up-to-date versions of Node.js and pnpm
+## 2. Install the tools
 
-Expected Node.js version: `18` or higher.
-
-```bash
-node -v
-```
-
-## 3. Install dependencies
+The generator and the Tailwind standalone CLI are the only dependencies:
 
 ```bash
-npm install
+go install github.com/jbrodriguez/ssg/cmd/ssg@latest
+brew install tailwindcss
 ```
 
-## 4. Run the dev server
+## 3. Run the dev server
 
 ```bash
-npm run dev
+ssg build --serve --watch
 ```
 
-The website should now be accessible at [http://localhost:4321](http://localhost:4321)
+The website is served at [http://localhost:4321](http://localhost:4321) with live
+reload on changes to `data/`, `theme/`, and `public/`.
 
-## 5. Build the static website
+## 4. Build the static website
 
 ```bash
-npm run build
+ssg build
 ```
 
-The static website will be available in the `./dist` folder.
+The static website is written to the `./dist` folder, which is what Cloudflare
+Pages deploys.
 
-## 6. Create a new post
+## 5. Create a new post
 
 ```bash
-npm run new <post name>
+ssg new <post name>
 ```
 
-### Misc
+## Layout
 
-Meta holds the metadata for the site, including the logo art
+- `data/` — content: posts, the about page, and the unbalanced page (markdown +
+  co-located images).
+- `theme/` — templates (`html/template`), Tailwind CSS source, fonts, and static
+  assets.
+- `public/` — files copied verbatim into `dist/` (`_headers`, `_redirects`).
+- `ssg.toml` — site config, auto-discovered by `ssg` in this directory.
+- `meta/` — site metadata, including the logo art.
 
 ## License
 

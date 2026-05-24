@@ -18,8 +18,8 @@ image_widths     = [400, 800, 1200, 1600]
 filter_drafts    = true
 
 # Syntax highlighting (any chroma style name)
-chroma_light     = "tokyonight-day"
-chroma_dark      = "tokyonight-night"
+chroma_light     = "rose-pine-dawn"
+chroma_dark      = "rose-pine-moon"
 
 [[socials]]
 title = "X (Twitter)"

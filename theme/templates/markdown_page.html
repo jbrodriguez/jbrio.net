@@ -10,6 +10,7 @@
         <div>
           <article class="max-w-[800px] text-text-400 prose md:prose-lg lg:prose-xl
                           prose-strong:text-text-500 prose-em:text-text-500
+                          prose-headings:font-medium
                           prose-h1:text-text-500 prose-h2:text-text-500 prose-h3:text-text-500 prose-h4:text-text-500
                           prose-blockquote:text-text-300 prose-blockquote:ml-8
                           prose-figcaption:text-text-400 prose-ol:text-text-400 prose-ul:text-text-400 prose-li:text-text-400
@@ -19,7 +20,11 @@
                           prose-hr:text-text-300
                           prose-a:no-underline prose-a:text-primary-500 prose-a:decoration-primary-500
                           hover:prose-a:text-primary-500 hover:prose-a:decoration-primary-500
-                          max-w-none">
+                          max-w-none
+                          [&>p:first-of-type]:text-text-700
+                          [&>p:first-of-type]:text-lg/relaxed
+                          md:[&>p:first-of-type]:text-xl/relaxed
+                          lg:[&>p:first-of-type]:text-2xl/relaxed">
             {{.BodyHTML}}
           </article>
         </div>

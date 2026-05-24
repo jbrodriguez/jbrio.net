@@ -38,6 +38,11 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Install ssg
+        env:
+          # Fetch ssg straight from GitHub so @latest reflects the just-pushed
+          # commit instead of a stale proxy.golang.org cache.
+          GOPROXY: direct
+          GOSUMDB: "off"
         run: |
           go install github.com/jbrodriguez/ssg/cmd/ssg@latest
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"

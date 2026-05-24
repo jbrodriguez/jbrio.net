@@ -1,0 +1,123 @@
+{{define "post"}}
+<!doctype html>
+<html lang="en">
+{{template "head" .}}
+<body class="flex flex-col font-sans">
+  {{template "header" .}}
+  <main class="min-h-screen pb-32">
+    <div class="bg-bg-500 relative z-40 pb-16">
+      <div class="mx-auto max-w-screen-xl py-16 px-8">
+        <h1 class="text-text-500 text-4xl leading-normal md:text-5xl font-medium">{{.Post.Title}}</h1>
+        {{with .Post.Subtitle}}<h2 class="text-text-400 text-xl/relaxed md:text-2xl/relaxed font-medium mt-4">{{.}}</h2>{{end}}
+      </div>
+
+      {{if .Post.Cover}}
+      <div class="mx-auto max-w-screen-xl">
+        {{cover .Post "" "h-[300px] sm:h-[500px] w-full object-cover xl:max-w-screen-xl xl:mx-auto xl:rounded-xl shadow-xl" "100vw"}}
+        <div class="flex flex-1 justify-between">
+          <span class="font-normal text-text-300 text-lg ml-2">{{.Post.Caption}}</span>
+          {{with .Post.Pixelfed}}<a href="https://pixelfed.social/p/jbrodriguez/{{.}}" class="text-lg text-green-700 mr-2" target="_blank" rel="noopener">show in pixelfed.social</a>{{end}}
+        </div>
+      </div>
+      {{end}}
+
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <div class="grid grid-cols-12 gap-4 mt-8">
+          <div class="col-span-12">
+            <article class="text-text-400 prose md:prose-lg lg:prose-xl
+                            prose-strong:text-text-500 prose-em:text-text-500
+                            prose-headings:font-medium
+                            prose-h1:text-text-500 prose-h2:text-text-500 prose-h3:text-text-500 prose-h4:text-text-500
+                            prose-blockquote:text-text-300 prose-blockquote:ml-8
+                            prose-figcaption:text-text-400 prose-ol:text-text-400 prose-ul:text-text-400 prose-li:text-text-400
+                            prose-pre:text-text-400 prose-code:text-text-500
+                            prose-thead:text-text-500 prose-th:text-text-500 prose-table:text-text-400
+                            prose-tr:text-text-400 prose-td:text-text-400 prose-img:text-text-400 prose-video:text-text-400
+                            prose-hr:text-text-300
+                            prose-a:no-underline prose-a:text-primary-500 prose-a:decoration-primary-500
+                            hover:prose-a:text-primary-500 hover:prose-a:decoration-primary-500
+                            max-w-none
+                            [&>p:first-of-type]:text-text-700
+                            [&>p:first-of-type]:text-lg/relaxed
+                            md:[&>p:first-of-type]:text-xl/relaxed
+                            lg:[&>p:first-of-type]:text-2xl/relaxed">
+              {{.Post.HTML}}
+            </article>
+
+            <div class="mt-8 pt-8 border-t border-text-100">
+              <div class="flex justify-between items-center gap-4">
+                <div>
+                  <h3 class="text-text-500">Sharing is caring!</h3>
+                  <p class="text-text-400 text-sm max-w-sm">If you got value from this article, please consider sharing it with your friends and colleagues.</p>
+                </div>
+                <div class="flex gap-2">
+                  <a role="button" id="copy-link" title="Copy link to clipboard" href="{{.Post.AbsURL .Site.URL}}"
+                     class="hidden transition px-4 py-1 rounded-full text-lg text-text-200 dark:text-text-400 bg-primary-600 border border-primary-500 dark:border-primary-700 hover:bg-primary-700 hover:border-primary-800 hover:text-text-500">
+                    <span class="flex gap-2 items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>Copy Icon</title><path fill="currentColor" d="M21 8.94a1.31 1.31 0 0 0-.06-.27v-.09a1.07 1.07 0 0 0-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19a.32.32 0 0 0-.09 0a.88.88 0 0 0-.33-.11H10a3 3 0 0 0-3 3v1H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-1h1a3 3 0 0 0 3-3V9zm-6-3.53L17.59 8H16a1 1 0 0 1-1-1ZM15 19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1v7a3 3 0 0 0 3 3h5Zm4-4a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3v3a3 3 0 0 0 3 3h3Z"/></svg>
+                      <span aria-role="label" data-text-normal="Copy link" data-text-copied="Copied!">Copy link</span>
+                    </span>
+                  </a>
+                  <a role="button" title="Share on LinkedIn" rel="noopener noreferrer" target="_blank" href="{{shareURL .Post "linkedin"}}"
+                     class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500">
+                    <span class="flex items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>LinkedIn Icon</title><path fill="currentColor" d="M17.5 8.999a5.419 5.419 0 0 0-2.565.645A1 1 0 0 0 14 8.999h-4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5.5a1 1 0 1 1 2 0v5.5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-7.5a5.507 5.507 0 0 0-5.5-5.5m3.5 12h-2v-4.5a3 3 0 1 0-6 0v4.5h-2v-10h2v.703a1 1 0 0 0 1.781.625A3.483 3.483 0 0 1 21 14.5Zm-14-12H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1m-1 12H4v-10h2ZM5.015 1.542a3.233 3.233 0 1 0-.057 6.457h.028a3.233 3.233 0 1 0 .029-6.457m-.029 4.457h-.028a1.222 1.222 0 0 1-1.37-1.228c0-.747.56-1.229 1.427-1.229A1.234 1.234 0 0 1 6.41 4.771c0 .746-.56 1.228-1.425 1.228"/></svg>
+                      <span class="sr-only">LinkedIn</span>
+                    </span>
+                  </a>
+                  <a role="button" title="Share on X" rel="noopener noreferrer" target="_blank" href="{{shareURL .Post "twitter"}}"
+                     class="transition inline-flex px-3 py-2 rounded-full text-lg text-text-200 dark:text-text-400 bg-secondary-600 border border-secondary-500 dark:border-secondary-700 hover:bg-secondary-700 hover:border-secondary-800 hover:text-text-500">
+                    <span class="flex items-center text-nowrap">
+                      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4"><title>X Icon</title><path d="M16.8198 20.7684L3.75317 3.96836C3.44664 3.57425 3.72749 3 4.22678 3H6.70655C6.8917 3 7.06649 3.08548 7.18016 3.23164L20.2468 20.0316C20.5534 20.4258 20.2725 21 19.7732 21H17.2935C17.1083 21 16.9335 20.9145 16.8198 20.7684Z" stroke="currentColor" stroke-width="2"/><path d="M20 3L4 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                      <span class="sr-only">X</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-text-100 text-sm">
+              <aside class="col-span-10 flex lg:flex-col gap-8 gap-x-16 flex-wrap border-b border-text-100 mb-8 pb-8 lg:border-0 lg:mb-0 lg:pb-0">
+                <div>
+                  <dt class="font-bold text-text-400">Published</dt>
+                  <dd class="font-normal text-text-400 text-lg">
+                    <time title="{{isoDate .Post.Date}}" datetime="{{isoDate .Post.Date}}">{{fmtDate .Post.Date}}</time>
+                    {{if and (not .Post.Updated.IsZero) (ne (isoDate .Post.Updated) (isoDate .Post.Date))}}
+                      <div class="text-text-300 mt-4">Last update</div>
+                      <time title="{{isoDate .Post.Updated}}" datetime="{{isoDate .Post.Updated}}" class="text-text-300">{{fmtDate .Post.Updated}}</time>
+                    {{end}}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-text-400">Topics</dt>
+                  <dd class="font-normal text-text-400 text-lg">
+                    <ul class="flex flex-wrap gap-1">
+                      {{range .Post.Tags}}
+                        <li><a href="/tag/{{.}}/" class="inline-block bg-bg-400 text-text-400 hover:bg-bg-600 hover:text-text-500 px-2 py-1 rounded-lg mr-2 mb-2">{{.}}</a></li>
+                      {{end}}
+                    </ul>
+                  </dd>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{if .Similar}}
+      <div class="bg-bg-500 relative z-40">
+        <div class="mx-auto max-w-screen-xl py-16 px-8">
+          <h2 class="text-3xl text-center mb-8 text-text-500 font-bold">You might also like</h2>
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {{range .Similar}}{{template "blog_card" (cardLazy . false)}}{{end}}
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </main>
+  {{template "footer" .}}
+  {{template "scripts" .}}
+</body>
+</html>
+{{end}}

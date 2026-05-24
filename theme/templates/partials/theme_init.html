@@ -1,0 +1,11 @@
+{{define "theme_init"}}
+<script>
+  const savedTheme = localStorage.getItem('theme');
+  const preferredTheme = ['dark', 'light'].includes(savedTheme)
+    ? savedTheme
+    : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  document.documentElement.setAttribute('data-theme', preferredTheme);
+</script>
+{{end}}

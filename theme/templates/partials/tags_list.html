@@ -1,0 +1,19 @@
+{{define "tags_list"}}
+<ul class="flex flex-wrap gap-2">
+  {{range .Tags}}
+    <li>
+      <a href="{{.Link}}"
+         class="group inline-block bg-bg-600 dark:bg-bg-900 hover:bg-bg-500 hover:text-text-700 rounded-xl py-2 px-4 text-sm text-text-400">
+        <span class="font-mono">#{{.Name}}</span>
+        <span class="ml-2 px-2 bg-bg-500 group-hover:bg-bg-800 group-hover:text-text-100 rounded-xl">{{.Count}}</span>
+      </a>
+    </li>
+  {{end}}
+  {{if not .Hide}}
+    <li>
+      <a href="/tag"
+         class="inline-block bg-bg-600 dark:bg-bg-900 hover:bg-bg-400 rounded-xl py-2 px-4 text-sm text-text-400">All tags</a>
+    </li>
+  {{end}}
+</ul>
+{{end}}

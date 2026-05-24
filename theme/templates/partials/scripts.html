@@ -1,0 +1,67 @@
+{{define "scripts"}}
+<script>
+  // Hamburger menu toggle
+  const hamburgerBtn = document.querySelector('[data-collapse-toggle]');
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+      const target = document.getElementById(hamburgerBtn.getAttribute('aria-controls'));
+      const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+      hamburgerBtn.setAttribute('aria-expanded', (!expanded).toString());
+      target.classList.toggle('hidden');
+    });
+  }
+
+  // Theme switcher
+  (function () {
+    let currentTheme = document.documentElement.getAttribute('data-theme');
+    const moon = document.getElementById('moon');
+    const sun = document.getElementById('sun');
+    function updateIcon() {
+      if (!moon || !sun) return;
+      if (currentTheme === 'dark') {
+        moon.classList.remove('hidden');
+        sun.classList.add('hidden');
+      } else {
+        moon.classList.add('hidden');
+        sun.classList.remove('hidden');
+      }
+    }
+    const themeSwitch = document.getElementById('theme-switch');
+    if (themeSwitch) {
+      themeSwitch.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentTheme = document.documentElement.getAttribute('data-theme');
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        localStorage.setItem('theme', currentTheme);
+        updateIcon();
+      });
+    }
+    updateIcon();
+  })();
+
+  // Copy-link button on post pages
+  (function () {
+    const btn = document.getElementById('copy-link');
+    if (!btn) return;
+    const label = btn.querySelector('[aria-role="label"]');
+    let animating = false;
+    if (typeof navigator.clipboard !== 'undefined') {
+      btn.classList.remove('hidden');
+      btn.classList.add('inline-flex');
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await navigator.clipboard.writeText(window.location.href);
+        if (!animating) {
+          label.innerText = label.dataset.textCopied;
+          animating = true;
+          setTimeout(() => {
+            label.innerText = label.dataset.textNormal;
+            animating = false;
+          }, 2000);
+        }
+      });
+    }
+  })();
+</script>
+{{end}}

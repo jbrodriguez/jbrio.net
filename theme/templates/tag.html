@@ -1,0 +1,29 @@
+{{define "tag"}}
+<!doctype html>
+<html lang="en">
+{{template "head" .}}
+<body class="flex flex-col font-sans">
+  {{template "header" .}}
+  <main class="min-h-screen pb-32">
+    <div class="bg-bg-500 relative z-40">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h1 class="text-3xl text-center my-8 font-bold text-text-500">
+          Posts tagged <span class="font-mono">#{{.CurrentTag}}</span>
+        </h1>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {{range .Posts}}{{template "blog_card" (card . false)}}{{end}}
+        </div>
+      </div>
+    </div>
+    <div class="bg-bg-500 relative z-40 pb-24">
+      <div class="mx-auto max-w-screen-xl py-8 px-8">
+        <h2 class="text-3xl text-center mb-4 text-text-500">Other common tags</h2>
+        {{template "tags_list" (dict "Tags" .Tags "Hide" false)}}
+      </div>
+    </div>
+  </main>
+  {{template "footer" .}}
+  {{template "scripts" .}}
+</body>
+</html>
+{{end}}

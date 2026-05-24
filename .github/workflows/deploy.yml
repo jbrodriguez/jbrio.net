@@ -72,6 +72,15 @@ jobs:
             FILES=$(git diff --name-status HEAD~1 HEAD -- data/posts \
               | grep '^A' | cut -f2 | grep '/index.md$' || true)
           fi
+          # Safety cap: a normal publish adds ~1 post. A large batch (the
+          # migration merge, a bulk frontmatter edit, a path move) is almost
+          # certainly not something to broadcast — skip to avoid mass-announcing.
+          # Announce a specific post intentionally via workflow_dispatch.
+          COUNT=$(printf '%s\n' "$FILES" | grep -c '/index.md$' || true)
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] && [ "$COUNT" -gt 3 ]; then
+            echo "::warning::$COUNT new posts detected — skipping social announce (looks like a bulk change)."
+            FILES=""
+          fi
           echo "Detected new posts: ${FILES:-<none>}"
           {
             echo 'files<<EOF'

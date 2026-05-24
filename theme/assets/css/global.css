@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @source "../../templates/**/*.html";
+@source "../../../data/**/*.md";
 
 @theme {
   --font-sans: var(--aw-font-sans), ui-sans-serif, system-ui, sans-serif,

@@ -4,6 +4,20 @@
 @source "../../templates/**/*.html";
 @source "../../../data/**/*.md";
 
+/*
+ * Code blocks: chroma emits `<pre class="chroma">` with its own near-black
+ * background that blends with the dark page bg. Override with a slightly
+ * lighter dark shade so blocks have visible contrast in dark mode and stay
+ * dark-on-light in light mode (matches the github code-block convention).
+ * Specificity .prose pre.chroma (0,2,1) beats chroma's .chroma (0,1,0).
+ */
+.prose pre.chroma {
+  background-color: #161b22;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
 @theme {
   --font-sans: var(--aw-font-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

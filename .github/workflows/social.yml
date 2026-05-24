@@ -1,24 +1,21 @@
-name: Build & Deploy
+name: Announce new posts
 
-# Builds the site with ssg and deploys it to Cloudflare Pages. After a
-# production deploy, newly-added posts are announced on social media.
+# Deployment is handled by Cloudflare Workers Builds (Git integration), not here.
+# This workflow only announces newly-published posts on social media after they
+# land on the production branch.
 on:
   push:
-    branches: [main, ssg]
+    branches: [main]
+    paths: ['data/posts/**/*.md']
   workflow_dispatch:
     inputs:
       post_file:
-        description: 'Post to announce on social (e.g. data/posts/202545/index.md)'
+        description: 'Post to announce (e.g. data/posts/202545/index.md)'
         required: false
         type: string
 
-env:
-  # Cloudflare Pages project name (create it once with `wrangler pages project create`).
-  CF_PROJECT: jbrio-net
-  TAILWIND_VERSION: latest
-
 jobs:
-  deploy:
+  announce:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,33 +26,10 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.26'
+          go-version: '1.23'
 
-      - name: Install Tailwind CSS (standalone CLI)
-        run: |
-          curl -fsSL "https://github.com/tailwindlabs/tailwindcss/releases/${TAILWIND_VERSION}/download/tailwindcss-linux-x64" -o /usr/local/bin/tailwindcss
-          chmod +x /usr/local/bin/tailwindcss
-          tailwindcss --help >/dev/null && echo "tailwindcss installed"
-
-      - name: Install ssg
-        run: |
-          go install github.com/jbrodriguez/ssg/cmd/ssg@latest
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
-
-      - name: Build site
-        run: ssg build
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=${{ github.ref_name }}
-
-      # --- Social announce: production (main) and manual runs only ---
       - name: Detect newly-added posts
         id: changes
-        if: github.ref_name == 'main' || github.event_name == 'workflow_dispatch'
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             FILES="${{ inputs.post_file }}"
@@ -74,7 +48,9 @@ jobs:
         if: steps.changes.outputs.files != ''
         env:
           SITE_URL: https://jbrio.net
-          DEPLOYMENT_DELAY_MS: '30000'
+          # Give Workers Builds time to deploy before fetching the live page
+          # for the Bluesky embed card (falls back to frontmatter otherwise).
+          DEPLOYMENT_DELAY_MS: '90000'
           BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
           MASTODON_INSTANCE_URL: ${{ secrets.MASTODON_INSTANCE_URL }}

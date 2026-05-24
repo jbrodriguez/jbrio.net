@@ -1,7 +1,7 @@
 # Cloudflare Workers (Static Assets) config for jbrio.net.
 # Assets-only Worker: serves the ssg build output in dist/ directly — there is
-# no server script (the old Astro SSR worker.js is gone). Workers Builds reads
-# this to know what to deploy after running the build command.
+# no server script (the old Astro SSR worker.js is gone). Read by `wrangler
+# deploy` / `wrangler versions upload` in the deploy workflow.
 name = "jbrio-net"
 compatibility_date = "2025-08-07"
 

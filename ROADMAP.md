@@ -8,7 +8,7 @@ Tracking the move from Astro → ssg (`~/code/ssg/`).
 - **`ssg`** binary at `~/go/bin/ssg`; source at `github.com/jbrodriguez/ssg` (public).
 - **`ssg.toml`** lives at this repo root; `ssg build` auto-discovers it.
 - **Content** in `data/`, **theme** in `theme/`, **output** in `dist/` (gitignored).
-- **Social poster** (Go) in `tools/social/`.
+- **Social poster** (`sp`) source at `github.com/jbrodriguez/sp` (public); installed in CI via `go install`.
 - **Deploy** via GitHub Actions → `wrangler` against the existing `jbrio-net` Worker.
 - **Original Astro repo** lives at `~/.local/share/hosting/cloudflare/jbrio.net/` (on `main`, untouched) for side-by-side reference.
 
@@ -30,7 +30,7 @@ Not Cloudflare Pages — we kept the **existing `jbrio-net` Worker** (Static Ass
   - install Go + Tailwind CLI, `go install …/ssg@latest` (via `GOPROXY=direct` to dodge proxy lag), `ssg build`
   - **`main`** → `wrangler deploy` (production) + announce new posts
   - **any other branch** → `wrangler versions upload` → **preview URL** (`<hash>-jbrio-net.tiembla.workers.dev`), prod untouched
-- Social announce (`tools/social/`) posts to Bluesky/Mastodon/X. Gated to `main` + a **cap of 3** posts/push (guards against mass-announcing on the migration merge or bulk edits). Reuses the pre-existing repo secrets.
+- Social announce (`sp`, `github.com/jbrodriguez/sp`) posts to Bluesky/Mastodon/X. Gated to `main` + a **cap of 3** posts/push (guards against mass-announcing on the migration merge or bulk edits). Reuses the pre-existing repo secrets.
 
 ## Done
 
@@ -65,7 +65,7 @@ On-disk tidy-up (optional, after a confidence period):
 - `ssg new` interactive prompts (title, tags, draft/published)
 - More `ssg.toml` knobs: `image_quality_jpeg`, `image_quality_webp`, `max_variant_width`
 - Pick a ~1200px-wide variant for og:image instead of the largest
-- Broader test suite (currently `internal/content`, `internal/images.chooseWidths`, `tools/social` formatting)
+- Broader test suite (currently `internal/content`, `internal/images.chooseWidths`)
 - Drop unused chroma styles from the binary
 
 ## How to resume

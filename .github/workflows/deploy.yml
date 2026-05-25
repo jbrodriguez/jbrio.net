@@ -15,6 +15,10 @@ on:
         description: 'Post to announce on social (e.g. data/posts/202545/index.md)'
         required: false
         type: string
+      networks:
+        description: 'Networks to announce to (comma-separated: bluesky,mastodon,twitter). Blank = all. Use to re-announce only the ones that failed.'
+        required: false
+        type: string
 
 jobs:
   deploy:
@@ -103,6 +107,10 @@ jobs:
           GOSUMDB: "off"
           SITE_URL: https://jbrio.net
           DEPLOYMENT_DELAY_MS: '30000'
+          # Blank on push (announce to all); set via workflow_dispatch to
+          # re-announce only the networks that failed, without duplicating
+          # the ones that already succeeded.
+          SOCIAL_NETWORKS: ${{ inputs.networks }}
           BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
           MASTODON_INSTANCE_URL: ${{ secrets.MASTODON_INSTANCE_URL }}

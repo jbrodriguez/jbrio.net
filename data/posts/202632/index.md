@@ -4,7 +4,7 @@ date: 2026-08-15T12:20:36.330Z
 cover: ./202632-feature.jpg
 caption: "watching you watching me © Juan B. Rodriguez"
 status: published
-description: ""
+description: "some rust tools"
 pixelfed: '994216617591888339'
 tags:
   - notes 

@@ -4,7 +4,7 @@ date: 2026-09-05T11:45:03.862Z
 cover: ./202635-feature.jpg
 caption: "rain © Juan B. Rodriguez"
 status: published
-description: ""
+description: "tolkien memorabilia, a time server & ai tooling"
 pixelfed: '1001819534516146465'
 tags:
   - notes 

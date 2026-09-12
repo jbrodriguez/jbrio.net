@@ -1,5 +1,5 @@
 ---
-title: "Fire and Blood"
+title: "Fire and Blood (2018)"
 date: 2026-09-12T22:10:44.985Z
 cover: ./fire-blood-feature.jpg
 caption: "fire and blood © Juan B. Rodriguez"

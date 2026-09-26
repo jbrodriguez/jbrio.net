@@ -42,6 +42,12 @@
 # never puts the secret in an argv.
 #
 # PIXELFED_INSTANCE_URL is optional and defaults to pixelfed.social.
+#
+# Step 2 runs `pixelfed-post`, a Go program. Its source is NOT in this repo --
+# it lives in ~/code/sp, alongside the other social posting code. Rebuild and
+# reinstall it with:
+#
+#   cd ~/code/sp && go build -o ~/.local/bin/pixelfed-post ./cmd/pixelfed-post
 
 set -euo pipefail
 
@@ -105,6 +111,9 @@ TAILWIND_MAJOR=$("$TAILWIND" --help 2>&1 | sed -n 's/.*tailwindcss v\([0-9]*\).*
 [ "$TAILWIND_MAJOR" = "4" ] || die "$TAILWIND is v${TAILWIND_MAJOR:-?}; the theme needs v4.
          Try:  PATH=\"\$HOME/.local/bin:\$PATH\" scripts/publish $SLUG"
 
+command -v pixelfed-post >/dev/null || die "no pixelfed-post on PATH -- step 2 needs it.
+         Build it:  cd ~/code/sp && go build -o ~/.local/bin/pixelfed-post ./cmd/pixelfed-post"
+
 [ -n "$TOKEN" ] || die "no Pixelfed token. Pass one:
            scripts/publish $SLUG --token (pass show pixelfed/jbrio)"
 export PIXELFED_ACCESS_TOKEN="$TOKEN"
@@ -143,7 +152,7 @@ read -r -p "  Publish $SLUG? [y/N] " reply
 case "$reply" in y|Y|yes) ;; *) echo "  aborted."; exit 1 ;; esac
 
 echo "==> posting to Pixelfed"
-ID=$(python3 scripts/pixelfed_post.py "$POST")
+ID=$(pixelfed-post "$POST")
 [ -n "$ID" ] || die "Pixelfed returned no status id -- nothing pushed"
 git diff --quiet -- "$POST" && die "pixelfed id $ID was not written to $POST -- nothing pushed"
 

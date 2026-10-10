@@ -5,8 +5,8 @@ cover: ./202640-feature.jpg
 caption: "street lamp © Juan B. Rodriguez"
 alt: "A black wrought-iron street lamp against a cream stucco wall in low evening sun, its hard-edged shadow thrown across the wall beside it; above and behind, a balcony with an ornate ironwork railing and a dark window at the left."
 status: published
-description: "a bastard font foundry, 5-pixel variable fonts, a self-hosted gym tracker, Lightroom reimplemented in Rust and an open-source Grok bot"
-pixelfed: ''
+description: "some new fonts, a self-hosted gym tracker, Lightroom reimplemented in Rust and an open-source Grok bot"
+pixelfed: '1014503763381748217'
 tags:
   - notes
   - fonts
@@ -14,6 +14,14 @@ tags:
   - rust
   - ai
 ---
+
+in memory of Mike Ditka
+
+![mike ditka](./ditka.jpg)
+
+Mike Ditka led the '85 Chicago Bears to a Super Bowl win, with absolutely dominant performances game after game, making opponents question why to play at all.
+
+I became a Bears fan during this magical season.
 
 [Bastardica](https://bastardica.mitpit.com/)
 > A foundry for bastard web fonts.

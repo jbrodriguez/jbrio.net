@@ -132,6 +132,19 @@ fi
 
 grep -q "^alt:" "$POST" || die "$POST has no \`alt:\` -- Pixelfed would get the photo with no alt text"
 
+# Three front-matter fields feed three public surfaces, so all three are gated
+# here. `caption:` is the newest: pixelfed-post posts it, minus its ` © credit`
+# suffix, as the Pixelfed caption, so a post without one goes out a bare photo.
+#
+# This must agree with captionFromField in ~/code/sp/cmd/pixelfed-post: drop the
+# credit from the first spaced ©, and treat a credit-only caption as having no
+# subject at all -- `caption: '© Juan B. Rodriguez'` is a real shape in
+# data/posts (202612, 202626, 202634) and posting that bare credit as a caption
+# would be worse than refusing.
+CAPTION=$(sed -n 's/^caption: *//p' "$POST" | sed 's/^["'"'"']//;s/["'"'"']$//;s/ ©.*//;s/^©.*//;s/ *$//')
+[ -n "$CAPTION" ] || die "$POST has no \`caption:\` subject -- that is the Pixelfed caption.
+         It needs a subject before the credit:  caption: \"street lamp © Juan B. Rodriguez\""
+
 DESCRIPTION=$(sed -n 's/^description: *//p' "$POST" | sed 's/^["'"'"']//;s/["'"'"']$//')
 [ -n "$DESCRIPTION" ] || die "$POST has no \`description:\` -- that is the text broadcast to three networks"
 
@@ -169,6 +182,7 @@ cat <<EOF
 
   post        $SLUG  ($BRANCH $(git rev-parse --short HEAD))
   photo       $IMAGE  ($(wc -c < "$IMAGE" | tr -d ' ') bytes)
+  caption     $CAPTION
   broadcast   $DESCRIPTION
   commit      $([ "$AMEND" = 1 ] && echo "amend HEAD" || echo "new commit on $BRANCH")
 

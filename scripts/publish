@@ -31,8 +31,11 @@
 #
 # Steps 2 and 5 are both irreversible and there is no cancel window on either,
 # so the script never stops between them: once the photo is on Pixelfed the
-# push follows immediately. Rehearse with --dry-run, which does everything
-# except the two network calls.
+# push follows immediately. Rehearse with --dry-run, which runs the whole
+# preflight and `ssg build`, prints the confirmation block and stops there:
+# nothing is posted, committed, merged or pushed. It is not offline, though --
+# the preflight's mergeability check runs `git fetch origin`, which is a read
+# and the only network call a dry run makes.
 #
 # The push to main triggers .github/workflows/deploy.yml: ssg build ->
 # wrangler deploy -> announce the post to Bluesky, Mastodon and Twitter about

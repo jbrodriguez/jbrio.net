@@ -11,7 +11,17 @@
 #   2. post the cover photo to Pixelfed  -> it hands back a status id
 #   3. write that id into the post's `pixelfed:` field
 #   4. amend it into the post's own commit
-#   5. fast-forward main and push once
+#   5. squash the staging branch into one commit on main and push once
+#
+# Step 5 is a squash merge, so main gets exactly one commit per post however
+# many commits the staging branch accumulated (frontmatter fix, then alt text,
+# then a typo). Its message is the staging branch's first commit subject, so
+# whatever convention the post was committed under -- `notes 202641`, `the
+# anomaly review` -- carries over instead of being invented here.
+#
+# One consequence worth knowing when you clean up: a squash builds a new commit
+# on main, so stage/<slug> is NOT an ancestor of main afterwards and
+# `git branch -d stage/<slug>` refuses to delete it. Use -D.
 #
 # Pixelfed goes first because the id does not exist until the photo is posted.
 # Doing it here rather than in the GitHub Action is what keeps the id inside the
@@ -75,6 +85,12 @@ POST="data/posts/$SLUG/index.md"
 IMAGE="data/posts/$SLUG/$SLUG-full.jpg"
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
+# Message for the squash commit at the end: the staging branch's first commit
+# subject. Read before the amend below so it is the post's own subject and not
+# "pixelfed: record status id ...". Empty when BRANCH is main, where no merge
+# happens.
+SQUASH_MSG=$(git log --format=%s --reverse "main..$BRANCH" | head -1)
+
 die() { echo "publish: $*" >&2; exit 1; }
 
 # --- preflight: everything that can say no, before anything goes public ------
@@ -91,9 +107,27 @@ if [ -n "$EXISTING" ]; then
   if [ "$BRANCH" = "main" ]; then
     echo "           git push origin main" >&2
   else
-    echo "           git checkout main && git merge --ff-only $BRANCH && git push origin main" >&2
+    echo "           git checkout main && git merge --squash $BRANCH && git commit -m '$SQUASH_MSG' && git push origin main" >&2
   fi
   exit 1
+fi
+
+# The merge into main happens at the end of this script, after the photo is
+# already public. A merge that fails there leaves the photo posted with nothing
+# pushed, so assert here that it can happen. This narrows the window, it does
+# not close it -- a push to main landing between here and the merge still loses
+# -- but a main that diverged hours ago gets caught before anything is public.
+git fetch --quiet origin || die "git fetch origin failed -- cannot tell whether main is up to date.
+         Fix the remote or the network, then try again."
+
+[ "$(git rev-parse main)" = "$(git rev-parse origin/main)" ] || die "main and origin/main differ -- the push at the end would be rejected.
+         Reconcile first:  git checkout main && git pull --ff-only"
+
+if [ "$BRANCH" != "main" ]; then
+  git merge-base --is-ancestor main HEAD || die "main is not an ancestor of $BRANCH -- the merge at the end would fail.
+         Rebase this branch onto main first:  git rebase main"
+
+  [ -n "$SQUASH_MSG" ] || die "$BRANCH has no commits of its own relative to main -- there is nothing to squash."
 fi
 
 grep -q "^alt:" "$POST" || die "$POST has no \`alt:\` -- Pixelfed would get the photo with no alt text"
@@ -167,7 +201,11 @@ fi
 echo "==> pushing"
 if [ "$BRANCH" != "main" ]; then
   git checkout --quiet main
-  git merge --ff-only "$BRANCH"
+  # --squash stages the work and writes .git/SQUASH_MSG but does not commit, so
+  # the commit is explicit -- a bare `git commit` would open $EDITOR and hang.
+  { git merge --squash "$BRANCH" && git commit --quiet -m "$SQUASH_MSG"; } || die "the photo is live on Pixelfed and the id is committed on $BRANCH, but squashing it into main failed.
+         Nothing has been broadcast. Finish by hand:
+           git checkout main && git merge --squash $BRANCH && git commit -m '$SQUASH_MSG' && git push origin main"
 fi
 git push origin main || die "the photo is live on Pixelfed and the id is committed, but the push failed.
          Nothing has been broadcast. Fix the remote, then:  git push origin main"

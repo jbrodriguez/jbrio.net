@@ -2,11 +2,11 @@
 title: "Notes 202641"
 date: 2026-10-17T11:30:00.000Z
 cover: ./202641-feature.jpg
-caption: "verdigris door © Juan B. Rodriguez"
+caption: "portal © Juan B. Rodriguez"
 alt: "A tall weathered double door painted deep verdigris green, set in a rounded stone arch in a salmon-pink plaster wall. A fan-shaped iron grille fills the arch above the doors, and ornate iron scrollwork covers their glazed upper panels; a padlock hangs at the handles and hard afternoon sunlight cuts a diagonal shadow across the wall."
 status: published
 description: "a personal AI agent in your own Cloudflare account, a suite of open-source creative apps, an ultra-legible typeface, sideloading your own apps onto an iPhone, git worktrees and the Apple Siri Remote on Linux"
-pixelfed: ''
+pixelfed: '1017053904442069821'
 tags:
   - notes
   - ai

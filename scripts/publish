@@ -88,13 +88,13 @@ POST="data/posts/$SLUG/index.md"
 IMAGE="data/posts/$SLUG/$SLUG-full.jpg"
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
+die() { echo "publish: $*" >&2; exit 1; }
+
 # Message for the squash commit at the end: the staging branch's first commit
 # subject. Read before the amend below so it is the post's own subject and not
 # "pixelfed: record status id ...". Empty when BRANCH is main, where no merge
 # happens.
-SQUASH_MSG=$(git log --format=%s --reverse "main..$BRANCH" | head -1)
-
-die() { echo "publish: $*" >&2; exit 1; }
+SQUASH_MSG=$(git log --format=%s --reverse "main..$BRANCH" | head -1) || die "cannot read main..$BRANCH -- is $BRANCH branched off main?"
 
 # --- preflight: everything that can say no, before anything goes public ------
 

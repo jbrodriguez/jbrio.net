@@ -11,10 +11,10 @@ tags:
   - non-fiction
 ---
 
-I had heard about LCTM but didn't know what had really happened.
+I had heard about LTCM but didn't know what had really happened.
 
 The biggest takeaway for me is that markets are irrational, they seem to be very logical and can be modeled in precise mathematical terms
 
-Turns out the they dont and it has manifested multiple times in history, but someone always think they found the formula
+Turns out the they dont and it has manifested multiple times in history, but someone always thinks they found the formula
 
 Interesting read.
